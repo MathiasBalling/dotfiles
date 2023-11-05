@@ -1,0 +1,26 @@
+return {
+  {
+    "folke/which-key.nvim",
+    opts = {
+      defaults = {
+        ["<leader>h"] = { name = "+Harpoon" },
+      },
+    },
+  },
+  {
+    "ThePrimeagen/harpoon",
+    lazy = true,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = true,
+    keys = {
+      { "<leader>hm", "<cmd>lua require('harpoon.mark').add_file()<cr>", desc = "Mark file with harpoon" },
+      { "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<cr>", desc = "Go to next harpoon mark" },
+      { "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", desc = "Go to previous harpoon mark" },
+      { "<leader>ha", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", desc = "Show harpoon marks" },
+      { "<leader>h1", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", desc = "Harpoon Mark 1" },
+      { "<leader>h1", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", desc = "Harpoon Mark 2" },
+    },
+  },
+}
