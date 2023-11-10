@@ -17,7 +17,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- Copy to clipboard
-     vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Delete to void without yanking
@@ -35,7 +35,7 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 -- tabs control
 vim.keymap.set("n", "†", "<cmd>enew<CR>") --option + t
--- vim.keymap.set("n", "†", "<cmd>tabnew<CR>") 
+-- vim.keymap.set("n", "†", "<cmd>tabnew<CR>")
 
 -- Split window
 vim.keymap.set("n", "∫", "<cmd>split<CR>") --option + b
@@ -60,4 +60,3 @@ vim.keymap.set("n", "<leader>q", ":copen<CR>")
 vim.keymap.set("n", "<leader>cg", ":CMakeGenerate<CR>")
 vim.keymap.set("n", "<leader>cb", ":CMakeBuild<CR>")
 vim.keymap.set("n", "<leader>cr", ":CMakeClean<CR>")
-

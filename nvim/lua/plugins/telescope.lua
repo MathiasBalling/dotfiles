@@ -11,7 +11,20 @@ return {
         function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
         desc = "Find Plugin File",
       },
-      { "<C-p>", "<cmd>Telescope find_files<CR>", desc = "Find Files" },
+      {
+        "<leader>fg",
+        function()
+          require("telescope.builtin").current_buffer_fuzzy_find()
+        end,
+        desc = "Find in Current Buffer",
+      },
+      {
+        "<leader>gc",
+        function()
+          require("telescope.builtin").git_bcommits()
+        end,
+        desc = "Commits (this file)",
+      },
     },
     -- change some options
     opts = {
