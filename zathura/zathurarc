@@ -1,0 +1,15 @@
+set synctex true
+set synctex-editor-command "nvim --remote-silent +%{line} %{input}"
+
+set selection-clipboard clipboard
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set page-padding 1
+set font 'monospace 15'
+map K zoom in
+map J zoom out
+map i recolor
+map r reload
+map R rotate
+map l navigate next
+map h navigate previous

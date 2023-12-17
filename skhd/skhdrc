@@ -6,8 +6,8 @@ alt - h : yabai -m window --focus prev
 #change focus between external displays (left and right)
 
 # change between spaces
-# alt + shift - l : yabai -m space --focus next
-# alt + shift - h : yabai -m space --focus prev
+alt + shift - l : yabai -m space --focus next
+alt + shift - h : yabai -m space --focus prev
 ctrl - 0 : yabai -m space --focus recent;
 
 # -- Modifying the Layout --
