@@ -25,7 +25,7 @@ vim.keymap.set("i", "jk", "<esc>", { desc = "Exit insert mode" })
 vim.keymap.set({ "n", "v" }, ",p", '"0p', { desc = "Paste last yanked text" })
 vim.keymap.set({ "n", "v" }, ",P", '"0P', { desc = "Paste last yanked text" })
 
--- Function to toggle conceallevel
+-- Function to toggle conceal level
 local function toggle_conceallevel()
   if vim.opt.conceallevel:get() == 1 then
     vim.opt.conceallevel = 0

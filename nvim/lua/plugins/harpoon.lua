@@ -15,35 +15,33 @@ return {
       "nvim-lua/plenary.nvim",
     },
     config = function()
-      require("harpoon"):setup()
+      require("harpoon"):setup({})
+      -- Harpoon
+      local list = require("harpoon"):list()
+
+      vim.keymap.set("n", "<leader>ha", function()
+        list:append()
+      end, { desc = "Mark file with harpoon" })
+
+      vim.keymap.set("n", "<M-a>", function()
+        list:append()
+      end, { desc = "Mark file with harpoon" })
+
+      vim.keymap.set("n", "<M-o>", function()
+        list:prev()
+      end, { noremap = true, desc = "Previous harpoon mark" })
+
       vim.keymap.set("n", "<M-p>", function()
-        require("harpoon"):list():prev()
-      end, {
-        desc = "Go to previous harpoon mark",
-      })
+        list:next()
+      end, { noremap = true, desc = "Next harpoon mark" })
+
+      vim.keymap.set("n", "<leader>hm", function()
+        require("harpoon").ui:toggle_quick_menu(list)
+      end, { desc = "Show harpoon marks" })
+
+      vim.keymap.set("n", "<M-m>", function()
+        require("harpoon").ui:toggle_quick_menu(list)
+      end, { desc = "Show harpoon marks" })
     end,
-    keys = {
-      {
-        "<leader>hm",
-        function()
-          require("harpoon"):list():append()
-        end,
-        desc = "Mark file with harpoon",
-      },
-      {
-        "<M-n>",
-        function()
-          require("harpoon"):list():next()
-        end,
-        desc = "Go to next harpoon mark",
-      },
-      {
-        "<leader>ha",
-        function()
-          require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
-        end,
-        desc = "Show harpoon marks",
-      },
-    },
   },
 }
