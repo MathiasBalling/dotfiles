@@ -19,7 +19,7 @@ vim.keymap.set("n", "<M-q>", "<cmd>bd<cr>", { desc = "Delete buffer" }) -- Alt +
 vim.keymap.set("n", "<M-w>", "<C-w>q", { desc = "Delete window" }) -- Alt + w
 
 -- Exit insert mode
-vim.keymap.set("i", "jk", "<esc>", { desc = "Exit insert mode" })
+-- vim.keymap.set("i", "jk", "<esc>", { desc = "Exit insert mode" })
 
 -- Paste the last yanked text
 vim.keymap.set({ "n", "v" }, ",p", '"0p', { desc = "Paste last yanked text" })
@@ -47,3 +47,15 @@ vim.keymap.set("n", "§", "$", { desc = "Go to end of line" })
 
 -- Toogle spell
 vim.keymap.set("n", "<leader>cs", "<cmd>set spell!<cr>", { desc = "Toggle spell" })
+
+local ls = require("luasnip")
+vim.keymap.set({ "i" }, "<M-a>", function()
+  if ls.expand_or_jumpable() then
+    ls.expand_or_jump()
+  end
+end, { silent = true })
+vim.keymap.set({ "i" }, "<C-q>", function()
+  if ls.jumpable(-1) then
+    ls.jump(-1)
+  end
+end, { silent = true })

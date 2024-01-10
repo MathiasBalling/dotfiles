@@ -1,0 +1,67 @@
+(defcfg
+  input (iokit-name "Magic Keyboard with Touch ID and Numeric Keypad")
+  ;;input (iokit-name "Apple Internal Keyboard / Trackpad")
+  output (kext)
+  fallthrough true
+)
+
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  nubs  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps  a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft `  z    x    c    v    b    n    m    ,    .    /    rsft up
+  fn   lctl lalt lmet           spc            rmet ralt left down rght
+)
+
+(defalias 
+    fn (around (layer-toggle function_layer) fn)
+    num (layer-toggle num_sym)
+
+    ;; Home Row Mods;
+    sft_a (tap-hold-next-release 300 a lsft)
+    alt_s (tap-hold-next-release 300 s lalt)
+    ctl_d (tap-hold-next-release 300 d lctl)
+    met_f (tap-hold-next-release 300 f lmet)
+    met_j (tap-hold-next-release 300 j rmet)
+    ctl_k (tap-hold-next-release 300 k rctl)
+    alt_l (tap-hold-next-release 300 l lalt)
+    sft_; (tap-hold-next-release 300 ; rsft)
+
+    ;; Home Row Mods for num layer;
+    sft_0 (tap-hold-next-release 300 0 lsft)
+    alt_1 (tap-hold-next-release 300 1 lalt)
+    ctl_2 (tap-hold-next-release 300 2 lctl)
+    met_3 (tap-hold-next-release 300 3 lmet)
+    met_6 (tap-hold-next-release 300 6 rmet)
+    ctl_7 (tap-hold-next-release 300 7 rctl)
+    alt_8 (tap-hold-next-release 300 8 lalt)
+    sft_9 (tap-hold-next-release 300 9 rsft)
+)
+
+(deflayer main
+  _    brdn brup lp   mctl bldn blup prev pp   next mute vold volu
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  esc  @sft_a @alt_s @ctl_d @met_f    _    _    @met_j @ctl_k @alt_l @sft_;    _    _
+  _   _   _    _    _    _    _    _    _    _    _    _    _    _
+  @fn  _    _  @num              _              bspc    _    _    _    _
+)
+
+(deflayer num_sym
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    $    @    #    ^    &    -    {    }   \(   \)    _    _    _
+  esc  @sft_0   @alt_1  @ctl_2 @met_3    4    5 @met_6  @ctl_7  @alt_8    @sft_9        _
+  _   ~    XX    ?   /   *     \_    =    +    |   !   _    _    _    _
+  _   _    _    _              _              _    _    _    _    _
+)
+
+(deflayer function_layer
+  _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  caps    _    _    _    _    _    _    _    _    _    _    _    _
+  _   _   _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _              _              _    _    _    _    _
+)

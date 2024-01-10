@@ -4,7 +4,7 @@ sudo yabai --load-sa
 # default layout (can be bsp, stack or float)
 yabai -m config layout bsp
 yabai -m config auto_balance on
-yabai -m config focus_follows_mouse autofocus
+# yabai -m config focus_follows_mouse autofocus
 # yabai -m config window_topmost on
 yabai -m config window_shadow float
 
