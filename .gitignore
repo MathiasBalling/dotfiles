@@ -2,3 +2,5 @@
 .DS_Store
 tmux/plugins
 github-copilot/hosts.json
+kmonad/error.log
+kmonad/log.log
