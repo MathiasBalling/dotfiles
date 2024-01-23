@@ -29,30 +29,26 @@ Macbook pro 16" Nordic layout
 )
 
 (defalias 
-    fn (layer-toggle function_layer)
-    num (tap-hold-next-release 300 ret (layer-toggle num_sym))
+    fn (around (layer-toggle function_layer) fn)
+    num (layer-toggle num_sym)
     open (tap-hold-next-release 300 spc (layer-toggle open))
     nav (tap-hold-next-release 300 esc (layer-toggle nav))
 
     ;; Home Row Mods;
-    sft_a (tap-hold-next-release 300 a lsft)
-    alt_s (tap-hold-next-release 300 s lalt)
-    ctl_d (tap-hold-next-release 300 d lctl)
-    met_f (tap-hold-next-release 300 f lmet)
-    met_j (tap-hold-next-release 300 j rmet)
-    ctl_k (tap-hold-next-release 300 k rctl)
-    alt_l (tap-hold-next-release 300 l lalt)
-    sft_; (tap-hold-next-release 300 ; rsft)
+    s_a (tap-hold-next-release 300 a lsft)
+    a_s (tap-hold-next-release 300 s lalt)
+    c_d (tap-hold-next-release 300 d lctl)
+    m_f (tap-hold-next-release 300 f lmet)
+    m_j (tap-hold-next-release 300 j rmet)
+    c_k (tap-hold-next-release 300 k rctl)
+    a_l (tap-hold-next-release 300 l lalt)
+    s_; (tap-hold-next-release 300 ; rsft)
 
     ;; Home Row Mods for num layer;
-    sft_0 (tap-hold-next-release 300 0 lsft)
-    alt_1 (tap-hold-next-release 300 1 lalt)
-    ctl_2 (tap-hold-next-release 300 2 lctl)
-    met_3 (tap-hold-next-release 300 3 lmet)
-    met_6 (tap-hold-next-release 300 6 rmet)
-    ctl_7 (tap-hold-next-release 300 7 rctl)
-    alt_8 (tap-hold-next-release 300 8 lalt)
-    sft_9 (tap-hold-next-release 300 9 rsft)
+    m_bc (tap-hold-next-release 300 } lmet)
+    c_po (tap-hold-next-release 300 \( lctl)
+    a_pc (tap-hold-next-release 300 \) lalt)
+    s_c (tap-hold-next-release 300 : lsft)
 
     ;; Nav
     wdel (around alt bspc)
@@ -66,26 +62,56 @@ Macbook pro 16" Nordic layout
     spot (cmd-button "open -a 'Spotify'")
     find (cmd-button "open -a 'Finder'")
 
+    ;; Danish characters
+    aee (around alt ')
+    ooo (around alt o)
+    aaa (around alt a)
+    s_ae (tap-hold-next-release 300 @aee rsft)
+
+    ;; Layer switching
+    eng (layer-switch main)
+    dan (layer-switch main-danish)
+    trans (layer-switch transpartent)
 )
 
 (deflayer main
-  _    brdn brup lp   mctl bldn blup prev pp   next mute vold volu
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  @nav  @sft_a @alt_s @ctl_d @met_f    _    _    @met_j @ctl_k @alt_l @sft_;    _    _
-  _   _   _    _    _    _    _    _    _    _    _    _    _
-  @fn  _    _  @num              @open              bspc    _        _
+  XX    brdn brup lp   mctl bldn blup prev pp   next mute vold volu
+  XX    _    _    _    _    _    _    _    _    _    _    XX    XX    XX
+  tab    _    _    _    _    _    _    _    _    _    _    _    XX    XX
+  @nav  @s_a @a_s @c_d @m_f    _    _    @m_j @c_k @a_l @s_;    _    XX
+  XX  '   _    _    _    _    _    _    _    _    _    _    _
+  @fn  XX    ret  @num              @open              bspc  del      _
                                                                 _    _    _
 )
 
-(deflayer num_sym
-  _    _    _    _    _    _    _    _    _    _    _    _    _
+(deflayer main-danish
+  XX    brdn brup lp   mctl bldn blup prev pp   next mute vold volu
+  XX    _    _    _    _    _    _    _    _    _    _    XX    XX    XX
+  tab    _    _    _    _    _    _    _    _    _    _    @aaa    _    XX
+  @nav  @s_a @a_s @c_d @m_f    _    _    @m_j @c_k @a_l @s_ae  @ooo    XX
+  XX   '   _    _    _    _    _    _    _    _    _    _    _
+  @fn  XX    ret  @num              @open              bspc  del     _
+                                                                _    _    _
+)
+
+(deflayer transpartent
+  _      _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    $    @    #    ^    &    -    {    }   \(   \)    _    _    _
-  esc  @sft_0   @alt_1  @ctl_2 @met_3    4    5 @met_6  @ctl_7  @alt_8 @sft_9  _
-  _   ~    \\    ?   \_   /  *    =    +    |   !   _    _    _
-  _   _    _    _              _              _    _         _
-                                                        _    _    _
+  _      _    _    _    _    _    _    _    _    _    _    _    _    _
+  _       _    _    _    _    _    _    _    _    _    _    _    _
+  _     _    _    _    _    _    _    _    _    _    _    _    _
+  @fn  _    _    _               _              _     _         _
+                                                           _    _    _
+)
+
+(deflayer num_sym
+  _      _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  $      7    8    9    +    =    [    ]    ?    #    ~   \_    _    _
+  @       4    5    6    *    /    {    @m_bc  @c_po  @a_pc  @s_c    "    _
+  _     0    1    2    3    -    ^    !    %    <    >   \\    |
+  _    _    _    _               _              _     _         _
+                                                           _    _    _
 )
 
 (deflayer nav
@@ -94,7 +120,7 @@ Macbook pro 16" Nordic layout
   _    _  @wdel @beg @end    _    _    _    _    _    _    _    _    _
   _    lsft lalt lctl lmet    _    left    down    up    right    _    _    _
   _   _   _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    del              spc              _    _        _
+  _    _    _    _              spc              _    _        _
                                                             _    _    _
 )
 
@@ -111,8 +137,8 @@ Macbook pro 16" Nordic layout
 (deflayer function_layer
   _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  caps    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _  @trans    _    _    _    _    _    _    _    _
+  _    _    _    _    @dan    _    _  @eng    _    _    _    _    _
   _   _   _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _              _              _    _          _
                                                           _    _    _

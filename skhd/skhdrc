@@ -27,7 +27,7 @@ ctrl + alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
 
 # maximize a window
 ctrl + alt - m : yabai -m window --toggle zoom-fullscreen
-ctrl + alt + shift - m : yabai -m window --toggle zoom-fullscreen
+ctrl + alt + shift - m : yabai -m window --toggle native-fullscreen
 
 # Show Desktop
 ctrl + alt - e : yabai -m space --toggle show-desktop
@@ -39,17 +39,25 @@ ctrl + alt - j : yabai -m window --swap south
 ctrl + alt - k : yabai -m window --swap north
 ctrl + alt - h : yabai -m window --swap west
 ctrl + alt - l : yabai -m window --swap east
+
 # Split window
 ctrl + alt - i : yabai -m window --toggle split
+ctrl + alt - b : yabai -m space --balance
 
 # move window to display left and right
 ctrl + alt - f : yabai -m window --display next; yabai -m display --focus next;
 ctrl + alt - a : yabai -m window --display prev; yabai -m display --focus prev;
 
 
-# move window to prev and next space
-ctrl + alt - p : yabai -m window --space prev;
-ctrl + alt - n : yabai -m window --space next;
+# focus to prev and next space
+ctrl + alt - p : yabai -m window --focus prev;
+ctrl + alt - n : yabai -m window --focus next;
+
+# Create space on the active display
+ctrl + alt - c : yabai -m space --create
+
+# Delete focused space and focus first space on display
+ctrl + alt - d : yabai -m space --destroy
 
 # move window to space #
 ctrl + alt - 1 : yabai -m window --space 1;
@@ -62,13 +70,19 @@ ctrl + alt - 7 : yabai -m window --space 7;
 ctrl + alt - 8 : yabai -m window --space 8;
 ctrl + alt - 9 : yabai -m window --space 9;
 
-#Testing
-# ctrl - 1 : yabai -m space --focus 1;
-# ctrl - 2 : yabai -m space --focus 2;
-# ctrl - 3 : yabai -m space --focus 3;
-# ctrl - 4 : yabai -m space --focus 4;
-# ctrl - 5 : yabai -m space --focus 5;
-# ctrl - 6 : yabai -m space --focus 6;
-# ctrl - 7 : yabai -m space --focus 7;
-# ctrl - 8 : yabai -m space --focus 8;
-# ctrl - 9 : yabai -m space --focus 9;
+# window focus to space #
+ctrl - 1 : yabai -m space --focus 1;
+ctrl - 2 : yabai -m space --focus 2;
+ctrl - 3 : yabai -m space --focus 3;
+ctrl - 4 : yabai -m space --focus 4;
+ctrl - 5 : yabai -m space --focus 5;
+ctrl - 6 : yabai -m space --focus 6;
+ctrl - 7 : yabai -m space --focus 7;
+ctrl - 8 : yabai -m space --focus 8;
+ctrl - 9 : yabai -m space --focus 9;
+ 
+# -- Modifying Window Size -- 
+ctrl + alt + shift - j : yabai -m window --resize bottom:0:40 | yabai -m window --resize top:0:-40
+ctrl + alt + shift - k : yabai -m window --resize top:0:40 | yabai -m window --resize bottom:0:-40
+ctrl + alt + shift - h : yabai -m window --resize left:40:0 | yabai -m window --resize right:-40:0
+ctrl + alt + shift - l : yabai -m window --resize right:40:0 | yabai -m window --resize left:-40:0
