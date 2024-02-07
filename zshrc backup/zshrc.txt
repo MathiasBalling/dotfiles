@@ -115,6 +115,26 @@ alias yabaic="yabai --stop-service && skhd --stop-service"
 alias yabais="yabai --start-service && skhd --start-service"
 alias yabair="yabai --restart-service && skhd --reload"
 alias yabaiapps="yabai -m query --windows | jq '.[] | { App: .app, Title: .title }'"
+alias kmonads="launchctl load -w ~/Library/LaunchAgents/com.balling.kmonad.plist"
+alias kmonadc="launchctl unload -w ~/Library/LaunchAgents/com.balling.kmonad.plist"
+alias kmonadr="launchctl unload -w ~/Library/LaunchAgents/com.balling.kmonad.plist && launchctl load -w ~/Library/LaunchAgents/com.balling.kmonad.plist"
+alias kmd="sudo kmonad ~/.config/kmonad/config.kbd"
+# alias kmonadstart="launchctl start com.balling.kmonad"
+# alias kmonadkill="launchctl stop com.balling.kmonad"
 
+export PATH="/Users/mathiaschristiansen/kmonad/.stack-work/install/aarch64-osx/583b7cdf492705ba580969ab526195c1019cda3376aa6967dcd89c7c248ce9f3/9.4.7/bin:$PATH"
+export PATH="/Users/mathiaschristiansen/lm4tools/lm4flash/:$PATH"
+export PATH="/Applications/ARM/bin:$PATH"
+
+export EDITOR=nvim
+export VISUAL=nvim
+
+
+fz() {
+    local file
+    file=$(fzf --prompt="PDFs > ")
+    [[ -n "$file" ]] && zathura "$file"
+}
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+

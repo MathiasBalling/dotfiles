@@ -47,9 +47,14 @@ ctrl + alt - p : yabai -m space --focus prev | yabai -m space --focus last
 ctrl + alt - n : yabai -m space --focus next | yabai -m space --focus first
 ctrl - 0 : yabai -m space --focus recent;
 
-# focus to prev and next space
-ctrl + alt + shift - p : yabai -m display --focus prev
-ctrl + alt + shift - n : yabai -m display --focus next
+# focus to prev and next display
+cmd + ctrl + alt - p : yabai -m display --focus prev
+cmd + ctrl + alt - n : yabai -m display --focus next
+
+# focus to prev and next display
+ctrl + alt + shift - p : yabai -m window --space prev; yabai -m space --focus prev
+ctrl + alt + shift - n : yabai -m window --space next; yabai -m space --focus next
+
 
 # Create space on the active display
 ctrl + alt - c : yabai -m space --create

@@ -30,7 +30,7 @@ Macbook pro 16" Nordic layout
 
 (defalias 
     fn (around (layer-toggle function_layer) fn)
-    num (layer-toggle num_sym)
+    num (layer-toggle num)
     open (tap-hold-next-release 300 spc (layer-toggle open))
     nav (tap-hold-next-release 300 esc (layer-toggle nav))
 
@@ -52,8 +52,8 @@ Macbook pro 16" Nordic layout
 
     ;; Nav
     wdel (around alt bspc)
-    end (around ctl e)
-    beg (around ctl a)
+    end (around met rght)
+    beg (around met left)
 
     ;; Commands
     saf (cmd-button "open -a 'Safari'")
@@ -61,6 +61,7 @@ Macbook pro 16" Nordic layout
     math (cmd-button "open -a 'Mathematica'")
     spot (cmd-button "open -a 'Spotify'")
     find (cmd-button "open -a 'Finder'")
+    deep (cmd-button "open -a 'DeepL'")
 
     ;; Danish characters
     aee (around alt ')
@@ -79,8 +80,8 @@ Macbook pro 16" Nordic layout
   XX    _    _    _    _    _    _    _    _    _    _    XX    XX    XX
   tab    _    _    _    _    _    _    _    _    _    _    _    XX    XX
   @nav  @s_a @a_s @c_d @m_f    _    _    @m_j @c_k @a_l @s_;    _    XX
-  XX  '   _    _    _    _    _    _    _    _    _    _    _
-  @fn  XX    ret  @num              @open              bspc  del      _
+  XX @dan   _    _    _    _    _    _    _    _    _    _    _
+  @fn  XX  @num    ret             @open              bspc  del      _
                                                                 _    _    _
 )
 
@@ -90,7 +91,7 @@ Macbook pro 16" Nordic layout
   tab    _    _    _    _    _    _    _    _    _    _    @aaa    _    XX
   @nav  @s_a @a_s @c_d @m_f    _    _    @m_j @c_k @a_l @s_ae  @ooo    XX
   XX   '   _    _    _    _    _    _    _    _    _    _    _
-  @fn  XX    ret  @num              @open              bspc  del     _
+  @fn  XX  @num     ret             @open              bspc  del     _
                                                                 _    _    _
 )
 
@@ -104,13 +105,13 @@ Macbook pro 16" Nordic layout
                                                            _    _    _
 )
 
-(deflayer num_sym
+(deflayer num
   _      _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  $      7    8    9    +    =    [    ]    ?    #    ~   \_    _    _
-  @       4    5    6    *    /    {    @m_bc  @c_po  @a_pc  @s_c    "    _
-  _     0    1    2    3    -    ^    !    %    <    >   \\    |
-  _    _    _    _               _              _     _         _
+  &      !    @    #    $    %    *    7    8    9   \(   \)    _    _
+  \    lsft  lalt lctl  lmet   =    -    4    5    6    {    }    _
+  _    fn    `    ~   \_    ^    |    +    1    2    3    [    ]
+  _    _    _    _               _              0     _         _
                                                            _    _    _
 )
 
@@ -128,7 +129,7 @@ Macbook pro 16" Nordic layout
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    @warp    _    _    _    _    _    _    _    _    _    _    _
-  _    _    @saf    _    @find    _    @spot    _    _    _    _    _    _
+  _    _  @saf @deep @find    _    @spot    _    _    _    _    _    _
   _   _   _    _    _    _    _    _    @math    _    _    _    _
   _    _    _    _              _              _    _          _
                                                           _    _    _
