@@ -57,6 +57,7 @@ Macbook pro 16" Nordic layout
 
     ;; Commands
     saf (cmd-button "open -a 'Safari'")
+    sys (cmd-button "open -a 'System Settings'")
     warp (cmd-button "open -a 'Warp'")
     math (cmd-button "open -a 'Mathematica'")
     spot (cmd-button "open -a 'Spotify'")
@@ -80,7 +81,7 @@ Macbook pro 16" Nordic layout
   XX    _    _    _    _    _    _    _    _    _    _    XX    XX    XX
   tab    _    _    _    _    _    _    _    _    _    _    _    XX    XX
   @nav  @s_a @a_s @c_d @m_f    _    _    @m_j @c_k @a_l @s_;    _    XX
-  XX @dan   _    _    _    _    _    _    _    _    _    _    _
+  XX fn   _    _    _    _    _    _    _    _    _    _    _
   @fn  XX  @num    ret             @open              bspc  del      _
                                                                 _    _    _
 )
@@ -128,7 +129,7 @@ Macbook pro 16" Nordic layout
 (deflayer open
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    @warp    _    _    _    _    _    _    _    _    _    _    _
+  _    @sys  @warp    _    _    _    _    _    _    _    _    _    _    _
   _    _  @saf @deep @find    _    @spot    _    _    _    _    _    _
   _   _   _    _    _    _    _    _    @math    _    _    _    _
   _    _    _    _              _              _    _          _
