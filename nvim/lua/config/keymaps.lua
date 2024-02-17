@@ -59,3 +59,9 @@ vim.keymap.set({ "i" }, "<C-q>", function()
     ls.jump(-1)
   end
 end, { silent = true })
+
+vim.keymap.set({ "i", "n" }, "<M-t>", function()
+  require("lazyvim.util").terminal()
+end, { desc = "Open terminal" })
+
+vim.keymap.set({ "t" }, "<M-r>", "<cmd>close<cr>", { desc = "Close terminal" })
