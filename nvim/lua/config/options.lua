@@ -14,3 +14,6 @@ vim.opt.conceallevel = 0
 
 -- Set spell
 vim.opt.spell = false
+
+-- Disable auto formatting
+vim.g.autoformat = true

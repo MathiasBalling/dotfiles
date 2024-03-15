@@ -58,7 +58,7 @@ Macbook pro 16" Nordic layout
     ;; Commands
     saf (cmd-button "open -a 'Safari'")
     sys (cmd-button "open -a 'System Settings'")
-    warp (cmd-button "open -a 'Warp'")
+    warp (cmd-button "open -a 'WezTerm'")
     math (cmd-button "open -a 'Mathematica'")
     spot (cmd-button "open -a 'Spotify'")
     find (cmd-button "open -a 'Finder'")

@@ -15,6 +15,7 @@ local config = {
 		cursor_fg = "#1e1e1e",
 		selection_bg = "#57bfff",
 		selection_fg = "#1e1e1e",
+		cursor_border = "#57bfff",
 	},
 
 	enable_tab_bar = false,
@@ -23,5 +24,8 @@ local config = {
 	show_tab_index_in_tab_bar = false,
 	show_new_tab_button_in_tab_bar = false,
 	tab_bar_style = {},
+
+	send_composed_key_when_left_alt_is_pressed = false,
+	send_composed_key_when_right_alt_is_pressed = false,
 }
 return config
