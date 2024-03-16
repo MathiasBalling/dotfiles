@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+# Function to list current tmux sessions using fzf
+list_tmux_sessions() {
+	tmux list-sessions -F "#{?session_name,#{session_name},#{?window_name,#{window_name},#{pane_current_path}}}" | fzf
+}
+
+# Get the selected directory or session
+if [[ $# -eq 1 ]]; then
+	selected=$1
+elif response=$(list_tmux_sessions); then
+	selected=$response
+else
+	selected=$(find . ~/Projects -mindepth 0 -maxdepth 1 -type d | fzf)
+fi
+
+if [[ -z $selected ]]; then
+	exit 0
+fi
+
+# Extract session name from selected input
+selected_name=$(echo "$selected" | cut -d: -f1)
+
+# Handle scenarios where a directory is selected
+if [[ ! $selected_name =~ ^[-0-9a-zA-Z._]+$ ]]; then
+	selected_name=$(basename "$selected" | tr . _)
+fi
+
+# If the selected directory is the current directory, set its name accordingly
+if [[ "$selected" == "." ]]; then
+	selected_name=$(basename "$(pwd)" | tr . _)
+fi
+
+tmux_running=$(pgrep tmux)
+
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+	tmux new-session -s $selected_name -c $selected
+	exit 0
+fi
+
+if ! tmux has-session -t=$selected_name 2>/dev/null; then
+	tmux new-session -ds $selected_name -c $selected
+fi
+
+if [[ -z $TMUX ]]; then
+	tmux attach -t $selected_name
+else
+	tmux switch-client -t $selected_name
+fi

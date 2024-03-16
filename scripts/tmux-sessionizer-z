@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+# Function to list tmux sessions (unchanged)
+list_tmux_sessions() {
+	tmux list-sessions -F "#{?session_name,#{session_name},#{?window_name,#{window_name},#{pane_current_path}}}" | fzf
+}
+
+# Get the selected directory or session
+# Get the selected directory or session
+if [[ $# -eq 1 ]]; then
+	# Use zoxide for directory suggestion based on input
+	selected=$(zoxide query $1)
+	# If no directory selected, let the user choose from tmux sessions
+	if [[ -z $selected ]]; then
+		selected=$(list_tmux_sessions)
+	fi
+else
+	# Offer tmux sessions directly if no input argument is given
+	selected=$(list_tmux_sessions)
+fi
+
+if [[ -z $selected ]]; then
+	exit 0
+fi
+
+# Extract session name or handle directory selection
+if [[ $selected =~ ^[-0-9a-zA-Z._]+$ ]]; then
+	# Session name provided, use tmux commands directly
+	selected_name=$selected
+else
+	# Directory chosen, generate session name based on directory
+	selected_name=$(basename "$selected" | tr . _)
+fi
+
+tmux_running=$(pgrep tmux)
+
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+	tmux new-session -s $selected_name -c $selected
+	exit 0
+fi
+
+if ! tmux has-session -t=$selected_name 2>/dev/null; then
+	tmux new-session -ds $selected_name -c $selected
+fi
+
+if [[ -z $TMUX ]]; then
+	tmux attach -t $selected_name
+else
+	tmux switch-client -t $selected_name
+fi
