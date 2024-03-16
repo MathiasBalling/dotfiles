@@ -77,7 +77,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,10 +106,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 alias nv='nvim'
 alias c='clear'
-alias cc='code .'
 alias bu='brew "upgrade"'
 alias removelogin="sudo rm /private/var/db/com.apple.xpc.launchd/loginitems.$(id -u).plist"
-alias zsh="nvim ~/.zshrc"
 alias matlab="/Applications/MATLAB_R2022b.app/bin/matlab -nodesktop"
 alias yabaic="yabai --stop-service && skhd --stop-service"
 alias yabais="yabai --start-service && skhd --start-service"
@@ -121,20 +119,28 @@ alias kmonadr="launchctl unload -w ~/Library/LaunchAgents/com.balling.kmonad.pli
 alias kmd="sudo kmonad ~/.config/kmonad/config.kbd"
 # alias kmonadstart="launchctl start com.balling.kmonad"
 # alias kmonadkill="launchctl stop com.balling.kmonad"
+alias tt="tmux-sessionizer-fzf"
+alias t="tmux-sessionizer-z" # tmux-sessionizer-zoxide
 
 export PATH="/Users/mathiaschristiansen/kmonad/.stack-work/install/aarch64-osx/583b7cdf492705ba580969ab526195c1019cda3376aa6967dcd89c7c248ce9f3/9.4.7/bin:$PATH"
 export PATH="/Users/mathiaschristiansen/lm4tools/lm4flash/:$PATH"
 export PATH="/Applications/ARM/bin:$PATH"
+export PATH="/Users/mathiaschristiansen/.cargo/bin:$PATH"
+export PATH="/Users/mathiaschristiansen/.config/scripts:$PATH"
 
 export EDITOR=nvim
 export VISUAL=nvim
 
-
+# Quick access to the pdf viewer
 fz() {
     local file
     file=$(fzf --prompt="PDFs > ")
     [[ -n "$file" ]] && zathura "$file"
 }
+
+# zoxide
+eval "$(zoxide init zsh)"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
