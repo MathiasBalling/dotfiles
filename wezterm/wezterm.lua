@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 
 local config = {
-	font_size = 20,
+	font_size = 16,
 	window_decorations = "RESIZE",
 	window_padding = {
 		left = 0,

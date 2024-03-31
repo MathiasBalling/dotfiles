@@ -121,12 +121,17 @@ alias kmd="sudo kmonad ~/.config/kmonad/config.kbd"
 # alias kmonadkill="launchctl stop com.balling.kmonad"
 alias tt="tmux-sessionizer-fzf"
 alias t="tmux-sessionizer-z" # tmux-sessionizer-zoxide
+alias nn='NVIM_APPNAME="nvim-simple" nvim'
 
+export PATH="/opt/homebrew/Cellar/llvm/17.0.6_1/bin/:$PATH"
 export PATH="/Users/mathiaschristiansen/kmonad/.stack-work/install/aarch64-osx/583b7cdf492705ba580969ab526195c1019cda3376aa6967dcd89c7c248ce9f3/9.4.7/bin:$PATH"
 export PATH="/Users/mathiaschristiansen/lm4tools/lm4flash/:$PATH"
 export PATH="/Applications/ARM/bin:$PATH"
-export PATH="/Users/mathiaschristiansen/.cargo/bin:$PATH"
+export PATH="/opt/homebrew/Caskroom/ghdl/4.0.0/bin:$PATH"
 export PATH="/Users/mathiaschristiansen/.config/scripts:$PATH"
+
+export CC=/opt/homebrew/Cellar/llvm/17.0.6_1/bin/clang
+export CXX=/opt/homebrew/Cellar/llvm/17.0.6_1/bin/clang++
 
 export EDITOR=nvim
 export VISUAL=nvim
