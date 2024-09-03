@@ -63,6 +63,7 @@ Macbook pro 16" Nordic layout
     spot (cmd-button "open -a 'Spotify'")
     find (cmd-button "open -a 'Finder'")
     deep (cmd-button "open -a 'DeepL'")
+    arc (cmd-button "open -a 'Arc'")
 
     ;; Danish characters
     aee (around alt ')
@@ -130,7 +131,7 @@ Macbook pro 16" Nordic layout
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    @sys  @warp    _    _    _    _    _    _    _    _    _    _    _
-  _    _  @saf @deep @find    _    @spot    _    _    _    _    _    _
+  _    @arc  @saf @deep @find    _    @spot    _    _    _    _    _    _
   _   _   _    _    _    _    _    _    @math    _    _    _    _
   _    _    _    _              _              _    _          _
                                                           _    _    _

@@ -2,6 +2,9 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+-- Save all files
+vim.keymap.set("n", "<C-s>", "<cmd>wa<cr>", { desc = "Save all files" })
+
 -- Center screen
 vim.keymap.set("n", "n", "nzz", { desc = "Next search (center)" })
 vim.keymap.set("n", "N", "Nzz", { desc = "Prev search (center)" })
@@ -36,9 +39,6 @@ end
 -- Add function to keymap
 vim.keymap.set("n", "<leader>ch", toggle_conceallevel, { desc = "Toggle conceallevel" })
 
--- Clangd
-vim.keymap.set("n", "<leader>ct", "<cmd>ClangdToggleInlayHints<cr>", { desc = "Clangd toggle inline hints" })
-
 -- Projects
 vim.keymap.set("n", "<leader>cp", "<cmd>AddProject<cr>", { desc = "Add to projects" })
 
@@ -47,18 +47,6 @@ vim.keymap.set("n", "§", "$", { desc = "Go to end of line" })
 
 -- Toogle spell
 vim.keymap.set("n", "<leader>cs", "<cmd>set spell!<cr>", { desc = "Toggle spell" })
-
-local ls = require("luasnip")
-vim.keymap.set({ "i" }, "<M-a>", function()
-  if ls.expand_or_jumpable() then
-    ls.expand_or_jump()
-  end
-end, { silent = true })
-vim.keymap.set({ "i" }, "<C-q>", function()
-  if ls.jumpable(-1) then
-    ls.jump(-1)
-  end
-end, { silent = true })
 
 vim.keymap.set({ "i", "n" }, "<M-t>", function()
   require("lazyvim.util").terminal()
@@ -79,3 +67,17 @@ vim.keymap.set("v", "<leader>rw", '<esc><cmd>lua require("spectre").open_visual(
 vim.keymap.set("n", "<leader>rp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
   desc = "Search on current file",
 })
+
+-- Copilot
+vim.keymap.set("n", "<leader>ce", function()
+  if require("copilot.client").is_disabled() then
+    require("copilot.command").enable()
+  else
+    require("copilot.command").disable()
+  end
+end, { desc = "Toggle Copilot" })
+
+-- Toggle lsp inline hint
+vim.keymap.set("n", "<leader>ct", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, { desc = "Toggle LSP inline hint" })

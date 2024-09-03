@@ -8,14 +8,20 @@ list_tmux_sessions() {
 # Get the selected directory or session
 if [[ $# -eq 1 ]]; then
 	selected=$1
-elif response=$(list_tmux_sessions); then
-	selected=$response
 else
 	selected=$(find . ~/Projects -mindepth 0 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
-	exit 0
+  # List all active sessions
+  if response=$(list_tmux_sessions); then
+    selected=$response
+  fi
+
+  # Exit if no session is chosen
+  if [[ -z $selected ]]; then
+    exit 0
+  fi
 fi
 
 # Extract session name from selected input

@@ -77,7 +77,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search vi-mode)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search vi-mode rust)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -108,7 +108,7 @@ alias nv='nvim'
 alias c='clear'
 alias bu='brew "upgrade"'
 alias removelogin="sudo rm /private/var/db/com.apple.xpc.launchd/loginitems.$(id -u).plist"
-alias matlab="/Applications/MATLAB_R2022b.app/bin/matlab -nodesktop"
+alias matlab="/Applications/MATLAB_R2024a.app/bin/matlab -nodesktop"
 alias yabaic="yabai --stop-service && skhd --stop-service"
 alias yabais="yabai --start-service && skhd --start-service"
 alias yabair="yabai --restart-service && skhd --reload"
@@ -123,15 +123,22 @@ alias tt="tmux-sessionizer-fzf"
 alias t="tmux-sessionizer-z" # tmux-sessionizer-zoxide
 alias nn='NVIM_APPNAME="nvim-simple" nvim'
 
-export PATH="/opt/homebrew/Cellar/llvm/17.0.6_1/bin/:$PATH"
+export PATH="/opt/homebrew/Cellar/llvm/18.1.8/bin/:$PATH"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/Users/mathiaschristiansen/kmonad/.stack-work/install/aarch64-osx/583b7cdf492705ba580969ab526195c1019cda3376aa6967dcd89c7c248ce9f3/9.4.7/bin:$PATH"
 export PATH="/Users/mathiaschristiansen/lm4tools/lm4flash/:$PATH"
 export PATH="/Applications/ARM/bin:$PATH"
 export PATH="/opt/homebrew/Caskroom/ghdl/4.0.0/bin:$PATH"
 export PATH="/Users/mathiaschristiansen/.config/scripts:$PATH"
+export PATH="/opt/homebrew/opt/python@3.12/libexec/bin:$PATH"
+export PATH="/Users/mathiaschristiansen/.local/bin:$PATH"
 
-export CC=/opt/homebrew/Cellar/llvm/17.0.6_1/bin/clang
-export CXX=/opt/homebrew/Cellar/llvm/17.0.6_1/bin/clang++
+
+
+export PATH="/Users/mathiaschristiansen/.cargo/bin:$PATH"
+
+export CC=/opt/homebrew/Cellar/llvm/18.1.8/bin/clang
+export CXX=/opt/homebrew/Cellar/llvm/18.1.8/bin/clang++
 
 export EDITOR=nvim
 export VISUAL=nvim
@@ -145,6 +152,8 @@ fz() {
 
 # zoxide
 eval "$(zoxide init zsh)"
+# fzf
+eval "$(fzf --zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

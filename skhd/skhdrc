@@ -43,8 +43,8 @@ ctrl + alt - f : yabai -m window --display next; yabai -m display --focus next
 ctrl + alt - a : yabai -m window --display prev; yabai -m display --focus prev
 
 # focus to prev and next space
-ctrl + alt - p : yabai -m space --focus prev | yabai -m space --focus last
-ctrl + alt - n : yabai -m space --focus next | yabai -m space --focus first
+ctrl + alt - p : yabai -m space --focus prev
+ctrl + alt - n : yabai -m space --focus next
 ctrl - 0 : yabai -m space --focus recent;
 
 # focus to prev and next display
