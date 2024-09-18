@@ -48,7 +48,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -92,7 +92,7 @@ source $ZSH/oh-my-zsh.sh
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='nvim'
 # fi
 
 # Compilation flags
@@ -136,6 +136,7 @@ export PATH="/Users/mathiaschristiansen/.local/bin:$PATH"
 
 
 export PATH="/Users/mathiaschristiansen/.cargo/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
 
 export CC=/opt/homebrew/Cellar/llvm/18.1.8/bin/clang
 export CXX=/opt/homebrew/Cellar/llvm/18.1.8/bin/clang++
@@ -148,6 +149,15 @@ fz() {
     local file
     file=$(fzf --prompt="PDFs > ")
     [[ -n "$file" ]] && zathura "$file"
+}
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
 }
 
 # zoxide

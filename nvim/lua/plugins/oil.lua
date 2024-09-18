@@ -13,7 +13,7 @@ return {
       ["_"] = "actions.select_split",
       ["gf"] = "actions.copy_entry_path",
       ["gt"] = "actions.open_terminal",
-      ["q"] = "actions.close",
+      ["Q"] = "actions.close",
     },
   },
   keys = {
