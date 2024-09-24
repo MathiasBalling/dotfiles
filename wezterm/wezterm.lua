@@ -1,6 +1,7 @@
 local wezterm = require("wezterm")
 
 local config = {
+	default_prog = { "/bin/sh", "-c", "tmux attach-session -t home || tmux new-session -s home" },
 	font_size = 16,
 	window_decorations = "RESIZE",
 	window_padding = {
@@ -11,7 +12,7 @@ local config = {
 	},
 
 	colors = {
-    background = "#000111",
+		background = "#000111",
 		cursor_bg = "#57bfff",
 		cursor_fg = "#1e1e1e",
 		selection_bg = "#57bfff",

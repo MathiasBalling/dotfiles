@@ -8,9 +8,13 @@ augroup CustomCommentString
 augroup END
 ]])
 
--- vim.api.nvim_create_autocmd({ 'InsertEnter' }, {
---   callback = function () vim.lsp.inlay_hint.enable(false) end,
--- })
--- vim.api.nvim_create_autocmd({ 'InsertLeave' }, {
---   callback = function () vim.lsp.inlay_hint.enable() end,
--- })
+-- Autocommand for reloading the configuration for aerospace.toml with 'aerospace reload-config'
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  pattern = "aerospace.toml",
+  command = "!aerospace reload-config",
+})
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  pattern = "tmux.conf",
+  command = "!tmux source-file %",
+})

@@ -1,0 +1,6 @@
+update_popup() {
+    while true; do
+        tmux display-popup -w 80% -h 80% -E "t"
+        sleep 1  # Adjust the interval if needed
+    done
+}

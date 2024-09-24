@@ -1,0 +1,179 @@
+# Start AeroSpace at login
+start-at-login = true
+# Available commands: https://nikitabobko.github.io/AeroSpace/commands
+after-login-command = []
+# Available commands : https://nikitabobko.github.io/AeroSpace/commands
+after-startup-command = []
+
+# Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# See: https://nikitabobko.github.io/AeroSpace/guide#layouts
+accordion-padding = 10
+
+# Possible values: tiles|accordion
+default-root-container-layout = 'accordion'
+
+default-root-container-orientation = 'auto'
+
+# Key mapping
+key-mapping.preset = 'qwerty'
+
+# Mouse follows focus when focused monitor/window changes
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focus-changed = ['move-mouse window-lazy-center']
+
+[gaps]
+inner.horizontal = [{ monitor."built-in.*" = 5 }, 15]
+inner.vertical = [{ monitor."built-in.*" = 5 }, 15]
+outer.left = [{ monitor."built-in.*" = 5 }, 15]
+outer.bottom = [{ monitor."built-in.*" = 5 }, 15]
+outer.top = [{ monitor."built-in.*" = 5 }, 15]
+outer.right = [{ monitor."built-in.*" = 5 }, 15]
+
+[[on-window-detected]]
+if.app-id = 'com.github.wez.wezterm'
+run = 'move-node-to-workspace T'
+[[on-window-detected]]
+if.app-id = 'company.thebrowser.Browser'
+run = 'move-node-to-workspace B'
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = 'move-node-to-workspace N'
+[[on-window-detected]]
+if.app-id = 'com.apple.FaceTime'
+run = 'layout floating'
+[[on-window-detected]]
+if.app-id = 'com.macpaw.CleanMyMac4'
+run = 'layout floating'
+[[on-window-detected]]
+if.app-id = 'com.apple.ActivityMonitor'
+run = ['layout floating']
+
+# 'main' binding mode must be always presented
+# All possible commands: https://nikitabobko.github.io/AeroSpace/commands
+# All possible keys:
+# - Letters.        a, b, c, ..., z
+# - Numbers.        0, 1, 2, ..., 9
+# - Keypad numbers. keypad0, keypad1, keypad2, ..., keypad9
+# - F-keys.         f1, f2, ..., f20
+# - Special keys.   minus, equal, period, comma, slash, backslash, quote, semicolon, backtick,
+#                   leftSquareBracket, rightSquareBracket, space, enter, esc, backspace, tab
+# - Keypad special. keypadClear, keypadDecimalMark, keypadDivide, keypadEnter, keypadEqual,
+#                   keypadMinus, keypadMultiply, keypadPlus
+# - Arrows.         left, down, up, right
+
+[mode.main.binding]
+cmd-h = []                                                # Disable "hide application"
+cmd-alt-h = []                                            # Disable "hide others"
+alt-shift-slash = 'layout tiles horizontal vertical'
+alt-shift-period = 'layout accordion horizontal vertical'
+
+alt-shift-h = 'focus left'
+alt-shift-j = 'focus down'
+alt-shift-k = 'focus up'
+alt-shift-l = 'focus right'
+
+alt-ctrl-h = 'move left'
+alt-ctrl-j = 'move down'
+alt-ctrl-k = 'move up'
+alt-ctrl-l = 'move right'
+
+alt-ctrl-m = 'fullscreen'
+
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
+alt-b = 'workspace B'
+alt-n = 'workspace N'
+alt-t = 'workspace T'
+
+alt-ctrl-1 = 'move-node-to-workspace 1'
+alt-ctrl-2 = 'move-node-to-workspace 2'
+alt-ctrl-3 = 'move-node-to-workspace 3'
+alt-ctrl-4 = 'move-node-to-workspace 4'
+alt-ctrl-5 = 'move-node-to-workspace 5'
+alt-ctrl-6 = 'move-node-to-workspace 6'
+alt-ctrl-7 = 'move-node-to-workspace 7'
+alt-ctrl-8 = 'move-node-to-workspace 8'
+alt-ctrl-9 = 'move-node-to-workspace 9'
+alt-ctrl-b = 'move-node-to-workspace B'
+alt-ctrl-n = 'move-node-to-workspace N'
+alt-ctrl-t = 'move-node-to-workspace T'
+
+# Exec  to switch to the next workspace
+alt-tab = 'exec-and-forget aerospace list-workspaces --monitor focused --empty no | aerospace workspace --wrap-around next'
+alt-shift-tab = 'workspace-back-and-forth'
+
+# Mode switcher
+alt-shift-semicolon = 'mode service'
+alt-shift-space = 'mode opener'
+alt-shift-comma = 'mode resize'
+
+
+# 'service' binding mode declaration.
+# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
+[mode.service.binding]
+# Exit and reload config
+esc = ['reload-config', 'mode main']
+# Disable
+space = 'enable off'
+
+# Reset layout
+r = ['flatten-workspace-tree', 'mode main']
+#s = ['layout sticky tiling', 'mode main'] # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
+# Quit other apps in the workspace
+backspace = ['close-all-windows-but-current --quit-if-last-window', 'mode main']
+
+[mode.opener.binding]
+# Exit
+esc = 'mode main'
+
+w = ['exec-and-forget open -a Wezterm', 'mode main']
+a = ['exec-and-forget open -a Arc', 'mode main']
+o = ['exec-and-forget open -a Obsidian', 'mode main']
+i = ['exec-and-forget open -a Adobe\ Illustrator', 'mode main']
+p = ['exec-and-forget open -a Adobe\ Photoshop\ \(Beta\)', 'mode main']
+u = ['exec-and-forget open -a UTM', 'mode main']
+m = ['exec-and-forget open -a Messages', 'mode main']
+r = ['exec-and-forget open -a DaVinci\ Resolve', 'mode main']
+
+[mode.resize.binding]
+# Exit
+esc = 'mode main'
+
+# Resize
+minus = 'resize smart -50'
+shift-equal = 'resize smart +50'
+equal = 'balance-sizes'
+m = 'fullscreen'
+
+# Layouts
+slash = 'layout tiles horizontal vertical'
+period = 'layout accordion horizontal vertical'
+f = ['layout floating tiling', 'mode main']
+
+# Focus
+h = 'focus left'
+j = 'focus down'
+k = 'focus up'
+l = 'focus right'
+
+# Move
+alt-h = 'move left'
+alt-j = 'move down'
+alt-k = 'move up'
+alt-l = 'move right'
+
+# Join with
+alt-shift-h = 'join-with left'
+alt-shift-j = 'join-with down'
+alt-shift-k = 'join-with up'
+alt-shift-l = 'join-with right'

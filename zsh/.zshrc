@@ -82,18 +82,17 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search vi-mode rust
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -109,10 +108,6 @@ alias c='clear'
 alias bu='brew "upgrade"'
 alias removelogin="sudo rm /private/var/db/com.apple.xpc.launchd/loginitems.$(id -u).plist"
 alias matlab="/Applications/MATLAB_R2024a.app/bin/matlab -nodesktop"
-alias yabaic="yabai --stop-service && skhd --stop-service"
-alias yabais="yabai --start-service && skhd --start-service"
-alias yabair="yabai --restart-service && skhd --reload"
-alias yabaiapps="yabai -m query --windows | jq '.[] | { App: .app, Title: .title }'"
 alias kmonads="launchctl load -w ~/Library/LaunchAgents/com.balling.kmonad.plist"
 alias kmonadc="launchctl unload -w ~/Library/LaunchAgents/com.balling.kmonad.plist"
 alias kmonadr="launchctl unload -w ~/Library/LaunchAgents/com.balling.kmonad.plist && launchctl load -w ~/Library/LaunchAgents/com.balling.kmonad.plist"
@@ -123,7 +118,6 @@ alias tt="tmux-sessionizer-fzf"
 alias t="tmux-sessionizer-z" # tmux-sessionizer-zoxide
 alias nn='NVIM_APPNAME="nvim-simple" nvim'
 
-export PATH="/opt/homebrew/Cellar/llvm/18.1.8/bin/:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/Users/mathiaschristiansen/kmonad/.stack-work/install/aarch64-osx/583b7cdf492705ba580969ab526195c1019cda3376aa6967dcd89c7c248ce9f3/9.4.7/bin:$PATH"
 export PATH="/Users/mathiaschristiansen/lm4tools/lm4flash/:$PATH"
@@ -132,18 +126,14 @@ export PATH="/opt/homebrew/Caskroom/ghdl/4.0.0/bin:$PATH"
 export PATH="/Users/mathiaschristiansen/.config/scripts:$PATH"
 export PATH="/opt/homebrew/opt/python@3.12/libexec/bin:$PATH"
 export PATH="/Users/mathiaschristiansen/.local/bin:$PATH"
-
-
-
 export PATH="/Users/mathiaschristiansen/.cargo/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 
-export CC=/opt/homebrew/Cellar/llvm/18.1.8/bin/clang
-export CXX=/opt/homebrew/Cellar/llvm/18.1.8/bin/clang++
+export LLVM_DIR=$(ls -d /opt/homebrew/Cellar/llvm/* | sort -V | tail -n 1)
+export CC="$LLVM_DIR/bin/clang"
+export CXX="$LLVM_DIR/bin/clang++"
 
-export EDITOR=nvim
-export VISUAL=nvim
-
+export PATH="$LLVM_DIR/bin/:$PATH"
 # Quick access to the pdf viewer
 fz() {
     local file

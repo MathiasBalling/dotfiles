@@ -31,7 +31,6 @@ Macbook pro 16" Nordic layout
 (defalias 
     fn (around (layer-toggle function_layer) fn)
     num (layer-toggle num)
-    open (tap-hold-next-release 300 spc (layer-toggle open))
     nav (tap-hold-next-release 300 esc (layer-toggle nav))
 
     ;; Home Row Mods;
@@ -75,6 +74,7 @@ Macbook pro 16" Nordic layout
     eng (layer-switch main)
     dan (layer-switch main-danish)
     trans (layer-switch transpartent)
+    off (layer-switch off_layer)
 )
 
 (deflayer main
@@ -83,7 +83,7 @@ Macbook pro 16" Nordic layout
   tab    _    _    _    _    _    _    _    _    _    _    _    XX    XX
   @nav  @s_a @a_s @c_d @m_f    _    _    @m_j @c_k @a_l @s_;    _    XX
   XX fn   _    _    _    _    _    _    _    _    _    _    _
-  @fn  XX  @num    ret             @open              bspc  del      _
+  @fn  XX  @num    ret             spc                bspc  del      _
                                                                 _    _    _
 )
 
@@ -93,7 +93,7 @@ Macbook pro 16" Nordic layout
   tab    _    _    _    _    _    _    _    _    _    _    @aaa    _    XX
   @nav  @s_a @a_s @c_d @m_f    _    _    @m_j @c_k @a_l @s_ae  @ooo    XX
   XX   '   _    _    _    _    _    _    _    _    _    _    _
-  @fn  XX  @num     ret             @open              bspc  del     _
+  @fn  XX  @num     ret             spc                bspc  del     _
                                                                 _    _    _
 )
 
@@ -127,22 +127,22 @@ Macbook pro 16" Nordic layout
                                                             _    _    _
 )
 
-(deflayer open
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    @sys  @warp    _    _    _    _    _    _    _    _    _    _    _
-  _    @arc  @saf @deep @find    _    @spot    _    _    _    _    _    _
-  _   _   _    _    _    _    _    _    @math    _    _    _    _
-  _    _    _    _              _              _    _          _
-                                                          _    _    _
-)
-
 (deflayer function_layer
   _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _  @trans    _    _    _    _    _    _    _    _
+  _    _    _    _    _  @trans    _    _    _    _    _    _    _    @off
   _    _    _    _    @dan    _    _  @eng    _    _    _    _    _
   _   _   _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _              _              _    _          _
                                                           _    _    _
+)
+
+(deflayer off_layer
+  XX      XX    XX    XX    XX    @eng  XX    XX    XX    XX    XX    XX    XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX      XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX       XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX     XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    XX    XX    XX               XX              XX     XX         XX
+                                                           XX    XX    XX
 )
