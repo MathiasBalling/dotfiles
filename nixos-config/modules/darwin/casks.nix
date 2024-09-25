@@ -11,16 +11,36 @@ _:
   "slack"
   "telegram"
   "zoom"
+  "google-drive"
 
   # Utility Tools
   "syncthing"
 
   # Entertainment Tools
   "vlc"
+  "iina"
 
   # Productivity Tools
-  "raycast"
+  "alfred"
+  "aerospace"
+  "wezterm"
+  "aldente"
+  "alt-tab"
+  "shottr"
+  "obsidian"
+  "cleanmymac"
+  "betterdisplay"
+  "git-credential-manager"
+  "deepl"
+  "balenaetcher"
+  "docker"
+  "utm"
+  "spotify"
+  "mactex-no-gui"
+  "hiddenbar"
+  "logi-options+"
+  "adobe-creative-cloud"
 
   # Browsers
-  "google-chrome"
+  "arc"
 ]
