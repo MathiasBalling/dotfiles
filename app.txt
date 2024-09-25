@@ -1,0 +1,88 @@
+3Dconnexion
+3d Scanner App.app
+ARM
+Adobe Acrobat DC
+Adobe Creative Cloud
+Adobe DNG Converter.app
+Adobe Illustrator 2024
+Adobe Lightroom Classic
+Adobe Media Encoder 2024
+Adobe Photoshop (Beta)
+Adobe Photoshop 2024
+Adobe Premiere Pro 2024
+AeroSpace.app
+AlDente.app
+Alfred 5.app
+AltTab.app
+Arc.app
+BetterDisplay.app
+Blackmagic Proxy Generator.app
+Blackmagic RAW
+Blender.app
+CAI
+Canon Utilities
+CheatSheet.app
+Chili
+CleanMyMac X.app
+DaVinci Resolve
+DeepL.app
+Discord.app
+Docker.app
+Dropbox.app
+Elgato Stream Deck.app
+Figma.app
+Folx.app
+GitHub Desktop.app
+Goodnotes.app
+Google Chrome.app
+Google Docs.app
+Google Drive.app
+Google Sheets.app
+Google Slides.app
+Hidden Bar.app
+IINA.app
+Keynote.app
+KiCad
+Loom.app
+MATLAB_R2024a.app
+Magnet.app
+Mathematica.app
+Mathpix Snipping Tool.app
+Microsoft Excel.app
+Microsoft Outlook.app
+Microsoft PowerPoint.app
+Microsoft Word.app
+Notion.app
+OBS.app
+Obsidian.app
+OneDrive.app
+PenTablet.app
+Raspberry Pi Imager.app
+Raycast.app
+Safari.app
+SerialTools.app
+Shapr3D.app
+Shottr.app
+Slack.app
+Spark.app
+Speedtest.app
+Spotify.app
+StarUML.app
+Syncthing.app
+Telegram.app
+The Unarchiver.app
+UTM.app
+UltiMaker Cura.app
+Utilities
+VLC.app
+VNC Viewer.app
+Vial.app
+Visual Studio Code.app
+Warp.app
+WezTerm.app
+WordMat
+XP-PenPenTabletPro
+balenaEtcher.app
+logioptionsplus.app
+ti
+zoom.us.app
