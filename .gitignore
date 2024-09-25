@@ -1,9 +1,9 @@
-
 .DS_Store
 tmux/plugins
 github-copilot/hosts.json
 kmonad/error.log
 kmonad/log.log
-zsh/.zcompdump-Ballings MacBook Pro -5.9
-zsh/.zcompdump-Ballings MacBook Pro -5.9.zwc
-zsh/.zsh_history
+.zcompdump-Ballings MacBook Pro -5.9
+.zcompdump-Ballings MacBook Pro -5.9.zwc
+.zsh_history
+.zsh_sessions
