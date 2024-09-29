@@ -65,15 +65,21 @@ run = ['layout floating']
 # - Arrows.         left, down, up, right
 
 [mode.main.binding]
-cmd-h = []                                                # Disable "hide application"
-cmd-alt-h = []                                            # Disable "hide others"
-alt-shift-slash = 'layout tiles horizontal vertical'
-alt-shift-period = 'layout accordion horizontal vertical'
+cmd-h = []                                               # Disable "hide application"
+cmd-alt-h = []                                           # Disable "hide others"
+alt-ctrl-slash = 'layout tiles horizontal vertical'
+alt-ctrl-period = 'layout accordion horizontal vertical'
 
-alt-shift-h = 'focus left'
-alt-shift-j = 'focus down'
-alt-shift-k = 'focus up'
-alt-shift-l = 'focus right'
+# Default ways to focus
+alt-shift-h = 'focus left --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
+alt-shift-j = 'focus down --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
+alt-shift-k = 'focus up --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
+alt-shift-l = 'focus right --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
+# More ways to focus
+alt-left = 'focus left --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
+alt-down = 'focus down --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
+alt-up = 'focus up --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
+alt-right = 'focus right --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
 
 alt-ctrl-h = 'move left'
 alt-ctrl-j = 'move down'
@@ -82,18 +88,18 @@ alt-ctrl-l = 'move right'
 
 alt-ctrl-m = 'fullscreen'
 
-alt-1 = 'workspace 1'
-alt-2 = 'workspace 2'
-alt-3 = 'workspace 3'
-alt-4 = 'workspace 4'
-alt-5 = 'workspace 5'
-alt-6 = 'workspace 6'
-alt-7 = 'workspace 7'
-alt-8 = 'workspace 8'
-alt-9 = 'workspace 9'
-alt-b = 'workspace B'
-alt-n = 'workspace N'
-alt-t = 'workspace T'
+alt-shift-1 = 'workspace 1'
+alt-shift-2 = 'workspace 2'
+alt-shift-3 = 'workspace 3'
+alt-shift-4 = 'workspace 4'
+alt-shift-5 = 'workspace 5'
+alt-shift-6 = 'workspace 6'
+alt-shift-7 = 'workspace 7'
+alt-shift-8 = 'workspace 8'
+alt-shift-9 = 'workspace 9'
+alt-shift-b = 'workspace B'
+alt-shift-n = 'workspace N'
+alt-shift-t = 'workspace T'
 
 alt-ctrl-1 = 'move-node-to-workspace 1'
 alt-ctrl-2 = 'move-node-to-workspace 2'
@@ -113,9 +119,9 @@ alt-tab = 'exec-and-forget aerospace list-workspaces --monitor focused --empty n
 alt-shift-tab = 'workspace-back-and-forth'
 
 # Mode switcher
-alt-shift-semicolon = 'mode service'
-alt-shift-space = 'mode opener'
-alt-shift-comma = 'mode resize'
+shift-alt-ctrl-semicolon = 'mode service'
+alt-ctrl-semicolon = 'mode resize'
+alt-ctrl-space = 'mode opener'
 
 
 # 'service' binding mode declaration.
@@ -161,10 +167,11 @@ period = 'layout accordion horizontal vertical'
 f = ['layout floating tiling', 'mode main']
 
 # Focus
-h = 'focus left'
-j = 'focus down'
-k = 'focus up'
-l = 'focus right'
+h = 'focus left --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
+j = 'focus down --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
+k = 'focus up --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
+l = 'focus right --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
+
 
 # Move
 alt-h = 'move left'
@@ -173,7 +180,15 @@ alt-k = 'move up'
 alt-l = 'move right'
 
 # Join with
-alt-shift-h = 'join-with left'
-alt-shift-j = 'join-with down'
-alt-shift-k = 'join-with up'
-alt-shift-l = 'join-with right'
+alt-ctrl-h = 'join-with left'
+alt-ctrl-j = 'join-with down'
+alt-ctrl-k = 'join-with up'
+alt-ctrl-l = 'join-with right'
+
+# Monitor commands
+p = 'focus-monitor --wrap-around prev'
+n = 'focus-monitor --wrap-around next'
+alt-p = 'move-node-to-monitor --wrap-around prev'
+alt-n = 'move-node-to-monitor --wrap-around next'
+alt-ctrl-p = 'move-workspace-to-monitor --wrap-around prev'
+alt-ctrl-n = 'move-workspace-to-monitor --wrap-around next'
