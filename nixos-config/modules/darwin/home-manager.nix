@@ -1,7 +1,7 @@
 { config, pkgs, lib, home-manager, ... }:
 
 let
-  user = "mathiaschristiansen";
+    user = "balling";
   # Define the content of your file as a derivation
 in
 {
@@ -19,21 +19,15 @@ in
 
   homebrew = {
     enable = true;
+    # Casks (GUI) applications
     casks = pkgs.callPackage ./casks.nix {};
-    # onActivation.cleanup = "uninstall";
+    # Brews (CLI) applications not available in nixpkgs
+    brews = [
+      ];
+    onActivation.cleanup = "uninstall";
 
-    # These app IDs are from using the mas CLI app
-    # mas = mac app store
-    # https://github.com/mas-cli/mas
-    #
-    # $ nix shell nixpkgs#mas
-    # $ mas search <app name>
-    #
-    # If you have previously added these apps to your Mac App Store profile (but not installed them on this system),
-    # you may receive an error message "Redownload Unavailable with This Apple ID".
-    # This message is safe to ignore. (https://github.com/dustinlyons/nixos-config/issues/83)
     masApps = {
-      "wireguard" = 1451685025;
+      "Spark Desktop" = 6445813049;
     };
   };
 
@@ -61,13 +55,15 @@ in
   local.dock.entries = [
     { path = "/System/Applications/Messages.app/"; }
     { path = "/System/Applications/Facetime.app/"; }
+    { path = "/Applications/Arc.app/"; }
+    { path = "/Applications/WezTerm.app/"; }
     {
       path = "${config.users.users.${user}.home}/.local/share/";
       section = "others";
       options = "--sort name --view grid --display folder";
     }
     {
-      path = "${config.users.users.${user}.home}/.local/share/downloads";
+      path = "${config.users.users.${user}.home}/Downloads/";
       section = "others";
       options = "--sort name --view grid --display stack";
     }

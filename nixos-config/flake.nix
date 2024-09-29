@@ -23,15 +23,23 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    aerospace-tap = {
+      url = "github:nikitabobko/homebrew-tap";
+      flake = false;
+    };
+    # kmonad = {
+    #   url = "git+https://github.com/kmonad/kmonad?submodules=1&dir=nix";
+    #   flake = true;
+    # };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs, disko } @inputs:
+  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs, disko , aerospace-tap } @inputs:
     let
-      user = "mathiaschristiansen";
+      user = "balling";
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
       darwinSystems = [ "aarch64-darwin" "x86_64-darwin" ];
       forAllSystems = f: nixpkgs.lib.genAttrs (linuxSystems ++ darwinSystems) f;
@@ -75,7 +83,7 @@
       apps = nixpkgs.lib.genAttrs linuxSystems mkLinuxApps // nixpkgs.lib.genAttrs darwinSystems mkDarwinApps;
 
       darwinConfigurations = nixpkgs.lib.genAttrs darwinSystems (system: let
-        user = "mathiaschristiansen";
+        user = "balling";
       in
         darwin.lib.darwinSystem {
           inherit system;
@@ -91,6 +99,7 @@
                   "homebrew/homebrew-core" = homebrew-core;
                   "homebrew/homebrew-cask" = homebrew-cask;
                   "homebrew/homebrew-bundle" = homebrew-bundle;
+                  "nikitabobko/homebrew-tap" = aerospace-tap;
                 };
                 mutableTaps = false;
                 autoMigrate = true;
@@ -100,7 +109,6 @@
           ];
         }
       );
-
       nixosConfigurations = nixpkgs.lib.genAttrs linuxSystems (system: nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = inputs;

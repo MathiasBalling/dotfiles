@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>customSites</key>
+	<dict>
+		<key>2952B705-DE74-422F-94AC-BC2F7D620791</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>proff</string>
+			<key>text</key>
+			<string>Proff CVR</string>
+			<key>url</key>
+			<string>https://www.proff.dk/branches%C3%B8g?q={query}</string>
+		</dict>
+		<key>2FCCFF7A-73AB-4D37-A59D-1324BC53372C</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>nix</string>
+			<key>spaces</key>
+			<string>+</string>
+			<key>text</key>
+			<string>Nix Packages</string>
+			<key>url</key>
+			<string>https://search.nixos.org/packages?channel=24.05&amp;from=0&amp;size=50&amp;sort=relevance&amp;type=packages&amp;query={query}</string>
+		</dict>
+		<key>7F79AD70-ACAA-4BD5-8EBA-170069EFDA00</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>ads</string>
+			<key>text</key>
+			<string>Ads libray</string>
+			<key>url</key>
+			<string>https://www.facebook.com/ads/library/?active_status=all&amp;ad_type=all&amp;country=ALL&amp;q={query}&amp;sort_data[direction]=desc&amp;sort_data[mode]=relevancy_monthly_grouped&amp;search_type=keyword_unordered&amp;media_type=all</string>
+		</dict>
+		<key>DB3D5D16-775E-4464-A36D-BA9AC863398A</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>trust</string>
+			<key>spaces</key>
+			<string>+</string>
+			<key>text</key>
+			<string>Trustpilot</string>
+			<key>url</key>
+			<string>https://www.trustpilot.com/search?query={query}</string>
+		</dict>
+	</dict>
+	<key>onlyShowEnabledInPrefs</key>
+	<true/>
+</dict>
+</plist>

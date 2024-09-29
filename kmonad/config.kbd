@@ -38,6 +38,7 @@ Macbook pro 16" Nordic layout
     a_s (tap-hold-next-release 300 s lalt)
     c_d (tap-hold-next-release 300 d lctl)
     m_f (tap-hold-next-release 300 f lmet)
+    ;;m_f (tap-hold-next-release 300 (tap-hold 200 _ (tap-hold-next-release 300 _ _)) lmet)
     m_j (tap-hold-next-release 300 j rmet)
     c_k (tap-hold-next-release 300 k rctl)
     a_l (tap-hold-next-release 300 l lalt)

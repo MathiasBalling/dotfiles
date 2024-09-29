@@ -7,14 +7,14 @@
     <key>ProgramArguments</key>
     <array>
         <string>sudo</string>
-        <string>/Users/mathiaschristiansen/kmonad/.stack-work/install/aarch64-osx/583b7cdf492705ba580969ab526195c1019cda3376aa6967dcd89c7c248ce9f3/9.4.7/bin/kmonad</string>
-        <string>/Users/mathiaschristiansen/.config/kmonad/config.kbd</string>
+        <string>/Users/balling/.local/bin/kmonad</string>
+        <string>/Users/balling/.config/kmonad/config.kbd</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
     <key>KeepAlive</key>
     <true/>
     <key>StandardErrorPath</key>
-    <string>/Users/mathiaschristiansen/.config/kmonad/error.log</string>
+    <string>/Users/balling/.config/kmonad/error.log</string>
 </dict>
 </plist>

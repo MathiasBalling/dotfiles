@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "{isodate:dd-MM-yyyy - HH:mm}\n",
+    "uid" : "BB511112-3460-462A-851D-B13E476DD729",
+    "name" : "Dag - Tid",
+    "keyword" : "dt"
+  }
+}

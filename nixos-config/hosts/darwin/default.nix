@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 
-let user = "mathiaschristiansen"; in
+let user = "balling"; in
 
 {
   imports = [
@@ -77,7 +77,7 @@ let user = "mathiaschristiansen"; in
 
         _HIHideMenuBar = false;
       };
-
+      universalaccess.reduceTransparency = false;
       WindowManager = {
         StandardHideDesktopIcons = true;
 
@@ -128,6 +128,7 @@ let user = "mathiaschristiansen"; in
       enableKeyMapping = false;
     };
   };
+  security.pam.enableSudoTouchIdAuth = true;
   time = {
     timeZone = "Europe/Copenhagen";
   };

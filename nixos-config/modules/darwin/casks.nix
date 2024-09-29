@@ -2,19 +2,34 @@ _:
 
 [
   # Development Tools
-  "homebrew/cask/docker"
   "visual-studio-code"
+  "mactex-no-gui"
+  "wezterm"
+  "obsidian"
+  "docker"
+  "utm"
+  "adobe-creative-cloud"
+
+  # Browsers
+  "arc"
 
   # Communication Tools
   "discord"
+  "messenger"
   "notion"
   "slack"
   "telegram"
   "zoom"
-  "google-drive"
+  "spotify"
 
   # Utility Tools
   "syncthing"
+  "onedrive"
+  "google-drive"
+  "cleanmymac"
+  "betterdisplay"
+  "git-credential-manager"
+  "hiddenbar"
 
   # Entertainment Tools
   "vlc"
@@ -22,25 +37,9 @@ _:
 
   # Productivity Tools
   "alfred"
-  "aerospace"
-  "wezterm"
-  "aldente"
+  "nikitabobko/tap/aerospace"
   "alt-tab"
   "shottr"
-  "obsidian"
-  "cleanmymac"
-  "betterdisplay"
-  "git-credential-manager"
   "deepl"
   "balenaetcher"
-  "docker"
-  "utm"
-  "spotify"
-  "mactex-no-gui"
-  "hiddenbar"
-  "logi-options+"
-  "adobe-creative-cloud"
-
-  # Browsers
-  "arc"
 ]
