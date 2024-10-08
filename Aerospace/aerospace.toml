@@ -49,7 +49,7 @@ if.app-id = 'com.macpaw.CleanMyMac4'
 run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'com.apple.ActivityMonitor'
-run = ['layout floating']
+run = 'layout floating'
 
 # 'main' binding mode must be always presented
 # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
@@ -100,6 +100,7 @@ alt-shift-9 = 'workspace 9'
 alt-shift-b = 'workspace B'
 alt-shift-n = 'workspace N'
 alt-shift-t = 'workspace T'
+alt-shift-c = 'workspace C'
 
 alt-ctrl-1 = 'move-node-to-workspace 1'
 alt-ctrl-2 = 'move-node-to-workspace 2'
@@ -113,6 +114,7 @@ alt-ctrl-9 = 'move-node-to-workspace 9'
 alt-ctrl-b = 'move-node-to-workspace B'
 alt-ctrl-n = 'move-node-to-workspace N'
 alt-ctrl-t = 'move-node-to-workspace T'
+alt-ctrl-c = 'move-node-to-workspace C'
 
 # Exec  to switch to the next workspace
 alt-tab = 'exec-and-forget aerospace list-workspaces --monitor focused --empty no | aerospace workspace --wrap-around next'

@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     darwin = {
       url = "github:LnL7/nix-darwin/master";
@@ -27,10 +28,6 @@
       url = "github:nikitabobko/homebrew-tap";
       flake = false;
     };
-    # kmonad = {
-    #   url = "git+https://github.com/kmonad/kmonad?submodules=1&dir=nix";
-    #   flake = true;
-    # };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -9,11 +9,14 @@ with pkgs; [
   gnumake
   ninja
   nodejs
+  rustup
 
   # Libs
   ffmpeg
   opencv
   fmt
+  # libclang
+  # llvm_18
 
   # development
   fzf
@@ -40,4 +43,6 @@ with pkgs; [
   zsh-powerlevel10k
   zsh-syntax-highlighting
   zsh-autosuggestions
+
+  kanata
 ]

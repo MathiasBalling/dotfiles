@@ -1,0 +1,120 @@
+#| --------------------------------------------------------------------------
+Macbook pro 16" Nordic layout
+(deflayer name
+  _      _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _      _    _    _    _    _    _    _    _    _    _    _    _    _
+  _       _    _    _    _    _    _    _    _    _    _    _    _
+  _     _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _               _              _     _         _
+                                                           _    _    _
+)
+  -------------------------------------------------------------------------- |#
+(defcfg
+  macos-dev-names-include (
+    "Apple Internal Keyboard / Trackpad"
+  )
+  process-unmapped-keys yes
+)
+
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  nubs  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab    q    w    e    r    t    y    u    i    o    p    [    ]    ret
+  caps    a    s    d    f    g    h    j    k    l    ;    '    \
+  lsft  `   z    x    c    v    b    n    m    ,    .    /    rsft
+  fn   lctl lalt lmet           spc            rmet ralt          up
+                                                            left down rght
+)
+
+(deflayer main
+  esc   brdn  brup  A-tab  M-spc   bldn  blup   prev  pp  next  mute  voldwn  volu
+  XX    _    _    _    _    _    _    _    _    _    _    XX    XX    XX
+  _      _    _    _    _    _    _    _    _    _    _    XX    XX    XX
+  esc     @s_a  @a_s   @c_d   @m_f    _    _  @m_j  @c_k  @a_l  @s_;    _    _
+  XX    fn    _    _    _    _    _    _    _    _    _    _    _
+  @fn  XX    @nav    @ret               _              bspc     del          _
+                                                            _    _    _
+)
+
+(deflayer num
+  _      _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  S-7      S-1    S-2    S-3    S-4    S-5    S-8    7    8    9   S-9   S-0    _    _
+  \    lsft  lalt lctl  lmet   =    -    4    5    6    S-[   S-]    _
+  _    fn    `    S-`   S--    S-6    S-\    +    1    2    3    [    ]
+  _    _    _    _               _              0     _         _
+                                                           _    _    _
+)
+
+(deflayer nav
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    lsft lalt lctl lmet    _    left    down    up    right    _    _    _
+  _   _   _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _              spc              _    _        _
+                                                            _    _    _
+)
+
+(defvar
+  tap-timeout   300
+  hold-timeout  200
+  tt $tap-timeout
+  ht $hold-timeout
+)
+
+(defalias 
+    ;; For layer switching
+    off (layer-switch off_layer)
+    trans (layer-switch transpartent)
+    eng (layer-switch main)
+
+    ;; For layer toggling
+    fn (layer-while-held function_layer)
+    nav (layer-while-held nav)
+    ret (tap-hold-release $tt $ht ret (layer-while-held num))
+)
+
+(defalias
+    ;; Home Row Mods;
+    s_a (tap-hold-release $tt $ht a lsft)
+    a_s (tap-hold-release $tt $ht s lalt)
+    c_d (tap-hold-release $tt $ht d lctl)
+    m_f (tap-hold-release $tt $ht f lmet)
+
+    m_j (tap-hold-release $tt $ht j rmet)
+    c_k (tap-hold-release $tt $ht k rctl)
+    a_l (tap-hold-release $tt $ht l ralt)
+    s_; (tap-hold-release $tt $ht ; rsft)
+)
+
+(deflayer transpartent
+  caps      _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _      _    _    _    _    _    _    _    _    _    _    _    _    _
+  esc       _    _    _    _    _    _    _    _    _    _    _    _
+  _     _    _    _    _    _    _    _    _    _    _    _    _
+  @fn  _    _    _               _              _     _         _
+                                                           _    _    _
+)
+
+(deflayer function_layer
+  _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _   _    _    _    _    _    _    _    @off
+  _    _    _    _    @trans    _    _  @eng    _    _    _    _    _
+  _   _   _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _              _              _    _          _
+                                                          _    _    _
+)
+
+(deflayer off_layer
+  XX      XX    XX    XX    XX    @eng  XX    XX    XX    XX    XX    XX    XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX      XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX       XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX     XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    XX    XX    XX               XX              XX     XX         XX
+                                                           XX    XX    XX
+)

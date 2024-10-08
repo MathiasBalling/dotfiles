@@ -1,9 +1,6 @@
 local wezterm = require("wezterm")
 
 local config = {
-	-- default_prog = { "/bin/sh", "-c", "tmux attach-session -t home || tmux new-session -s home" },
-	-- Spawn a fish shell in login mode
-	-- default_prog = { "/bin/zsh", "tmux attach-session -t home || tmux new-session -s home" },
 	default_prog = {
 		"/bin/sh",
 		"-c",
@@ -17,6 +14,7 @@ local config = {
 		top = 0,
 		bottom = 0,
 	},
+	window_background_opacity = 0.95,
 
 	colors = {
 		background = "#000111",

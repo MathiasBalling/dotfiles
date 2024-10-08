@@ -81,3 +81,10 @@ end, { desc = "Toggle Copilot" })
 vim.keymap.set("n", "<leader>ct", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, { desc = "Toggle LSP inline hint" })
+
+-- Execute :Copilot suggestion
+vim.keymap.set("n", "<M-g>", function()
+  require("copilot.command").execute()
+end, { desc = "Execute Copilot suggestion" })
+
+-- If r

@@ -23,7 +23,9 @@ in
     casks = pkgs.callPackage ./casks.nix {};
     # Brews (CLI) applications not available in nixpkgs
     brews = [
-      ];
+      "java11"
+      "llvm"
+    ];
     onActivation.cleanup = "uninstall";
 
     masApps = {
