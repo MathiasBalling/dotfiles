@@ -24,9 +24,13 @@ in
     # Brews (CLI) applications not available in nixpkgs
     brews = [
       "java11"
-      "llvm"
     ];
-    onActivation.cleanup = "uninstall";
+    onActivation={
+      cleanup = "zap";
+      upgrade = true;
+      autoUpdate = true;
+
+    };
 
     masApps = {
       "Spark Desktop" = 6445813049;

@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-    user = "balling";
+  user = "balling";
   xdg_configHome  = "/home/${user}/.config";
   shared-programs = import ../shared/home-manager.nix { inherit config pkgs lib; };
 

@@ -44,5 +44,5 @@ with pkgs; [
   zsh-syntax-highlighting
   zsh-autosuggestions
 
-  kanata
+  # kanata
 ]
