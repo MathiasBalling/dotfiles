@@ -1,11 +1,11 @@
 local wezterm = require("wezterm")
 
 local config = {
-	default_prog = {
-		"/bin/sh",
-		"-c",
-		"/Users/balling/.nix-profile/bin/tmux attach-session -t home || /Users/balling/.nix-profile/bin/tmux new-session -s home",
-	},
+	-- default_prog = {
+	-- 	"/bin/sh",
+	-- 	"-c",
+	-- 	"/Users/balling/.nix-profile/bin/tmux attach-session -t home || /Users/balling/.nix-profile/bin/tmux new-session -s home",
+	-- },
 	font_size = 16,
 	window_decorations = "RESIZE",
 	window_padding = {

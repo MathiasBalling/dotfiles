@@ -146,6 +146,7 @@ esc = 'mode main'
 
 w = ['exec-and-forget open -a Wezterm', 'mode main']
 a = ['exec-and-forget open -a Arc', 'mode main']
+s = ['exec-and-forget open -a Spotify', 'mode main']
 o = ['exec-and-forget open -a Obsidian', 'mode main']
 i = ['exec-and-forget open -a Adobe\ Illustrator', 'mode main']
 p = ['exec-and-forget open -a Adobe\ Photoshop\ \(Beta\)', 'mode main']

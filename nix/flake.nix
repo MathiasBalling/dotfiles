@@ -7,17 +7,6 @@
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
       darwinSystems = [ "aarch64-darwin" "x86_64-darwin" ];
 
-      forAllSystems = f: nixpkgs.lib.genAttrs (linuxSystems ++ darwinSystems) f;
-
-      devShell = system: let pkgs = nixpkgs.legacyPackages.${system}; in {
-        default = with pkgs; mkShell {
-          nativeBuildInputs = with pkgs; [ bashInteractive git ];
-          shellHook = ''
-            export EDITOR=nvim
-          '';
-        };
-      };
-
       # Function to create an app script
       mkApp = scriptName: system: {
         type = "app";
@@ -42,7 +31,7 @@
       };
     in
     {
-      devShells = forAllSystems devShell;
+      # devShells = forAllSystems devShell;
       apps = nixpkgs.lib.genAttrs linuxSystems mkLinuxApps // nixpkgs.lib.genAttrs darwinSystems mkDarwinApps;
 
       darwinConfigurations = nixpkgs.lib.genAttrs darwinSystems (system: let
@@ -50,7 +39,17 @@
       in
         darwin.lib.darwinSystem {
           inherit system;
-          specialArgs = inputs;
+
+          specialArgs = let
+            pkgs-stable = import nixpkgs-stable {
+              config.allowUnfree = true;
+              localSystem = { inherit system; };
+            };
+
+          in {
+            inherit pkgs-stable;
+          };          # Add nix-stable to the list of inputs
+
           modules = [
             home-manager.darwinModules.home-manager
             nix-homebrew.darwinModules.nix-homebrew
@@ -65,7 +64,6 @@
                   "nikitabobko/homebrew-tap" = aerospace-tap;
                 };
                 mutableTaps = false;
-                # autoMigrate = true;
               };
             }
             ./hosts/darwin

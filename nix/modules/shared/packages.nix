@@ -15,12 +15,9 @@ with pkgs; [
   ffmpeg
   opencv
   fmt
-  # libclang
-  # llvm_18
 
   # development
   fzf
-  tmux
   neovim
   zoxide
   ripgrep
@@ -28,6 +25,7 @@ with pkgs; [
   lazygit
   zathura
   yazi
+  eza
 
   # Text and terminal utilities
   htop
@@ -39,10 +37,5 @@ with pkgs; [
   neofetch
   killall
 
-  # zsh
-  zsh-powerlevel10k
-  zsh-syntax-highlighting
-  zsh-autosuggestions
-
-  # kanata
+  # stable.kanata
 ]

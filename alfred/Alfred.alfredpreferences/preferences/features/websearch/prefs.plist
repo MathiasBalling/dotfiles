@@ -26,20 +26,7 @@
 			<key>text</key>
 			<string>Nix Packages</string>
 			<key>url</key>
-			<string>https://search.nixos.org/packages?channel=24.05&amp;from=0&amp;size=50&amp;sort=relevance&amp;type=packages&amp;query={query}</string>
-		</dict>
-		<key>40B0A8CE-5FD9-4ADE-906F-E880B404EBB5</key>
-		<dict>
-			<key>enabled</key>
-			<true/>
-			<key>keyword</key>
-			<string>rs</string>
-			<key>spaces</key>
-			<string>+</string>
-			<key>text</key>
-			<string>Rust Docs</string>
-			<key>url</key>
-			<string>https://docs.rs/releases/search?query={query}&amp;sort=relevance</string>
+			<string>https://search.nixos.org/packages?channel=unstable&amp;from=0&amp;size=50&amp;sort=relevance&amp;type=packages&amp;query={query}</string>
 		</dict>
 		<key>7F79AD70-ACAA-4BD5-8EBA-170069EFDA00</key>
 		<dict>
@@ -51,6 +38,19 @@
 			<string>Ads libray</string>
 			<key>url</key>
 			<string>https://www.facebook.com/ads/library/?active_status=all&amp;ad_type=all&amp;country=ALL&amp;q={query}&amp;sort_data[direction]=desc&amp;sort_data[mode]=relevancy_monthly_grouped&amp;search_type=keyword_unordered&amp;media_type=all</string>
+		</dict>
+		<key>D91F6C3B-DA75-48D0-A631-E0C562EB08A9</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>nixm</string>
+			<key>spaces</key>
+			<string>+</string>
+			<key>text</key>
+			<string>MyNixOs</string>
+			<key>url</key>
+			<string>https://mynixos.com/search?q={query}</string>
 		</dict>
 		<key>DB3D5D16-775E-4464-A36D-BA9AC863398A</key>
 		<dict>

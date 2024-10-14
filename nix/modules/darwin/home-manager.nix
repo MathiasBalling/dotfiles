@@ -25,6 +25,7 @@ in
     brews = [
       "java11"
     ];
+
     onActivation={
       cleanup = "zap";
       upgrade = true;
@@ -34,6 +35,9 @@ in
 
     masApps = {
       "Spark Desktop" = 6445813049;
+      "Microsoft Word" = 462054704;
+      "Microsoft Excel" = 462058435;
+      "Microsoft PowerPoint" = 462062816;
     };
   };
 

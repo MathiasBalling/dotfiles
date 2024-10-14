@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string></string>
+	<key>category</key>
+	<string>Internet</string>
+	<key>connections</key>
+	<dict>
+		<key>B9819813-1417-4E8B-AED4-96B7CE690AAE</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E43CDB22-D832-41FA-9604-652A49B4E547</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>E43CDB22-D832-41FA-9604-652A49B4E547</key>
+		<array/>
+	</dict>
+	<key>createdby</key>
+	<string></string>
+	<key>description</key>
+	<string></string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Crates.io Search</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>skipqueryencode</key>
+				<false/>
+				<key>skipvarencode</key>
+				<false/>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>E43CDB22-D832-41FA-9604-652A49B4E547</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>keyword</key>
+				<string>rs</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>import json
+import sys
+import urllib.request
+
+# Get the query entered by the user in Alfred
+query = sys.argv[1]
+
+# Crates.io search API endpoint
+crates_io_url = f"https://crates.io/api/v1/crates?q={query}&amp;limit=10"
+
+# Fetch the results from crates.io
+response = urllib.request.urlopen(crates_io_url)
+data = json.loads(response.read())
+
+# Prepare the results for Alfred in JSON format
+results = {
+    "items": []
+}
+
+for crate in data['crates']:
+    crate_name = crate['name']
+
+    # Add the option to visit the documentation on docs.rs
+    results['items'].append({
+        "title": f"{crate_name} (docs.rs)",
+        "subtitle": f"View {crate_name} documentation on docs.rs",
+        "arg": f"https://docs.rs/{crate_name}",
+        "icon": {
+            "path": "docs_icon.png"  # Optional icon for docs.rs
+        }
+    })
+
+	# Add the option to visit the crate on crates.io
+    results['items'].append({
+        "title": f"{crate_name} (crates.io)",
+        "subtitle": crate['description'],
+        "arg": f"https://crates.io/crates/{crate_name}",
+        "icon": {
+            "path": "crate_icon.png"  # Optional icon for crates.io
+        }
+    })
+
+# Output the results to Alfred
+print(json.dumps(results))
+</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Rust</string>
+				<key>type</key>
+				<integer>9</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>B9819813-1417-4E8B-AED4-96B7CE690AAE</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>B9819813-1417-4E8B-AED4-96B7CE690AAE</key>
+		<dict>
+			<key>xpos</key>
+			<real>330</real>
+			<key>ypos</key>
+			<real>335</real>
+		</dict>
+		<key>E43CDB22-D832-41FA-9604-652A49B4E547</key>
+		<dict>
+			<key>xpos</key>
+			<real>680</real>
+			<key>ypos</key>
+			<real>330</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
