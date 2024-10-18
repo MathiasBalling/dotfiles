@@ -59,7 +59,7 @@ in
         NSAutomaticWindowAnimationsEnabled = false;
         NSNavPanelExpandedStateForSaveMode = true;
         NSNavPanelExpandedStateForSaveMode2 = true;
-        NSWindowShouldDragOnGesture = false;
+        NSWindowShouldDragOnGesture = true;
 
         "com.apple.mouse.tapBehavior" = 1;
         "com.apple.sound.beep.volume" = 0.0;
