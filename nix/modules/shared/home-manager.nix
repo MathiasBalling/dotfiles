@@ -99,6 +99,22 @@ in
       export PATH=$HOME/.local/bin:$PATH
       export PATH="$HOME/.config/scripts:$PATH"
 
+      if [[ -n $SSH_CONNECTION ]]; then
+        export EDITOR='vim'
+      else
+        export EDITOR='nvim'
+      fi
+
+      # Allow for the use of yazi to change directories when exiting
+      function y() {
+        local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+        yazi "$@" --cwd-file="$tmp"
+        if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+          builtin cd -- "$cwd"
+        fi
+        rm -f -- "$tmp"
+      }
+
       # Add homebrew to the PATH
       if [[ $(uname -m) == 'arm64' ]]; then
         eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -225,7 +241,9 @@ in
 
   git = {
     enable = true;
-    ignores = [ "*.swp" ];
+    ignores = [ 
+      "*.swp" ".DS_Store" ".vscode" ".cache"
+    ];
     userName = name;
     userEmail = email;
     lfs = {
