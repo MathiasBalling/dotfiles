@@ -1,5 +1,5 @@
-set synctex true
-set synctex-editor-command "nvim --remote-silent +%{line} %{input}"
+# set synctex true
+# set synctex-editor-command "nvim --remote-silent +%{line} %{input}"
 
 set selection-clipboard clipboard
 set statusbar-h-padding 0

@@ -1,11 +1,2 @@
 .DS_Store
-tmux/plugins
-github-copilot/hosts.json
-kmonad/error.log
-kmonad/log.log
-.zcompdump-Ballings MacBook Pro -5.9
-.zcompdump-Ballings MacBook Pro -5.9.zwc
-.zsh_history
-.zsh_sessions
-github-copilot/apps.json
-alfred/Alfred.alfredpreferences/workflows/user.workflow.963696EA-1B05-49B4-948D-0E66EF30EDCD
+github-copilot
