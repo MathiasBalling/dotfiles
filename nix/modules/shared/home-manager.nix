@@ -1,8 +1,13 @@
-{ config, pkgs, lib, ... }:
-let 
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+let
   name = "Mathias Balling";
   user = "balling";
-  email = "math260r@gmail.com"; 
+  email = "math260r@gmail.com";
   filePathZshInstant = "$HOME/.cache/p10k-instant-prompt-${user}.zsh";
 in
 {
@@ -49,17 +54,18 @@ in
       "." = "cd ~";
       ".." = "cd ..";
       "..." = "cd ../..";
-      ls="eza $eza_params";
-      l="eza --git-ignore $eza_params";
-      ll="eza --all --header --long $eza_params";
-      llm="eza --all --header --long --sort=modified $eza_params";
-      la="eza -lbhHigUmuSa";
-      lx="eza -lbhHigUmuSa@";
-      lt="eza --tree $eza_params";
-      lt1="eza --tree -L 1 $eza_params";
-      lt2="eza --tree -L 2 $eza_params";
-      lt3="eza --tree -L 3 $eza_params";
-      tree="eza --tree $eza_params";
+      ls = "eza $eza_params";
+      lsa = "eza -a $eza_params";
+      l = "eza --git-ignore $eza_params";
+      ll = "eza --all --header --long $eza_params";
+      llm = "eza --all --header --long --sort=modified $eza_params";
+      la = "eza -lbhHigUmuSa";
+      lx = "eza -lbhHigUmuSa@";
+      lt = "eza --tree $eza_params";
+      lt1 = "eza --tree -L 1 $eza_params";
+      lt2 = "eza --tree -L 2 $eza_params";
+      lt3 = "eza --tree -L 3 $eza_params";
+      tree = "eza --tree $eza_params";
     };
 
     oh-my-zsh = {
@@ -128,7 +134,8 @@ in
     '';
   };
 
-  tmux = { # tmux
+  tmux = {
+    # tmux
     enable = true;
     historyLimit = 50000;
     keyMode = "vi";
@@ -156,6 +163,11 @@ in
 
       # set shell
       # set -g default-shell ${pkgs.zsh}/bin/zsh
+
+      # For yazi
+      set -g allow-passthrough all
+      set -ga update-environment TERM
+      set -ga update-environment TERM_PROGRAM
 
       # Splits
       unbind %
@@ -241,8 +253,11 @@ in
 
   git = {
     enable = true;
-    ignores = [ 
-      "*.swp" ".DS_Store" ".vscode" ".cache"
+    ignores = [
+      "*.swp"
+      ".DS_Store"
+      ".vscode"
+      ".cache"
     ];
     userName = name;
     userEmail = email;
@@ -252,7 +267,7 @@ in
     extraConfig = {
       init.defaultBranch = "main";
       core = {
-	    editor = "nvim";
+        editor = "nvim";
         autocrlf = "input";
       };
       pull.rebase = true;
@@ -263,23 +278,15 @@ in
   ssh = {
     enable = true;
     includes = [
-      (lib.mkIf pkgs.stdenv.hostPlatform.isLinux
-        "/home/${user}/.ssh/config_external"
-      )
-      (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin
-        "/Users/${user}/.ssh/config_external"
-      )
+      (lib.mkIf pkgs.stdenv.hostPlatform.isLinux "/home/${user}/.ssh/config_external")
+      (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin "/Users/${user}/.ssh/config_external")
     ];
     matchBlocks = {
       "github.com" = {
         identitiesOnly = true;
         identityFile = [
-          (lib.mkIf pkgs.stdenv.hostPlatform.isLinux
-            "/home/${user}/.ssh/id_github"
-          )
-          (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin
-            "/Users/${user}/.ssh/id_github"
-          )
+          (lib.mkIf pkgs.stdenv.hostPlatform.isLinux "/home/${user}/.ssh/id_github")
+          (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin "/Users/${user}/.ssh/id_github")
         ];
       };
     };

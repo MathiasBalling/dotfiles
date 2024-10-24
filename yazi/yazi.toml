@@ -1,7 +1,4 @@
 # Set max width images
-[plugin]
-prepend_previewers = [{ name = "*.md", run = "glow" }]
-# Set max width images
 [manager]
 ratio = [1, 4, 3]
 sort_by = "natural"
@@ -10,16 +7,43 @@ sort_reverse = false
 sort_dir_first = true
 sort_translit = false
 linemode = "size"
-show_hidden = false
+show_hidden = true
 show_symlink = true
 scrolloff = 5
 mouse_events = ["click", "scroll"]
+
 [preview]
 tab_size = 2
-max_width = 600
-max_height = 900
+max_width = 1500
+max_height = 2000
 cache_dir = ""
-# image_delay = 30
+image_delay = 30
 image_filter = "triangle"
 image_quality = 75
 sixel_fraction = 15
+
+[opener]
+pdf = [
+	{ run = 'zathura "$0"', block = false, for = "unix" },
+]
+code = [
+	{ run = 'code "$@"', block = false, for = "unix" },
+]
+
+[open]
+prepend_rules = [
+	{ name = "*.pdf", use = ["pdf", "open", "reveal"] },
+	{ name = "*.ipynb", use = ["open", "reveal"] },
+]
+
+[plugin]
+prepend_previewers = [{ name = "*.md", run = "glow" }]
+[[plugin.prepend_fetchers]]
+id = "git"
+name = "*"
+run = "git"
+
+[[plugin.prepend_fetchers]]
+id = "git"
+name = "*/"
+run = "git"

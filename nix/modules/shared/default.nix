@@ -17,7 +17,7 @@
       #   pathExists (path + ("/" + n + "/default.nix")))
       #   (attrNames (readDir path)))
       # ++ 
-      [ 
+      [
         (final: prev: {
           stable = pkgs-stable;
         })

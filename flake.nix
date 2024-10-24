@@ -1,21 +1,41 @@
 {
   description = "Balling's Nix configuration for MacOS and Linux";
 
-  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs, nixpkgs-stable, aerospace-tap } @inputs:
+  outputs =
+    {
+      self,
+      darwin,
+      nix-homebrew,
+      homebrew-bundle,
+      homebrew-core,
+      homebrew-cask,
+      home-manager,
+      nixpkgs,
+      nixpkgs-stable,
+      aerospace-tap,
+    }@inputs:
     let
       user = "balling";
-      linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
-      darwinSystems = [ "aarch64-darwin" "x86_64-darwin" ];
+      linuxSystems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
+      darwinSystems = [
+        "aarch64-darwin"
+        "x86_64-darwin"
+      ];
 
       # Function to create an app script
       mkApp = scriptName: system: {
         type = "app";
-        program = "${(nixpkgs.legacyPackages.${system}.writeScriptBin scriptName ''
-          #!/usr/bin/env bash
-          PATH=${nixpkgs.legacyPackages.${system}.git}/bin:$PATH
-          echo "Running ${scriptName} for ${system}"
-          exec ${self}/apps/${system}/${scriptName}
-        '')}/bin/${scriptName}";
+        program = "${
+          (nixpkgs.legacyPackages.${system}.writeScriptBin scriptName ''
+            #!/usr/bin/env bash
+            PATH=${nixpkgs.legacyPackages.${system}.git}/bin:$PATH
+            echo "Running ${scriptName} for ${system}"
+            exec ${self}/nix/apps/${system}/${scriptName}
+          '')
+        }/bin/${scriptName}";
       };
 
       mkLinuxApps = system: {
@@ -32,23 +52,31 @@
     in
     {
       # devShells = forAllSystems devShell;
-      apps = nixpkgs.lib.genAttrs linuxSystems mkLinuxApps // nixpkgs.lib.genAttrs darwinSystems mkDarwinApps;
+      apps =
+        nixpkgs.lib.genAttrs linuxSystems mkLinuxApps
+        // nixpkgs.lib.genAttrs darwinSystems mkDarwinApps;
 
-      darwinConfigurations = nixpkgs.lib.genAttrs darwinSystems (system: let
-        user = "balling";
-      in
+      darwinConfigurations = nixpkgs.lib.genAttrs darwinSystems (
+        system:
+        let
+          user = "balling";
+        in
         darwin.lib.darwinSystem {
           inherit system;
 
-          specialArgs = let
-            pkgs-stable = import nixpkgs-stable {
-              config.allowUnfree = true;
-              localSystem = { inherit system; };
-            };
+          specialArgs =
+            let
+              pkgs-stable = import nixpkgs-stable {
+                config.allowUnfree = true;
+                localSystem = {
+                  inherit system;
+                };
+              };
 
-          in {
-            inherit pkgs-stable;
-          };          # Add nix-stable to the list of inputs
+            in
+            {
+              inherit pkgs-stable inputs;
+            }; # Add nix-stable to the list of inputs
 
           modules = [
             home-manager.darwinModules.home-manager
@@ -66,25 +94,30 @@
                 mutableTaps = false;
               };
             }
-            ./hosts/darwin
+            ./nix/hosts/darwin
           ];
         }
       );
-      nixosConfigurations = nixpkgs.lib.genAttrs linuxSystems (system: nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = inputs;
-        modules = [
-          home-manager.nixosModules.home-manager {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.${user} = import ./modules/nixos/home-manager.nix;
-            };
-          }
-          ./hosts/nixos
-        ];
-     });
-  };
+      nixosConfigurations = nixpkgs.lib.genAttrs linuxSystems (
+        system:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+
+          specialArgs = inputs;
+          modules = [
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.${user} = import .nix/modules/nixos/home-manager.nix;
+              };
+            }
+            .nix/hosts/nixos
+          ];
+        }
+      );
+    };
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";

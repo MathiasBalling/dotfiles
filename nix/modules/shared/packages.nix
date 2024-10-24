@@ -1,5 +1,6 @@
 { pkgs }:
-with pkgs; [
+with pkgs;
+[
   # General packages for development and system management
   openssh
   sqlite
@@ -38,4 +39,7 @@ with pkgs; [
   killall
 
   # stable.kanata
+  # Nix format
+  nixfmt-rfc-style
+  nixd
 ]

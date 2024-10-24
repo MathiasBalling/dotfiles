@@ -1,12 +1,18 @@
-{ config, pkgs, lib, home-manager, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  home-manager,
+  ...
+}:
 
 let
-    user = "balling";
-  # Define the content of your file as a derivation
+  user = "balling";
 in
+# Define the content of your file as a derivation
 {
   imports = [
-   ./dock
+    ./dock
   ];
 
   # It me
@@ -20,13 +26,14 @@ in
   homebrew = {
     enable = true;
     # Casks (GUI) applications
-    casks = pkgs.callPackage ./casks.nix {};
+    casks = pkgs.callPackage ./casks.nix { };
     # Brews (CLI) applications not available in nixpkgs
     brews = [
       "java11"
+      "pygments"
     ];
 
-    onActivation={
+    onActivation = {
       cleanup = "zap";
       upgrade = true;
       autoUpdate = true;
@@ -44,20 +51,55 @@ in
   # Enable home-manager
   home-manager = {
     useGlobalPkgs = true;
-    users.${user} = { pkgs, config, lib, ... }:{
-      home = {
-        enableNixpkgsReleaseCheck = false;
-        packages = pkgs.callPackage ./packages.nix {};
-        file = lib.mkMerge [
-        ];
-        stateVersion = "23.11";
-      };
-      programs = {} // import ../shared/home-manager.nix { inherit config pkgs lib; };
+    users.${user} =
+      {
+        pkgs,
+        config,
+        lib,
+        ...
+      }:
+      {
+        home = {
+          enableNixpkgsReleaseCheck = false;
+          packages = pkgs.callPackage ./packages.nix { };
+          # file = lib.mkMerge [
+          # ];
+          file = {
+            ".config/nvim" = {
+              enable = true;
+              source = ./../../../nvim;
+              recursive = true;
+            };
+            ".config/yazi" = {
+              enable = true;
+              source = ./../../../yazi;
+              recursive = true;
+            };
+            ".config/Aerospace/aerospace.toml" = {
+              enable = true;
+              source = ./../../../Aerospace/aerospace.toml;
+            };
+            ".config/wezterm/wezterm.lua" = {
+              enable = true;
+              source = ./../../../wezterm/wezterm.lua;
+            };
+            ".config/zathura/zathurarc" = {
+              enable = true;
+              source = ./../../../zathura/zathurarc;
+            };
+            ".config/kanata/config.kbd" = {
+              enable = true;
+              source = ./../../../kanata/config.kbd;
+            };
+          };
+          stateVersion = "23.11";
+        };
+        programs = { } // import ../shared/home-manager.nix { inherit config pkgs lib; };
 
-      # Marked broken Oct 20, 2022 check later to remove this
-      # https://github.com/nix-community/home-manager/issues/3344
-      # manual.manpages.enable = false;
-    };
+        # Marked broken Oct 20, 2022 check later to remove this
+        # https://github.com/nix-community/home-manager/issues/3344
+        # manual.manpages.enable = false;
+      };
   };
 
   # Fully declarative dock using the latest from Nix Store
