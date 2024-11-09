@@ -4,6 +4,9 @@ return {
 
 		if h.cha.is_dir then
 			local url = tostring(h.url)
+			url = string.gsub(url, " ", "\\ ")
+			url = string.gsub(url, "&", "\\&")
+
 			ya.manager_emit("shell", {
 				orphan = true,
 				confirm = true,
