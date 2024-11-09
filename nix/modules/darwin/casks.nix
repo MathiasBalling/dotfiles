@@ -12,6 +12,7 @@ _:
 
   # Browsers
   "arc"
+  "zen-browser"
 
   # Communication Tools
   "discord"
@@ -30,6 +31,7 @@ _:
   "betterdisplay"
   "git-credential-manager"
   "hiddenbar"
+  "protonvpn"
 
   # Entertainment Tools
   "vlc"

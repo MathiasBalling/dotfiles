@@ -39,6 +39,9 @@ run = 'move-node-to-workspace T'
 if.app-id = 'company.thebrowser.Browser'
 run = 'move-node-to-workspace B'
 [[on-window-detected]]
+if.app-id = 'org.mozilla.com.zen.browser'
+run = 'move-node-to-workspace B'
+[[on-window-detected]]
 if.app-id = 'md.obsidian'
 run = 'move-node-to-workspace N'
 [[on-window-detected]]
@@ -63,6 +66,8 @@ run = 'layout floating'
 # - Keypad special. keypadClear, keypadDecimalMark, keypadDivide, keypadEnter, keypadEqual,
 #                   keypadMinus, keypadMultiply, keypadPlus
 # - Arrows.         left, down, up, right
+#
+# All possible modifiers: cmd, alt, ctrl, shift
 
 [mode.main.binding]
 cmd-h = []                                               # Disable "hide application"
@@ -125,6 +130,9 @@ shift-alt-ctrl-semicolon = 'mode service'
 alt-ctrl-semicolon = 'mode resize'
 alt-ctrl-space = 'mode opener'
 
+# Quicker app opener
+cmd-shift-semicolon = ['exec-and-forget open -a Wezterm', 'mode main']
+cmd-shift-a = ['exec-and-forget open -a Zen\ Browser', 'mode main']
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -144,7 +152,7 @@ backspace = ['close-all-windows-but-current --quit-if-last-window', 'mode main']
 # Exit
 esc = 'mode main'
 
-w = ['exec-and-forget open -a Wezterm', 'mode main']
+semicolon = ['exec-and-forget open -a Wezterm', 'mode main']
 a = ['exec-and-forget open -a Arc', 'mode main']
 s = ['exec-and-forget open -a Spotify', 'mode main']
 o = ['exec-and-forget open -a Obsidian', 'mode main']

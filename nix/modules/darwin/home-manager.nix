@@ -67,29 +67,29 @@ in
           file = {
             ".config/nvim" = {
               enable = true;
-              source = ./../../../nvim;
+              source = config.lib.file.mkOutOfStoreSymlink "/Users/${user}/dotfiles/nvim";
               recursive = true;
             };
             ".config/yazi" = {
               enable = true;
-              source = ./../../../yazi;
+              source = config.lib.file.mkOutOfStoreSymlink "/Users/${user}/dotfiles/yazi";
               recursive = true;
             };
             ".config/Aerospace/aerospace.toml" = {
               enable = true;
-              source = ./../../../Aerospace/aerospace.toml;
+              source = config.lib.file.mkOutOfStoreSymlink "/Users/${user}/dotfiles/Aerospace/aerospace.toml";
             };
             ".config/wezterm/wezterm.lua" = {
               enable = true;
-              source = ./../../../wezterm/wezterm.lua;
+              source = config.lib.file.mkOutOfStoreSymlink "/Users/${user}/dotfiles/wezterm/wezterm.lua";
             };
             ".config/zathura/zathurarc" = {
               enable = true;
-              source = ./../../../zathura/zathurarc;
+              source = config.lib.file.mkOutOfStoreSymlink "/Users/${user}/dotfiles/zathura/zathurarc";
             };
             ".config/kanata/config.kbd" = {
               enable = true;
-              source = ./../../../kanata/config.kbd;
+              source = config.lib.file.mkOutOfStoreSymlink "/Users/${user}/dotfiles/kanata/config.kbd";
             };
           };
           stateVersion = "23.11";

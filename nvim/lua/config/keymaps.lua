@@ -13,9 +13,10 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Visual replace
 vim.keymap.set("n", "<M-s>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Visual replace" }) -- Alt + s
-vim.keymap.set("v", "<M-s>", [[:s/]], { desc = "Replace in selected" }) -- Alt + s
+vim.keymap.set("v", "<M-s>", [[:s/\v]], { desc = "Replace in selected" }) -- Alt + s
 
-vim.keymap.set("n", "<M-f>", [[:%s/\v]], { desc = "Replace in buffer" }) -- Alt + a
+vim.keymap.set("n", "<M-f>", [[:%s/\v]], { desc = "Replace in buffer" }) -- Alt + f
+vim.keymap.set("v", "<M-f>", [[:s/\v]], { desc = "Replace in selected" }) -- Alt + f
 
 -- Buffer/window delete
 vim.keymap.set("n", "<M-q>", "<cmd>bd<cr>", { desc = "Delete buffer" }) -- Alt + q
@@ -87,4 +88,21 @@ vim.keymap.set("n", "<M-g>", function()
   require("copilot.command").execute()
 end, { desc = "Execute Copilot suggestion" })
 
--- If r
+-- Function to run file depending on filetype
+vim.keymap.set("n", "<M-r>", function()
+  if vim.bo.filetype == "python" then
+    vim.cmd("w")
+    vim.cmd("split | term python3 %")
+  elseif vim.bo.filetype == "cpp" then
+    vim.cmd("w")
+    vim.cmd("CMakeRun")
+  elseif vim.bo.filetype == "rust" then
+    vim.cmd("w")
+    vim.cmd("Cargo run")
+  elseif vim.bo.filetype == "javascript" then
+    vim.cmd("w")
+    vim.cmd("split | term node %")
+  else -- Default
+    vim.notify("Not supported filetype", "warn", { title = "File runner" })
+  end
+end, { desc = "Run file" })

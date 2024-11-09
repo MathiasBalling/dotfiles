@@ -16,7 +16,7 @@ return {
       { "<M-b>", ":CMakeBuild<CR>", desc = "Build CMake Target", silent = true }, -- Option + b
       { "<leader>ccB", ":CMakeQuickBuild<CR>", desc = "CMake Quick Build", silent = true },
       { "<leader>ccr", ":CMakeRun<CR>", desc = "CMake Run Target", silent = true },
-      { "<M-r>", ":CMakeRun<CR>", desc = "CMake Run Target", silent = true }, -- Option + r
+      -- { "<M-r>", ":CMakeRun<CR>", desc = "CMake Run Target", silent = true }, -- Option + r
       { "<leader>ccR", ":CMakeQuickRun<CR>", desc = "CMake Quick Run", silent = true },
 
       -- Target actions

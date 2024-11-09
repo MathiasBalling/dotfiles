@@ -51,7 +51,6 @@ in
       nv = "${pkgs.neovim}/bin/nvim";
       c = "clear";
       t = "tmux-sessionizer-z";
-      "." = "cd ~";
       ".." = "cd ..";
       "..." = "cd ../..";
       ls = "eza $eza_params";

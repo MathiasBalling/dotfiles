@@ -23,21 +23,25 @@ image_quality = 75
 sixel_fraction = 15
 
 [opener]
-pdf = [
-	{ run = 'zathura "$0"', block = false, for = "unix" },
-]
-code = [
-	{ run = 'code "$@"', block = false, for = "unix" },
-]
+pdf = [{ run = 'zathura "$0"', block = false, for = "unix" }]
+code = [{ run = 'code "$@"', block = false, for = "unix" }]
 
 [open]
 prepend_rules = [
-	{ name = "*.pdf", use = ["pdf", "open", "reveal"] },
-	{ name = "*.ipynb", use = ["open", "reveal"] },
+  { name = "*.pdf", use = [
+    "pdf",
+    "open",
+    "reveal",
+  ] },
+  { name = "*.ipynb", use = [
+    "open",
+    "reveal",
+  ] },
 ]
 
 [plugin]
-prepend_previewers = [{ name = "*.md", run = "glow" }]
+prepend_previewers = [{ name = "*.md", run = "mdcat" }]
+
 [[plugin.prepend_fetchers]]
 id = "git"
 name = "*"

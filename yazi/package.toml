@@ -1,5 +1,11 @@
 [plugin]
-deps = [{ use = "Reledia/glow", rev = "4e016fa" }, { use = "Lil-Dank/lazygit", rev = "c82794f" }, { use = "yazi-rs/plugins:chmod", rev = "4f1d0ae" }, { use = "yazi-rs/plugins:git", rev = "4f1d0ae" }]
+deps = [
+  { use = "Lil-Dank/lazygit", rev = "c82794f" },
+  { use = "yazi-rs/plugins:chmod", rev = "102a0cd" },
+  { use = "yazi-rs/plugins:git", rev = "102a0cd" },
+  { use = "yazi-rs/plugins:diff", rev = "102a0cd" },
+  { use = "GrzegorzKozub/mdcat", rev = "78cef96" },
+]
 
 [flavor]
 deps = []

@@ -10,6 +10,7 @@ with pkgs;
   gnumake
   ninja
   nodejs
+  pnpm
   rustup
 
   # Libs
@@ -27,6 +28,7 @@ with pkgs;
   zathura
   yazi
   eza
+  mdcat
 
   # Text and terminal utilities
   htop
