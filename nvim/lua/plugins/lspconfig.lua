@@ -9,7 +9,18 @@ return {
       --     return vim.loop.cwd()
       --   end,
       -- },
-      -- markdown_oxide = {},
+      shopify_theme_ls = {
+        cmd = {
+          "shopify",
+          "theme",
+          "language-server",
+        },
+        filetypes = { "liquid" },
+        -- root dir is the parent directory of the liquid files
+        root_dir = function(fname)
+          return require("lspconfig.util").root_pattern("config/")(fname)
+        end,
+      },
       -- nixd = {
       --   cmd = { "nixd" },
       --   settings = {

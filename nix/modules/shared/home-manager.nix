@@ -27,12 +27,12 @@ in
         src = pkgs.zsh-autosuggestions;
         file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
       }
-      {
-        # zsh-autosuggestions
-        name = "zsh-autocomplete";
-        src = pkgs.zsh-autocomplete;
-        file = "share/zsh-autocomplete/zsh-autocomplete.plugin.zsh";
-      }
+      # {
+      #   # zsh-autocomplete
+      #   name = "zsh-autocomplete";
+      #   src = pkgs.zsh-autocomplete;
+      #   file = "share/zsh-autocomplete/zsh-autocomplete.plugin.zsh";
+      # }
       {
         name = "powerlevel10k";
         src = pkgs.zsh-powerlevel10k;
@@ -46,26 +46,32 @@ in
     ];
     enableCompletion = false;
 
-    shellAliases = {
-      n = "${pkgs.neovim}/bin/nvim";
-      nv = "${pkgs.neovim}/bin/nvim";
-      c = "clear";
-      t = "tmux-sessionizer-z";
-      ".." = "cd ..";
-      "..." = "cd ../..";
-      ls = "eza $eza_params";
-      lsa = "eza -a $eza_params";
-      l = "eza --git-ignore $eza_params";
-      ll = "eza --all --header --long $eza_params";
-      llm = "eza --all --header --long --sort=modified $eza_params";
-      la = "eza -lbhHigUmuSa";
-      lx = "eza -lbhHigUmuSa@";
-      lt = "eza --tree $eza_params";
-      lt1 = "eza --tree -L 1 $eza_params";
-      lt2 = "eza --tree -L 2 $eza_params";
-      lt3 = "eza --tree -L 3 $eza_params";
-      tree = "eza --tree $eza_params";
-    };
+    shellAliases =
+      let
+        nvim = "${pkgs.neovim}/bin/nvim";
+        eza = "${pkgs.eza}/bin/eza";
+        eza_params = "--git --icons --group --group-directories-first --time-style=long-iso --color-scale=all";
+      in
+      {
+        n = "${nvim}";
+        nv = "${nvim}";
+        c = "clear";
+        t = "tmux-sessionizer-z";
+        ".." = "cd ..";
+        "..." = "cd ../..";
+        ls = "${eza} ${eza_params}";
+        lsa = "${eza} -a ${eza_params}";
+        l = "${eza} --git-ignore ${eza_params}";
+        ll = "${eza} --all --header --long ${eza_params}";
+        llm = "${eza} --all --header --long --sort=modified ${eza_params}";
+        la = "${eza} -lbhHigUmuSa";
+        lx = "${eza} -lbhHigUmuSa@";
+        lt = "${eza} --tree ${eza_params}";
+        lt1 = "${eza} --tree -L 1 ${eza_params}";
+        lt2 = "${eza} --tree -L 2 ${eza_params}";
+        lt3 = "${eza} --tree -L 3 ${eza_params}";
+        tree = "${eza} --tree ${eza_params}";
+      };
 
     oh-my-zsh = {
       enable = true;
@@ -90,15 +96,11 @@ in
       # Remove history data we don't want to see
       export HISTIGNORE="pwd:ls:cd"
 
+      # Ignore duplicates history entries
+      export HISTCONTROL=ignoredups
+
       # For upper/lower case correction
       ENABLE_CORRECTION="true"
-
-      # Define $eza_params to be used in aliases
-      typeset -ag eza_params
-      eza_params=(
-        '--git' '--icons' '--group' '--group-directories-first'
-        '--time-style=long-iso' '--color-scale=all'
-      )
 
       # Add /.local/bin to the PATH
       export PATH=$HOME/.local/bin:$PATH
@@ -130,6 +132,11 @@ in
 
       # fzf
       eval "$(fzf --zsh)"
+
+      # latexmk for Latex
+      if [[ -d /Library/TeX/texbin ]]; then
+        export PATH=$PATH:/Library/TeX/texbin
+      fi
     '';
   };
 
@@ -196,12 +203,6 @@ in
       set -g base-index 0
       set -g pane-base-index 0
       set -g renumber-windows on
-
-      # Panes
-      bind -r j resize-pane -D 15
-      bind -r k resize-pane -U 15
-      bind -r l resize-pane -R 15
-      bind -r h resize-pane -L 15
 
       bind -r m resize-pane -Z
 

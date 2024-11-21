@@ -264,7 +264,24 @@
         "homebrew-core": "homebrew-core",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs_4",
-        "nixpkgs-stable": "nixpkgs-stable"
+        "nixpkgs-stable": "nixpkgs-stable",
+        "shopify-tap": "shopify-tap"
+      }
+    },
+    "shopify-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1731330932,
+        "narHash": "sha256-mbumV/5DGppH5IzT4v6VNhNW4EV3rti4afa2knC39x8=",
+        "owner": "shopify",
+        "repo": "homebrew-shopify",
+        "rev": "832fd689c0dff451314c69c1592fb74ac949daf2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "shopify",
+        "repo": "homebrew-shopify",
+        "type": "github"
       }
     },
     "systems": {

@@ -13,6 +13,7 @@
       nixpkgs,
       nixpkgs-stable,
       aerospace-tap,
+      shopify-tap,
     }@inputs:
     let
       user = "balling";
@@ -90,6 +91,7 @@
                   "homebrew/homebrew-cask" = homebrew-cask;
                   "homebrew/homebrew-bundle" = homebrew-bundle;
                   "nikitabobko/homebrew-tap" = aerospace-tap;
+                  "shopify/homebrew-shopify" = shopify-tap;
                 };
                 mutableTaps = false;
               };
@@ -145,6 +147,10 @@
     };
     aerospace-tap = {
       url = "github:nikitabobko/homebrew-tap";
+      flake = false;
+    };
+    shopify-tap = {
+      url = "github:shopify/homebrew-shopify";
       flake = false;
     };
   };

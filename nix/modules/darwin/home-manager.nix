@@ -31,6 +31,7 @@ in
     brews = [
       "java11"
       "pygments"
+      "shopify-cli"
     ];
 
     onActivation = {

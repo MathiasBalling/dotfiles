@@ -2,7 +2,7 @@
 
 # Function to list tmux sessions (unchanged)
 zoxide_query() {
-  zoxide query -l | fzf
+  zi
 }
 
 # Get the selected directory or session

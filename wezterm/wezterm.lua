@@ -15,6 +15,7 @@ local config = {
 		bottom = 0,
 	},
 	window_background_opacity = 0.95,
+	max_fps = 120,
 
 	colors = {
 		background = "#000111",
