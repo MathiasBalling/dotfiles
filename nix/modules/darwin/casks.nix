@@ -39,7 +39,7 @@ _:
 
   # Productivity Tools
   "alfred"
-  "nikitabobko/tap/aerospace"
+  "aerospace"
   "alt-tab"
   "shottr"
   "deepl"

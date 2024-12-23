@@ -32,27 +32,8 @@ outer.bottom = [{ monitor."built-in.*" = 5 }, 15]
 outer.top = [{ monitor."built-in.*" = 5 }, 15]
 outer.right = [{ monitor."built-in.*" = 5 }, 15]
 
-[[on-window-detected]]
-if.app-id = 'com.github.wez.wezterm'
-run = 'move-node-to-workspace T'
-[[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser'
-run = 'move-node-to-workspace B'
-[[on-window-detected]]
-if.app-id = 'org.mozilla.com.zen.browser'
-run = 'move-node-to-workspace B'
-[[on-window-detected]]
-if.app-id = 'md.obsidian'
-run = 'move-node-to-workspace N'
-[[on-window-detected]]
-if.app-id = 'com.apple.FaceTime'
-run = 'layout floating'
-[[on-window-detected]]
-if.app-id = 'com.macpaw.CleanMyMac4'
-run = 'layout floating'
-[[on-window-detected]]
-if.app-id = 'com.apple.ActivityMonitor'
-run = 'layout floating'
+################################ Bindings ########################################
+################################################################################
 
 # 'main' binding mode must be always presented
 # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
@@ -70,10 +51,12 @@ run = 'layout floating'
 # All possible modifiers: cmd, alt, ctrl, shift
 
 [mode.main.binding]
-cmd-h = []                                               # Disable "hide application"
+# cmd-h = []                                               # Disable "hide application"
 cmd-alt-h = []                                           # Disable "hide others"
 alt-ctrl-slash = 'layout tiles horizontal vertical'
 alt-ctrl-period = 'layout accordion horizontal vertical'
+alt-ctrl-m = 'fullscreen'
+alt-ctrl-f = 'layout floating tiling'
 
 # Default ways to focus
 alt-shift-h = 'focus left --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
@@ -91,8 +74,7 @@ alt-ctrl-j = 'move down'
 alt-ctrl-k = 'move up'
 alt-ctrl-l = 'move right'
 
-alt-ctrl-m = 'fullscreen'
-
+alt-shift-0 = 'workspace 0'
 alt-shift-1 = 'workspace 1'
 alt-shift-2 = 'workspace 2'
 alt-shift-3 = 'workspace 3'
@@ -102,11 +84,8 @@ alt-shift-6 = 'workspace 6'
 alt-shift-7 = 'workspace 7'
 alt-shift-8 = 'workspace 8'
 alt-shift-9 = 'workspace 9'
-alt-shift-b = 'workspace B'
-alt-shift-n = 'workspace N'
-alt-shift-t = 'workspace T'
-alt-shift-c = 'workspace C'
 
+alt-ctrl-0 = 'move-node-to-workspace 0'
 alt-ctrl-1 = 'move-node-to-workspace 1'
 alt-ctrl-2 = 'move-node-to-workspace 2'
 alt-ctrl-3 = 'move-node-to-workspace 3'
@@ -116,10 +95,6 @@ alt-ctrl-6 = 'move-node-to-workspace 6'
 alt-ctrl-7 = 'move-node-to-workspace 7'
 alt-ctrl-8 = 'move-node-to-workspace 8'
 alt-ctrl-9 = 'move-node-to-workspace 9'
-alt-ctrl-b = 'move-node-to-workspace B'
-alt-ctrl-n = 'move-node-to-workspace N'
-alt-ctrl-t = 'move-node-to-workspace T'
-alt-ctrl-c = 'move-node-to-workspace C'
 
 # Exec  to switch to the next workspace
 alt-tab = 'exec-and-forget aerospace list-workspaces --monitor focused --empty no | aerospace workspace --wrap-around next'
@@ -130,9 +105,11 @@ shift-alt-ctrl-semicolon = 'mode service'
 alt-ctrl-semicolon = 'mode resize'
 alt-ctrl-space = 'mode opener'
 
+cmd-shift-semicolon = 'exec-and-forget open -a Wezterm'
+
 # Quicker app opener
-cmd-shift-semicolon = ['exec-and-forget open -a Wezterm', 'mode main']
-cmd-shift-a = ['exec-and-forget open -a Zen\ Browser', 'mode main']
+cmd-shift-f = 'exec-and-forget wezterm start -- yazi'
+cmd-shift-a = 'exec-and-forget open -a Zen\ Browser'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -203,3 +180,35 @@ alt-p = 'move-node-to-monitor --wrap-around prev'
 alt-n = 'move-node-to-monitor --wrap-around next'
 alt-ctrl-p = 'move-workspace-to-monitor --wrap-around prev'
 alt-ctrl-n = 'move-workspace-to-monitor --wrap-around next'
+
+
+################################ Window rules ##################################
+################################################################################
+
+[[on-window-detected]]
+if.app-id = 'com.github.wez.wezterm'
+run = 'move-node-to-workspace 9'
+# Arc
+[[on-window-detected]]
+if.app-id = 'company.thebrowser.Browser'
+run = 'move-node-to-workspace 0'
+# Zen browser
+[[on-window-detected]]
+if.app-id = 'org.mozilla.com.zen.browser'
+run = 'move-node-to-workspace 0'
+# Obsidian
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = 'move-node-to-workspace 8'
+
+###
+# Set floating default
+[[on-window-detected]]
+if.app-id = 'com.apple.FaceTime'
+run = 'layout floating'
+[[on-window-detected]]
+if.app-id = 'com.macpaw.CleanMyMac4'
+run = 'layout floating'
+[[on-window-detected]]
+if.app-id = 'com.apple.ActivityMonitor'
+run = 'layout floating'

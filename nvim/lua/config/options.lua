@@ -10,10 +10,9 @@ vim.g.tmux_navigator_save_on_switch = 2
 -- vim.g.clipboard = ""
 
 -- Set conceallevel
-vim.opt.conceallevel = 0
+-- vim.opt.conceallevel = 0
 
 -- Set spell
 vim.opt.spell = false
 
--- Disable auto formatting
 vim.g.autoformat = true

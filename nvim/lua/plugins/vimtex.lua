@@ -11,6 +11,8 @@ return {
     "lervag/vimtex",
     lazy = false,
     config = function()
+      vim.g.vimtex_mappings_disable = { ["n"] = { "K" } } -- disable `K` as it conflicts with LSP hover
+      vim.g.vimtex_quickfix_method = vim.fn.executable("pplatex") == 1 and "pplatex" or "latexlog"
       -- VimTex
       -- vim.g.vimtex_view_method = "zathura"
       vim.g.vimtex_view_general_viewer = "zathura"
@@ -33,13 +35,14 @@ return {
     end,
 
     keys = {
-      { "<leader>vC", "<cmd>VimtexCompile<cr>", desc = "Vimtex Compile" },
-      { "<leader>vc", "<cmd>VimtexCompileSS<cr>", desc = "Vimtex Single Shot Compile" },
-      { "<leader>ve", "<cmd>VimtexTocToggle<cr>", desc = "Toggle TOC" },
-      { "<leader>vv", "<cmd>VimtexView<cr>", desc = "View view pdf" },
-      { "<leader>vi", "<cmd>VimtexInfo<cr>", desc = "Vimtex info" },
-      { "<leader>vs", "<cmd>VimtexStop<cr>", desc = "Vimtex Stop" },
-      { "<leader>vq", "<cmd>VimtexClean<cr>", desc = "Vimtex Clean" },
+      { "<leader>l", "", desc = "+vimtex", ft = "tex" },
+      { "<leader>lC", "<cmd>VimtexCompile<cr>", desc = "Vimtex Compile", ft = "tex" },
+      { "<leader>lc", "<cmd>VimtexCompileSS<cr>", desc = "Vimtex Single Shot Compile", ft = "tex" },
+      { "<leader>le", "<cmd>VimtexTocToggle<cr>", desc = "Toggle TOC", ft = "tex" },
+      { "<leader>lv", "<cmd>VimtexView<cr>", desc = "View view pdf", ft = "tex" },
+      { "<leader>li", "<cmd>VimtexInfo<cr>", desc = "Vimtex info", ft = "tex" },
+      { "<leader>ls", "<cmd>VimtexStop<cr>", desc = "Vimtex Stop", ft = "tex" },
+      { "<leader>lq", "<cmd>VimtexClean<cr>", desc = "Vimtex Clean", ft = "tex" },
     },
   },
 }

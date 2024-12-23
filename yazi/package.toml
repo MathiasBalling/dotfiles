@@ -1,10 +1,10 @@
 [plugin]
 deps = [
   { use = "Lil-Dank/lazygit", rev = "c82794f" },
-  { use = "yazi-rs/plugins:chmod", rev = "102a0cd" },
-  { use = "yazi-rs/plugins:git", rev = "102a0cd" },
-  { use = "yazi-rs/plugins:diff", rev = "102a0cd" },
-  { use = "GrzegorzKozub/mdcat", rev = "78cef96" },
+  { use = "yazi-rs/plugins:chmod", rev = "7afba3a" },
+  { use = "yazi-rs/plugins:git", rev = "7afba3a" },
+  { use = "yazi-rs/plugins:diff", rev = "7afba3a" },
+  { use = "GrzegorzKozub/mdcat", rev = "d3d5089" },
 ]
 
 [flavor]
