@@ -127,19 +127,20 @@ in
         eval "$(/opt/homebrew/bin/brew shellenv)"
       fi
 
-      # zoxide
-      eval "$(zoxide init zsh)"
-
-      # fzf
-      eval "$(fzf --zsh)"
-
       # latexmk for Latex
       if [[ -d /Library/TeX/texbin ]]; then
         export PATH=$PATH:/Library/TeX/texbin
       fi
     '';
   };
-
+  zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+  fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
   tmux = {
     # tmux
     enable = true;
