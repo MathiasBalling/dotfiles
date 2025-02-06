@@ -25,6 +25,7 @@ local config = {
 		selection_fg = "#1e1e1e",
 		cursor_border = "#57bfff",
 	},
+	default_cursor_style = "SteadyBar",
 
 	enable_tab_bar = false,
 	-- If tab bar is enabled:

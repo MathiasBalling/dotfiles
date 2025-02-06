@@ -31,7 +31,6 @@ with pkgs;
   mdcat
 
   # Text and terminal utilities
-  htop
   jq
   tree
   bat

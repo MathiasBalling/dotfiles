@@ -1,0 +1,9 @@
+background = 000111
+background-opacity=0.95
+
+cursor-color=57bfff
+font-size=17
+
+macos-option-as-alt=true
+macos-titlebar-style=hidden
+confirm-close-surface=false

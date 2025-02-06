@@ -32,6 +32,7 @@ in
       "java11"
       "pygments"
       "shopify-cli"
+      "battery"
     ];
 
     onActivation = {
@@ -91,6 +92,10 @@ in
             ".config/kanata/config.kbd" = {
               enable = true;
               source = config.lib.file.mkOutOfStoreSymlink "/Users/${user}/dotfiles/kanata/config.kbd";
+            };
+            ".config/ghostty/config" = {
+              enable = true;
+              source = config.lib.file.mkOutOfStoreSymlink "/Users/${user}/dotfiles/ghostty/config";
             };
           };
           stateVersion = "23.11";

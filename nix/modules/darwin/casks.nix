@@ -5,10 +5,13 @@ _:
   "visual-studio-code"
   "mactex-no-gui"
   "wezterm"
+  "ghostty"
   "obsidian"
   "docker"
   "utm"
   "adobe-creative-cloud"
+  "anki"
+  "dash"
 
   # Browsers
   "arc"

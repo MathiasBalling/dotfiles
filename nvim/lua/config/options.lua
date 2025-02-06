@@ -14,5 +14,7 @@ vim.g.tmux_navigator_save_on_switch = 2
 
 -- Set spell
 vim.opt.spell = false
+vim.opt.wrap = true
+vim.opt.linebreak = true
 
 vim.g.autoformat = true

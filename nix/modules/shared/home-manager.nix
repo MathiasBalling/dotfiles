@@ -50,6 +50,7 @@ in
       let
         nvim = "${pkgs.neovim}/bin/nvim";
         eza = "${pkgs.eza}/bin/eza";
+        lazygit = "${pkgs.lazygit}/bin/lazygit";
         eza_params = "--git --icons --group --group-directories-first --time-style=long-iso --color-scale=all";
       in
       {
@@ -57,6 +58,7 @@ in
         nv = "${nvim}";
         c = "clear";
         t = "tmux-sessionizer-z";
+        lg = "${lazygit}";
         ".." = "cd ..";
         "..." = "cd ../..";
         ls = "${eza} ${eza_params}";
@@ -104,6 +106,7 @@ in
 
       # Add /.local/bin to the PATH
       export PATH=$HOME/.local/bin:$PATH
+      export PATH=$HOME/.cargo/bin/:$PATH
       export PATH="$HOME/.config/scripts:$PATH"
 
       if [[ -n $SSH_CONNECTION ]]; then
