@@ -8,6 +8,7 @@ _:
   "ghostty"
   "obsidian"
   "docker"
+  "xquartz"
   "utm"
   "adobe-creative-cloud"
   "anki"
@@ -35,6 +36,7 @@ _:
   "git-credential-manager"
   "hiddenbar"
   "protonvpn"
+  "battery"
 
   # Entertainment Tools
   "vlc"

@@ -134,6 +134,11 @@ in
       if [[ -d /Library/TeX/texbin ]]; then
         export PATH=$PATH:/Library/TeX/texbin
       fi
+
+      # Xquartz
+      if [[ -d /opt/X11/bin/ ]]; then
+        export PATH=$PATH:/opt/X11/bin/
+      fi
     '';
   };
   zoxide = {

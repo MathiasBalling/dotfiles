@@ -32,7 +32,6 @@ in
       "java11"
       "pygments"
       "shopify-cli"
-      "battery"
     ];
 
     onActivation = {
@@ -113,7 +112,7 @@ in
   local.dock.entries = [
     { path = "/System/Applications/Messages.app/"; }
     { path = "/System/Applications/Facetime.app/"; }
-    { path = "/Applications/Arc.app/"; }
+    { path = "/Applications/Zen Browser.app/"; }
     { path = "/Applications/WezTerm.app/"; }
     {
       path = "${config.users.users.${user}.home}/.local/share/";
