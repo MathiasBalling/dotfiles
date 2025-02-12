@@ -18,12 +18,20 @@ return {
       desc = "Complete path from working dir",
     },
     {
-      "<leader>fC",
+      "<leader>fpf",
       -- Search config files
       function()
         require("fzf-lua").files({ cwd = require("lazy.core.config").options.root })
       end,
-      desc = "Find Lazy plugins",
+      desc = "Find config files",
+    },
+    {
+      "<leader>fpg",
+      -- Search config files
+      function()
+        require("fzf-lua").live_grep({ cwd = require("lazy.core.config").options.root })
+      end,
+      desc = "Grep Lazy plugins",
     },
   },
 }
