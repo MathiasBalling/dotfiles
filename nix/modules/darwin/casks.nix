@@ -7,12 +7,10 @@ _:
   "wezterm"
   "ghostty"
   "obsidian"
-  "docker"
-  "xquartz"
   "utm"
   "adobe-creative-cloud"
   "anki"
-  "dash"
+  "rawtherapee"
 
   # Browsers
   "arc"
@@ -22,24 +20,18 @@ _:
   "discord"
   "messenger"
   "notion"
-  "slack"
-  "telegram"
-  "zoom"
   "spotify"
 
   # Utility Tools
-  "syncthing"
   "onedrive"
   "google-drive"
   "cleanmymac"
   "betterdisplay"
   "git-credential-manager"
-  "hiddenbar"
   "protonvpn"
   "battery"
 
   # Entertainment Tools
-  "vlc"
   "iina"
 
   # Productivity Tools

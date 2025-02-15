@@ -9,26 +9,8 @@ return {
       colors.bg_float = "#0b0b0f"
       colors.bg = "#000111"
       -- Change color on the help popup
-      colors.bg_popup = "#000110"
+      colors.bg_popup = "#000111"
       colors.bg_sidebar = "#000011"
-    end,
-
-    on_highlights = function(hl, c)
-      local background = "#000111"
-      hl.TelescopeNormal = {
-        bg = background,
-        fg = c.fg_dark,
-      }
-      hl.TelescopeBorder = {
-        bg = background,
-        fg = c.fg_dark,
-      }
-      hl.NeoTreeNormal = {
-        bg = background,
-      }
-      hl.NeoTreeNormalNC = {
-        bg = background,
-      }
     end,
   },
 }

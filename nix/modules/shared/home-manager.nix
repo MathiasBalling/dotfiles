@@ -22,17 +22,20 @@ in
         file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
       }
       {
-        # zsh-autosuggestions
-        name = "zsh-autosuggestions";
+        name = "autosuggestions";
         src = pkgs.zsh-autosuggestions;
         file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
       }
-      # {
-      #   # zsh-autocomplete
-      #   name = "zsh-autocomplete";
-      #   src = pkgs.zsh-autocomplete;
-      #   file = "share/zsh-autocomplete/zsh-autocomplete.plugin.zsh";
-      # }
+      {
+        name = "fzf-tab";
+        src = pkgs.zsh-fzf-tab;
+        file = "share/fzf-tab/fzf-tab.plugin.zsh";
+      }
+      {
+        name = "you-should-use";
+        src = pkgs.zsh-you-should-use;
+        file = "share/zsh/plugins/you-should-use/you-should-use.plugin.zsh";
+      }
       {
         name = "powerlevel10k";
         src = pkgs.zsh-powerlevel10k;
@@ -79,7 +82,7 @@ in
       enable = true;
       plugins = [
         "git"
-        "sudo"
+        # "sudo"
         "vi-mode"
         "rust"
       ];
@@ -114,6 +117,9 @@ in
       else
         export EDITOR='nvim'
       fi
+      # export PATH=$PATH:{pkgs.libclang}/bin/
+      # export CC={pkgs.libclang}/bin/clang
+      # export CXX={pkgs.libclang}/bin/clang++
 
       # Allow for the use of yazi to change directories when exiting
       function y() {
@@ -133,11 +139,6 @@ in
       # latexmk for Latex
       if [[ -d /Library/TeX/texbin ]]; then
         export PATH=$PATH:/Library/TeX/texbin
-      fi
-
-      # Xquartz
-      if [[ -d /opt/X11/bin/ ]]; then
-        export PATH=$PATH:/opt/X11/bin/
       fi
     '';
   };
@@ -284,21 +285,21 @@ in
     };
   };
 
-  ssh = {
-    enable = true;
-    includes = [
-      (lib.mkIf pkgs.stdenv.hostPlatform.isLinux "/home/${user}/.ssh/config_external")
-      (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin "/Users/${user}/.ssh/config_external")
-    ];
-    matchBlocks = {
-      "github.com" = {
-        identitiesOnly = true;
-        identityFile = [
-          (lib.mkIf pkgs.stdenv.hostPlatform.isLinux "/home/${user}/.ssh/id_github")
-          (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin "/Users/${user}/.ssh/id_github")
-        ];
-      };
-    };
-  };
+  # ssh = {
+  #   enable = true;
+  #   includes = [
+  #     (lib.mkIf pkgs.stdenv.hostPlatform.isLinux "/home/${user}/.ssh/config_external")
+  #     (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin "/Users/${user}/.ssh/config_external")
+  #   ];
+  #   matchBlocks = {
+  #     "github.com" = {
+  #       identitiesOnly = true;
+  #       identityFile = [
+  #         (lib.mkIf pkgs.stdenv.hostPlatform.isLinux "/home/${user}/.ssh/id_github")
+  #         (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin "/Users/${user}/.ssh/id_github")
+  #       ];
+  #     };
+  #   };
+  # };
 
 }

@@ -22,19 +22,8 @@ vim.keymap.set("v", "<M-f>", [[:s/\v]], { desc = "Replace in selected" }) -- Alt
 vim.keymap.set({ "n", "v" }, ",p", '"0p', { desc = "Paste last yanked text" })
 vim.keymap.set({ "n", "v" }, ",P", '"0P', { desc = "Paste last yanked text" })
 
--- Copilot
-vim.keymap.set("n", "<leader>ce", function()
-  if require("copilot.client").is_disabled() then
-    require("copilot.command").enable()
-  else
-    require("copilot.command").disable()
-  end
-end, { desc = "Toggle Copilot" })
-
--- Execute :Copilot suggestion
-vim.keymap.set("n", "<M-g>", function()
-  require("copilot.command").execute()
-end, { desc = "Execute Copilot suggestion" })
+-- Escape from terminal
+vim.keymap.set("t", "<Esc><Esc>", [[<C-\><C-n>]], { desc = "Escape from terminal" })
 
 -- Function to run file depending on filetype
 vim.keymap.set("n", "<M-r>", function()
@@ -54,3 +43,16 @@ vim.keymap.set("n", "<M-r>", function()
     vim.notify("Not supported filetype", "warn", { title = "File runner" })
   end
 end, { desc = "Run file" })
+
+-- Change CWD with zoxide
+vim.keymap.set("n", "<leader>sz", function()
+  require("snacks.picker").zoxide()
+end, { desc = "Search zoxide" })
+
+vim.keymap.set("n", "<leader>fp", "", { desc = "Lazy Plugins" })
+vim.keymap.set("n", "<leader>fpf", function()
+  require("snacks.picker").files({ cwd = require("lazy.core.config").options.root })
+end, { desc = "Find Lazy plugins" })
+vim.keymap.set("n", "<leader>fpg", function()
+  require("snacks.picker").grep({ cwd = require("lazy.core.config").options.root })
+end, { desc = "Find Lazy plugins" })

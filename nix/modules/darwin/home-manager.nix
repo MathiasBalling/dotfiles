@@ -97,7 +97,7 @@ in
               source = config.lib.file.mkOutOfStoreSymlink "/Users/${user}/dotfiles/ghostty/config";
             };
           };
-          stateVersion = "23.11";
+          stateVersion = "25.05";
         };
         programs = { } // import ../shared/home-manager.nix { inherit config pkgs lib; };
 
@@ -111,7 +111,6 @@ in
   local.dock.enable = true;
   local.dock.entries = [
     { path = "/System/Applications/Messages.app/"; }
-    { path = "/System/Applications/Facetime.app/"; }
     { path = "/Applications/Zen Browser.app/"; }
     { path = "/Applications/WezTerm.app/"; }
     {
