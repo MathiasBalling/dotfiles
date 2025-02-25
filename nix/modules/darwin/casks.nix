@@ -41,4 +41,5 @@ _:
   "shottr"
   "deepl"
   "balenaetcher"
+  "drawio"
 ]

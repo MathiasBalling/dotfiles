@@ -2,6 +2,11 @@ return {
   "folke/snacks.nvim",
   ---@type snacks.Config
   opts = {
+    image = {
+      doc = {
+        inline = false,
+      },
+    },
     dashboard = {
       preset = {
         header = [[

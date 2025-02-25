@@ -1,0 +1,50 @@
+#!/bin/sh
+
+GREEN='\033[1;32m'
+YELLOW='\033[1;33m'
+RED='\033[1;31m'
+NC='\033[0m'
+
+ARCH=$(uname -m)
+OS=$(uname)
+if [ "${ARCH}" = "arm64" ]; then
+  ARCH="aarch64"
+elif [ "${ARCH}" = "x86_64" ]; then
+  ARCH="x86_64"
+fi
+
+case ${OS} in
+Darwin)
+  echo "It is an ${ARCH} Darwin system"
+  if [ "${ARCH}" = "aarch64" ]; then
+    ARCH="aarch64"
+    FLAKE_SYSTEM="darwinConfigurations.${ARCH}-darwin.system"
+  else
+    # x86_64-darwin not supported by this config
+    echo "${RED}Unsupported ${ARCH}${OS}${NC}"
+    exit 1
+  fi
+  ;;
+Linux)
+  DISTRIBUTION=$(uname -v)
+  echo "Detected Linux system"
+  # Detect distribution
+  IS_NIXOS=$(echo "${DISTRIBUTION}" | grep -iq "world" && echo "Yes" || echo "No")
+  IS_UBUNTU=$(echo "${DISTRIBUTION}" | grep -iq "ubuntu" && echo "Yes" || echo "No")
+  if [ "${IS_NIXOS}" = "Yes" ]; then
+    FLAKE_SYSTEM="darwinConfigurations.${ARCH}-nixos.system"
+  elif [ "${IS_UBUNTU}" = "Yes" ]; then
+    FLAKE_SYSTEM="homeConfigurations.${ARCH}-ubuntu.system"
+  else
+    echo "${RED}Unsupported ${ARCH}${OS}${NC}"
+    exit 1
+  fi
+  ;;
+*)
+  echo "${RED}Unsupported ${ARCH}${OS}${NC}"
+  ;;
+esac
+echo "${FLAKE_SYSTEM}"
+
+# SYSTEM_TYPE="aarch64-darwin"
+# FLAKE_SYSTEM="darwinConfigurations.${SYSTEM_TYPE}.system"

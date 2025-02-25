@@ -3,12 +3,10 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.balling.kanata</string>
+    <string>com.balling.karabiner</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/balling/.cargo/bin/kanata</string>
-        <string>-c</string>
-        <string>/Users/balling/.config/kanata/config.kbd</string>
+        <string>/Library/Application Support/org.pqrs/Karabiner-DriverKit-VirtualHIDDevice/Applications/Karabiner-VirtualHIDDevice-Daemon.app/Contents/MacOS/Karabiner-VirtualHIDDevice-Daemon</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
@@ -20,7 +18,7 @@
       <true/>
     </dict>
     <key>StandardErrorPath</key>
-    <string>/Users/balling/.config/kanata/error.log</string>
+    <string>/Users/balling/.config/kanata/error_karabiner.log</string>
     <key>ProcessType</key>
     <string>Interactive</string>  
     <key>Nice</key>

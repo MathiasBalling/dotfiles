@@ -1,5 +1,5 @@
 {
-  description = "Balling's Nix configuration for MacOS and Linux";
+  description = "Balling's Nix configuration for MacOS, Linux(WIP) & NixOS(WIP)";
 
   outputs =
     {
@@ -17,13 +17,14 @@
     }@inputs:
     let
       user = "balling";
+      hostname = "balling";
+      email = "math260r@gmail.com";
       linuxSystems = [
         "x86_64-linux"
         "aarch64-linux"
       ];
       darwinSystems = [
         "aarch64-darwin"
-        "x86_64-darwin"
       ];
 
       # Function to create an app script
@@ -35,17 +36,16 @@
             PATH=${nixpkgs.legacyPackages.${system}.git}/bin:$PATH
             echo "Running ${scriptName} for ${system}"
             exec ${self}/nix/apps/${system}/${scriptName}
+            # exec ${self}/nix/apps/${scriptName}
           '')
         }/bin/${scriptName}";
       };
 
       mkLinuxApps = system: {
-        "apply" = mkApp "apply" system;
         "build-switch" = mkApp "build-switch" system;
       };
 
       mkDarwinApps = system: {
-        "apply" = mkApp "apply" system;
         "build" = mkApp "build" system;
         "build-switch" = mkApp "build-switch" system;
         "rollback" = mkApp "rollback" system;
@@ -60,7 +60,7 @@
       darwinConfigurations = nixpkgs.lib.genAttrs darwinSystems (
         system:
         let
-          user = "balling";
+          inherit user;
         in
         darwin.lib.darwinSystem {
           inherit system;
@@ -100,25 +100,47 @@
           ];
         }
       );
-      nixosConfigurations = nixpkgs.lib.genAttrs linuxSystems (
-        system:
-        nixpkgs.lib.nixosSystem {
-          inherit system;
-
-          specialArgs = inputs;
-          modules = [
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.${user} = import .nix/modules/nixos/home-manager.nix;
-              };
-            }
-            .nix/hosts/nixos
-          ];
-        }
-      );
+      #  Standalone home-manager configuration entrypoint
+      #  Available through 'home-manager --flake .# your-username@your-hostname'
+      # homeConfigurations = {
+      #   "ubuntu" = home-manager.lib.homeManagerConfiguration {
+      #     inherit pkgs; # > Our main home-manager configuration file <
+      #     modules = [ ./nix/modules/ubuntu ];
+      #     extraSpecialArgs =
+      #       let
+      #         inherit hostname;
+      #         username = user;
+      #       in
+      #       {
+      #         inherit
+      #           self
+      #           inputs
+      #           username
+      #           hostname
+      #           email
+      #           ;
+      #       };
+      #   };
+      # };
+      # nixosConfigurations = nixpkgs.lib.genAttrs linuxSystems (
+      #   system:
+      #   nixpkgs.lib.nixosSystem {
+      #     inherit system;
+      #
+      #     specialArgs = inputs;
+      #     modules = [
+      #       home-manager.nixosModules.home-manager
+      #       {
+      #         home-manager = {
+      #           useGlobalPkgs = true;
+      #           useUserPackages = true;
+      #           users.${user} = import .nix/modules/nixos/home-manager.nix;
+      #         };
+      #       }
+      #       .nix/hosts/nixos
+      #     ];
+      #   }
+      # );
     };
 
   inputs = {

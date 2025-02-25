@@ -60,11 +60,11 @@ in
         ...
       }:
       {
+        programs = { } // import ../shared/home-manager.nix { inherit config pkgs lib; };
+
         home = {
           enableNixpkgsReleaseCheck = false;
           packages = pkgs.callPackage ./packages.nix { };
-          # file = lib.mkMerge [
-          # ];
           file = {
             ".config/nvim" = {
               enable = true;
@@ -99,11 +99,8 @@ in
           };
           stateVersion = "25.05";
         };
-        programs = { } // import ../shared/home-manager.nix { inherit config pkgs lib; };
 
-        # Marked broken Oct 20, 2022 check later to remove this
-        # https://github.com/nix-community/home-manager/issues/3344
-        # manual.manpages.enable = false;
+        manual.manpages.enable = false;
       };
   };
 
@@ -124,5 +121,4 @@ in
       options = "--sort name --view grid --display stack";
     }
   ];
-
 }

@@ -168,7 +168,7 @@ in
       tmuxPlugins.vim-tmux-navigator
       tmuxPlugins.tmux-fzf
       tmuxPlugins.fzf-tmux-url
-      # tmuxPlugins.resurrect
+      tmuxPlugins.resurrect
       tmuxPlugins.continuum
       tmuxPlugins.better-mouse-mode
       tmuxPlugins.yank

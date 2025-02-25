@@ -12,6 +12,8 @@ with pkgs;
   nodejs
   pnpm
   rustup
+  tree-sitter
+  imagemagick
 
   # Libs
   ffmpeg

@@ -28,3 +28,13 @@ desc = "Chmod on selected files"
 on = "<C-d>"
 run = "plugin diff"
 desc = "Diff the selected with the hovered file"
+
+[[manager.prepend_keymap]]
+on = ["g", "p"]
+run = "cd ~/projects/"
+desc = "Goto ~/projects/"
+
+[[manager.prepend_keymap]]
+on = ["g", "C"]
+run = "cd ~/dotfiles/"
+desc = "Goto ~/dotfiles/"
