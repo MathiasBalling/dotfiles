@@ -56,3 +56,13 @@ end, { desc = "Find Lazy plugins" })
 vim.keymap.set("n", "<leader>fpg", function()
   require("snacks.picker").grep({ cwd = require("lazy.core.config").options.root })
 end, { desc = "Find Lazy plugins" })
+
+vim.keymap.set("n", "<leader><space>", function()
+  require("snacks.picker").files({ cwd = vim.fs.normalize((vim.uv or vim.loop).cwd() or ".") })
+end, { desc = "Find files (cwd)" })
+
+vim.keymap.set("n", "<leader>ff", function()
+  require("snacks.picker").smart({
+    multi = { "files", "git_files", "buffers", "recent" },
+  })
+end, { desc = "Find files (smart)" })

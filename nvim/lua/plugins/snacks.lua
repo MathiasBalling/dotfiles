@@ -2,6 +2,13 @@ return {
   "folke/snacks.nvim",
   ---@type snacks.Config
   opts = {
+    picker = {
+      matcher = {
+        cwd_bonus = true,
+        frecency = true,
+        history_bonus = true,
+      },
+    },
     image = {
       doc = {
         inline = false,
