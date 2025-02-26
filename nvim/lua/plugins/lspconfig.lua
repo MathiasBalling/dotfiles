@@ -2,13 +2,10 @@ return {
   "neovim/nvim-lspconfig",
   opts = {
     servers = {
-      -- vhdl_ls = {},
-      -- theme_check = {
-      --   cmd = { "shopify", "theme", "language-server" },
-      --   root_dir = function(fname)
-      --     return vim.loop.cwd()
-      --   end,
+      -- clangd = {
+      --   mason = false,
       -- },
+      -- vhdl_ls = {},
       shopify_theme_ls = {
         cmd = {
           "shopify",
