@@ -2,7 +2,15 @@
 
 # Function to list tmux sessions (unchanged)
 zoxide_query() {
-  zi
+  # From https://github.com/ajeetdsouza/zoxide/blob/0f07314d33f635e2fb324c08aa691a597dad2417/src/cmd/query.rs#L94
+  export _ZO_FZF_OPTS="--exact --no-sort --bind=ctrl-z:ignore,btab:up,tab:down --cycle --keep-right --border=sharp --info=inline --layout=reverse --tabstop=1 --exit-0"
+  # Added extra
+  if [[ -z $TMUX ]]; then
+    export _ZO_FZF_OPTS+=" --height 45%"
+  else
+    export _ZO_FZF_OPTS+=" --tmux 80%,40%"
+  fi
+  zoxide query -i
 }
 
 # Get the selected directory or session
@@ -24,16 +32,16 @@ fi
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-  tmux new-session -s $selected_name -c $selected
+  tmux new-session -s "$selected_name" -c "$selected"
   exit 0
 fi
 
-if ! tmux has-session -t=$selected_name 2>/dev/null; then
-  tmux new-session -ds $selected_name -c $selected
+if ! tmux has-session -t="$selected_name" 2>/dev/null; then
+  tmux new-session -ds "$selected_name" -c "$selected"
 fi
 
 if [[ -z $TMUX ]]; then
-  tmux attach -t $selected_name
+  tmux attach -t "$selected_name"
 else
-  tmux switch-client -t $selected_name
+  tmux switch-client -t "$selected_name"
 fi
