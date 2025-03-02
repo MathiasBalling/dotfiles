@@ -246,7 +246,8 @@
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-stable": "nixpkgs-stable",
-        "shopify-tap": "shopify-tap"
+        "shopify-tap": "shopify-tap",
+        "sketchybar-tap": "sketchybar-tap"
       }
     },
     "shopify-tap": {
@@ -262,6 +263,22 @@
       "original": {
         "owner": "shopify",
         "repo": "homebrew-shopify",
+        "type": "github"
+      }
+    },
+    "sketchybar-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1738172733,
+        "narHash": "sha256-jggo/EU1IGQsB4q8FQ/6NXP3DEPi8hx/Y02cpnbh2FI=",
+        "owner": "FelixKratz",
+        "repo": "homebrew-formulae",
+        "rev": "aa79c1d02c7923c38a63114d41500109245b5d7f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "FelixKratz",
+        "repo": "homebrew-formulae",
         "type": "github"
       }
     }

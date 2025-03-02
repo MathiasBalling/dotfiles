@@ -1,13 +1,9 @@
 local wezterm = require("wezterm")
 
 local config = {
-	-- default_prog = {
-	-- 	"/bin/sh",
-	-- 	"-c",
-	-- 	"/Users/balling/.nix-profile/bin/tmux attach-session -t home || /Users/balling/.nix-profile/bin/tmux new-session -s home",
-	-- },
 	font_size = 16,
 	window_decorations = "RESIZE",
+	-- macos_fullscreen_extend_behind_notch = true,
 	window_padding = {
 		left = 0,
 		right = 0,
@@ -33,7 +29,6 @@ local config = {
 	show_tab_index_in_tab_bar = false,
 	show_new_tab_button_in_tab_bar = false,
 	tab_bar_style = {},
-
 	send_composed_key_when_left_alt_is_pressed = false,
 	send_composed_key_when_right_alt_is_pressed = false,
 }

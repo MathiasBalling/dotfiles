@@ -81,7 +81,7 @@ in
         "com.apple.sound.beep.volume" = 0.0;
         "com.apple.sound.beep.feedback" = 0;
 
-        _HIHideMenuBar = false;
+        _HIHideMenuBar = true;
       };
       universalaccess.reduceTransparency = false;
       WindowManager = {

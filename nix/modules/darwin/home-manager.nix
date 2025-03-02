@@ -32,6 +32,9 @@ in
       "java11"
       "pygments"
       "shopify-cli"
+      "lua"
+      "sketchybar"
+      "borders"
     ];
 
     onActivation = {
@@ -74,6 +77,11 @@ in
             ".config/yazi" = {
               enable = true;
               source = config.lib.file.mkOutOfStoreSymlink "/Users/${user}/dotfiles/yazi";
+              recursive = true;
+            };
+            ".config/sketchybar" = {
+              enable = true;
+              source = config.lib.file.mkOutOfStoreSymlink "/Users/${user}/dotfiles/sketchybar";
               recursive = true;
             };
             ".config/Aerospace/aerospace.toml" = {

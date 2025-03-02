@@ -4,7 +4,7 @@ _:
   # Development Tools
   "visual-studio-code"
   "mactex-no-gui"
-  "wezterm"
+  "wezterm@nightly"
   "ghostty"
   "obsidian"
   "utm"
@@ -37,7 +37,6 @@ _:
   # Productivity Tools
   "alfred"
   "aerospace"
-  "alt-tab"
   "shottr"
   "deepl"
   "balenaetcher"

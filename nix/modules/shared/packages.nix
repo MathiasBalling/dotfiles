@@ -1,6 +1,8 @@
 { pkgs }:
 with pkgs;
 [
+  # Fonts
+  nerd-fonts.jetbrains-mono
   # General packages for development and system management
   openssh
   sqlite

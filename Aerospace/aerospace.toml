@@ -3,7 +3,16 @@ start-at-login = true
 # Available commands: https://nikitabobko.github.io/AeroSpace/commands
 after-login-command = []
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
+after-startup-command = [
+  'exec-and-forget sketchybar',
+  'exec-and-forget borders',
+]
+
+exec-on-workspace-change = [
+  '/bin/bash',
+  '-c',
+  'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
+]
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
@@ -29,7 +38,7 @@ inner.horizontal = [{ monitor."built-in.*" = 5 }, 15]
 inner.vertical = [{ monitor."built-in.*" = 5 }, 15]
 outer.left = [{ monitor."built-in.*" = 5 }, 15]
 outer.bottom = [{ monitor."built-in.*" = 5 }, 15]
-outer.top = [{ monitor."built-in.*" = 5 }, 15]
+outer.top = [{ monitor."built-in.*" = 5 }, 35]
 outer.right = [{ monitor."built-in.*" = 5 }, 15]
 
 ################################ Bindings ########################################
@@ -74,6 +83,7 @@ alt-ctrl-j = 'move down'
 alt-ctrl-k = 'move up'
 alt-ctrl-l = 'move right'
 
+
 alt-shift-0 = 'workspace 0'
 alt-shift-1 = 'workspace 1'
 alt-shift-2 = 'workspace 2'
@@ -84,7 +94,6 @@ alt-shift-6 = 'workspace 6'
 alt-shift-7 = 'workspace 7'
 alt-shift-8 = 'workspace 8'
 alt-shift-9 = 'workspace 9'
-
 alt-ctrl-0 = 'move-node-to-workspace 0'
 alt-ctrl-1 = 'move-node-to-workspace 1'
 alt-ctrl-2 = 'move-node-to-workspace 2'
@@ -95,7 +104,6 @@ alt-ctrl-6 = 'move-node-to-workspace 6'
 alt-ctrl-7 = 'move-node-to-workspace 7'
 alt-ctrl-8 = 'move-node-to-workspace 8'
 alt-ctrl-9 = 'move-node-to-workspace 9'
-
 # Exec  to switch to the next workspace
 alt-tab = 'exec-and-forget aerospace list-workspaces --monitor focused --empty no | aerospace workspace --wrap-around next'
 alt-shift-tab = 'workspace-back-and-forth'
@@ -212,3 +220,14 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'com.apple.ActivityMonitor'
 run = 'layout floating'
+
+[workspace-to-monitor-force-assignment]
+1 = 'main'
+2 = 'main'
+3 = 'main'
+4 = 'main'
+5 = 'main'
+6 = ['secondary', 'main']
+7 = ['secondary', 'main']
+8 = ['secondary', 'main']
+9 = ['secondary', 'main']

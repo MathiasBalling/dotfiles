@@ -14,6 +14,7 @@
       nixpkgs-stable,
       aerospace-tap,
       shopify-tap,
+      sketchybar-tap,
     }@inputs:
     let
       user = "balling";
@@ -92,6 +93,7 @@
                   "homebrew/homebrew-bundle" = homebrew-bundle;
                   "nikitabobko/homebrew-tap" = aerospace-tap;
                   "shopify/homebrew-shopify" = shopify-tap;
+                  "FelixKratz/homebrew-formulae" = sketchybar-tap;
                 };
                 mutableTaps = false;
               };
@@ -173,6 +175,10 @@
     };
     shopify-tap = {
       url = "github:shopify/homebrew-shopify";
+      flake = false;
+    };
+    sketchybar-tap = {
+      url = "github:FelixKratz/homebrew-formulae";
       flake = false;
     };
   };
