@@ -1,14 +1,15 @@
 return {
   apple = "",
   preferences = "",
+  active_app = "",
 
   space_indicator = {
     on = "󰄯",
     off = "󰄰",
   },
   switch = {
-    on = "󰔢",
-    off = "󰨚",
+    on = "󰨚",
+    off = "󰔢",
   },
   volume = {
     _66 = "",

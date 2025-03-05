@@ -23,7 +23,9 @@ image_quality = 75
 sixel_fraction = 15
 
 [opener]
-pdf = [{ run = 'zathura "$0"', block = false, for = "unix" }]
+pdf = [
+  { run = 'zathura "$0" 1>/dev/null 2>/dev/null & disown', block = false, for = "unix" },
+]
 code = [{ run = 'code "$@"', block = false, for = "unix" }]
 
 [open]

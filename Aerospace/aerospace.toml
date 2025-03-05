@@ -60,7 +60,7 @@ outer.right = [{ monitor."built-in.*" = 5 }, 15]
 # All possible modifiers: cmd, alt, ctrl, shift
 
 [mode.main.binding]
-# cmd-h = []                                               # Disable "hide application"
+cmd-h = []                                               # Disable "hide application"
 cmd-alt-h = []                                           # Disable "hide others"
 alt-ctrl-slash = 'layout tiles horizontal vertical'
 alt-ctrl-period = 'layout accordion horizontal vertical'
@@ -138,7 +138,7 @@ backspace = ['close-all-windows-but-current --quit-if-last-window', 'mode main']
 esc = 'mode main'
 
 semicolon = ['exec-and-forget open -a Wezterm', 'mode main']
-a = ['exec-and-forget open -a Arc', 'mode main']
+a = ['exec-and-forget open -a Zen\ Browser', 'mode main']
 s = ['exec-and-forget open -a Spotify', 'mode main']
 o = ['exec-and-forget open -a Obsidian', 'mode main']
 i = ['exec-and-forget open -a Adobe\ Illustrator', 'mode main']
@@ -167,7 +167,6 @@ h = 'focus left --boundaries all-monitors-outer-frame --boundaries-action wrap-a
 j = 'focus down --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
 k = 'focus up --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
 l = 'focus right --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
-
 
 # Move
 alt-h = 'move left'

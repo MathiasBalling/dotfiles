@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string></string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>15F8826F-AB68-40D1-9A4A-2C20EC565E5D</key>
+		<array/>
+		<key>5E01F7E2-FCEE-4AE4-BB66-BB885984390D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>15F8826F-AB68-40D1-9A4A-2C20EC565E5D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string></string>
+	<key>description</key>
+	<string>Find aerospace keymaps</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Aerospace</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>aerospace trigger-binding --mode $1 $2</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>11</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>15F8826F-AB68-40D1-9A4A-2C20EC565E5D</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>keyword</key>
+				<string>ae</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>import json
+import subprocess
+
+keybinds_request = subprocess.run(
+    ["aerospace", "config", "--json", "--get", "mode"],
+    capture_output=True,
+    text=True,
+)
+if keybinds_request.returncode != 0:
+    print("Error: Failed to fetch keybinds")
+
+
+# # Prepare the results for Alfred in JSON format
+results = {"items": []}
+
+# Load the JSON data from the output of the command
+data = json.loads(keybinds_request.stdout)
+modes = {}
+for mode in data:
+    for key in data.get(mode, {}).get("binding", {}):
+        action = data.get(mode, {}).get("binding", {}).get(key, {})
+        results["items"].append(
+            {
+                "title": f"{action}",
+                "subtitle": f"({mode}): {key}",
+                "arg": [mode,key],
+            }
+        )
+
+# Output the results to Alfred
+print(json.dumps(results))</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Aerospace</string>
+				<key>type</key>
+				<integer>9</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>5E01F7E2-FCEE-4AE4-BB66-BB885984390D</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>15F8826F-AB68-40D1-9A4A-2C20EC565E5D</key>
+		<dict>
+			<key>xpos</key>
+			<real>410</real>
+			<key>ypos</key>
+			<real>230</real>
+		</dict>
+		<key>5E01F7E2-FCEE-4AE4-BB66-BB885984390D</key>
+		<dict>
+			<key>xpos</key>
+			<real>215</real>
+			<key>ypos</key>
+			<real>235</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>

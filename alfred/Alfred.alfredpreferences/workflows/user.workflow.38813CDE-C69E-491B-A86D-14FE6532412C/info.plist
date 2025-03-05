@@ -25,7 +25,7 @@
 		<array/>
 	</dict>
 	<key>createdby</key>
-	<string></string>
+	<string>Mathias Balling</string>
 	<key>description</key>
 	<string></string>
 	<key>disabled</key>
@@ -116,14 +116,14 @@ for crate in data['crates']:
     })
 
 	# Add the option to visit the crate on crates.io
-    results['items'].append({
-        "title": f"{crate_name} (crates.io)",
-        "subtitle": crate['description'],
-        "arg": f"https://crates.io/crates/{crate_name}",
-        "icon": {
-            "path": "crate_icon.png"  # Optional icon for crates.io
-        }
-    })
+    #results['items'].append({
+    #    "title": f"{crate_name} (crates.io)",
+    #    "subtitle": crate['description'],
+    #    "arg": f"https://crates.io/crates/{crate_name}",
+    #    "icon": {
+    #        "path": "crate_icon.png"  # Optional icon for crates.io
+    #    }
+    #})
 
 # Output the results to Alfred
 print(json.dumps(results))
