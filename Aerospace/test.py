@@ -23,6 +23,7 @@ for mode in data:
             {
                 "title": f"{action}",
                 "subtitle": f"({mode}): {key}",
+                "match": f"{mode} {key} {action}",
                 "arg": [mode, key],
             }
         )
