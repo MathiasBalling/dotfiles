@@ -9,11 +9,11 @@ return {
         history_bonus = true,
       },
     },
-    image = {
-      doc = {
-        inline = false,
-      },
-    },
+    -- image = {
+    --   doc = {
+    --     inline = false,
+    --   },
+    -- },
     dashboard = {
       preset = {
         header = [[

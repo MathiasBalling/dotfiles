@@ -27,8 +27,8 @@ return {
       show_help = "<c-?>",
     },
     integrations = {
-      grep_in_directory = "fzf-lua",
-      grep_in_selected_files = "fzf-lua",
+      grep_in_directory = "snacks.picker",
+      grep_in_selected_files = "snacks.picker",
     },
   },
 }

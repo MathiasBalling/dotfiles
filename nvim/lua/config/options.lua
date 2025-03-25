@@ -18,3 +18,6 @@ vim.opt.spell = false
 -- vim.opt.linebreak = true
 
 vim.g.autoformat = true
+
+-- Snacks settings
+vim.g.snacks_animate = false

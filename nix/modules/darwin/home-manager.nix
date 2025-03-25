@@ -30,6 +30,7 @@ in
     # Brews (CLI) applications not available in nixpkgs
     brews = [
       "java11"
+      "gnuplot"
       "pygments"
       "shopify-cli"
       "lua"

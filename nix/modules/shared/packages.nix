@@ -14,6 +14,7 @@ with pkgs;
   nodejs
   pnpm
   rustup
+  # libclang
   tree-sitter
   imagemagick
 
