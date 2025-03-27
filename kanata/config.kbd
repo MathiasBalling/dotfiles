@@ -29,7 +29,7 @@ Macbook pro 16" Nordic layout
 
 (deflayer main
   esc   brdn  brup  A-tab  M-spc   bldn  blup   prev  pp  next  mute  voldwn  volu
-  XX    _    _    _    _    _    _    _    _    _    _    XX    XX    XX
+  caps  _    _    _    _    _    _    _    _    _    _    XX    XX    XX
   _      _    _    _    _    _    _    _    _    _    _    XX    XX    XX
   esc     @s_a  @a_s   @c_d   @m_f    _    _  @m_j  @c_k  @a_l  @s_;    _    _
   XX    fn    _    _    _    _    _    _    _    _    _    _    _
@@ -53,7 +53,7 @@ Macbook pro 16" Nordic layout
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    lsft lalt lctl lmet    _    left    down    up    right    _    _    _
   _   _   _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _              spc              _    _        _
+  _    _    _    _                _                _    _        _
                                                             _    _    _
 )
 
