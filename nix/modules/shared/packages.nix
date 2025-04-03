@@ -16,6 +16,7 @@ with pkgs;
   rustup
   # libclang
   tree-sitter
+  ast-grep
   imagemagick
 
   # Libs

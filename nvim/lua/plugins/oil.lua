@@ -17,7 +17,7 @@ return {
     },
   },
   keys = {
-    { "<leader>-", "<Cmd>Oil<CR>", desc = "Open parent directory" },
+    { "<leader>fo", "<Cmd>Oil<CR>", desc = "Oil" },
   },
   -- Optional dependencies
   dependencies = { "nvim-tree/nvim-web-devicons" },
