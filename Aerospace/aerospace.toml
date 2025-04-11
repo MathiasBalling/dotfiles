@@ -99,6 +99,7 @@ alt-shift-6 = 'workspace 6'
 alt-shift-7 = 'workspace 7'
 alt-shift-8 = 'workspace 8'
 alt-shift-9 = 'workspace 9'
+
 alt-ctrl-0 = 'move-node-to-workspace 0'
 alt-ctrl-1 = 'move-node-to-workspace 1'
 alt-ctrl-2 = 'move-node-to-workspace 2'
@@ -109,7 +110,19 @@ alt-ctrl-6 = 'move-node-to-workspace 6'
 alt-ctrl-7 = 'move-node-to-workspace 7'
 alt-ctrl-8 = 'move-node-to-workspace 8'
 alt-ctrl-9 = 'move-node-to-workspace 9'
-# Exec  to switch to the next workspace
+
+shift-alt-ctrl-0 = ['move-node-to-workspace 0', 'workspace 0']
+shift-alt-ctrl-1 = ['move-node-to-workspace 1', 'workspace 1']
+shift-alt-ctrl-2 = ['move-node-to-workspace 2', 'workspace 2']
+shift-alt-ctrl-3 = ['move-node-to-workspace 3', 'workspace 3']
+shift-alt-ctrl-4 = ['move-node-to-workspace 4', 'workspace 4']
+shift-alt-ctrl-5 = ['move-node-to-workspace 5', 'workspace 5']
+shift-alt-ctrl-6 = ['move-node-to-workspace 6', 'workspace 6']
+shift-alt-ctrl-7 = ['move-node-to-workspace 7', 'workspace 7']
+shift-alt-ctrl-8 = ['move-node-to-workspace 8', 'workspace 8']
+shift-alt-ctrl-9 = ['move-node-to-workspace 9', 'workspace 9']
+
+# Exec to switch to the next workspace
 alt-tab = 'exec-and-forget aerospace list-workspaces --monitor focused --empty no | aerospace workspace --wrap-around next'
 alt-shift-tab = 'workspace-back-and-forth'
 
