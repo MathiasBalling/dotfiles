@@ -12,11 +12,14 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Visual replace
-vim.keymap.set("n", "<M-s>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Visual replace" }) -- Alt + s
+vim.keymap.set("n", "<M-s>", [[:%s/\v<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Visual replace" }) -- Alt + s
 vim.keymap.set("v", "<M-s>", [[:s/\v]], { desc = "Replace in selected" }) -- Alt + s
 
 vim.keymap.set("n", "<M-f>", [[:%s/\v]], { desc = "Replace in buffer" }) -- Alt + f
 vim.keymap.set("v", "<M-f>", [[:s/\v]], { desc = "Replace in selected" }) -- Alt + f
+
+vim.keymap.set("n", "<M-g>", [[:%g/\v]], { desc = "Replace in buffer" }) -- Alt + g
+vim.keymap.set("v", "<M-g>", [[:g/\v]], { desc = "Replace in selected" }) -- Alt + g
 
 -- Paste the last yanked text
 vim.keymap.set({ "n", "v" }, ",p", '"0p', { desc = "Paste last yanked text" })
