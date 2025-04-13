@@ -1,12 +1,6 @@
 -- Autocmds are automatically loaded on the VeryLazy event
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
-vim.cmd([[
-augroup CustomCommentString
-    autocmd!
-    autocmd FileType c,cpp setlocal commentstring=//\ %s
-augroup END
-]])
 
 -- Autocommand for reloading the configuration for aerospace.toml with 'aerospace reload-config'
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
