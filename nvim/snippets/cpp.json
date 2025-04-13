@@ -1,0 +1,17 @@
+{
+  "Boilerplate Component": {
+    "prefix": "testing",
+    "description": "Basic rust boilerplate",
+    "body": [
+      "script lang=\"cpp\">",
+      "  $1",
+      "</script>",
+      "",
+      "${2:<div></div>}",
+      "",
+      "<style>",
+      "  $3",
+      "</style>"
+    ]
+  }
+}
