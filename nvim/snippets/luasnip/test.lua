@@ -26,7 +26,7 @@ local parse = require("luasnip.util.parser").parse_snippet
 local ms = ls.multi_snippet
 local k = require("luasnip.nodes.key_indexer").new_key
 
-ls.add_snippets("all", {
+ls.add_snippets("lua", {
   s("ternary", {
     -- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
     i(1, "cond"),
@@ -35,4 +35,26 @@ ls.add_snippets("all", {
     t(" : "),
     i(3, "else"),
   }),
+})
+
+ls.add_snippets("lua", {
+  s({ name = "test", trig = "tts", snippetType = "autosnippet" }, {
+    -- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
+    i(1, "cond"),
+    t(" ? "),
+    i(2, "then"),
+    t(" : "),
+    i(3, "else"),
+  }),
+})
+
+ls.add_snippets("lua", {
+  s(
+    "trig",
+    c(1, {
+      t("Ugh boring, a text node"),
+      t("ext node"),
+      t("oring"),
+    })
+  ),
 })
