@@ -19,5 +19,6 @@ vim.opt.spell = false
 
 vim.g.autoformat = true
 
--- Snacks settings
+-- LazyVim settings
 vim.g.snacks_animate = false
+vim.g.minipairs_disable = true
