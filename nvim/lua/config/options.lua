@@ -19,6 +19,22 @@ vim.opt.spell = false
 
 vim.g.autoformat = true
 
+-- Local config
+vim.opt.exrc = true
+
 -- LazyVim settings
 vim.g.snacks_animate = false
 vim.g.minipairs_disable = true
+
+if vim.g.neovide then
+  vim.g.neovide_position_animation_length = 0.05
+  vim.g.neovide_cursor_animation_length = 0.05
+  vim.g.neovide_cursor_trail_size = 0
+  -- vim.g.neovide_cursor_animate_in_insert_mode = false
+  -- vim.g.neovide_cursor_animate_command_line = false
+  -- vim.g.neovide_scroll_animation_far_lines = 0
+  -- vim.g.neovide_scroll_animation_length = 0.00
+  vim.g.neovide_input_macos_option_key_is_meta = "both"
+  vim.g.neovide_hide_mouse_when_typing = true
+  vim.g.neovide_padding_bottom = 30
+end

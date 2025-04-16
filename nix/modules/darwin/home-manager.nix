@@ -41,15 +41,15 @@ in
     onActivation = {
       # cleanup = "zap";
       upgrade = true;
-      autoUpdate = true;
+      autoUpdate = false;
 
     };
 
     masApps = {
-      "Spark Desktop" = 6445813049;
-      "Microsoft Word" = 462054704;
-      "Microsoft Excel" = 462058435;
-      "Microsoft PowerPoint" = 462062816;
+      # "Spark Desktop" = 6445813049;
+      # "Microsoft Word" = 462054704;
+      # "Microsoft Excel" = 462058435;
+      # "Microsoft PowerPoint" = 462062816;
     };
   };
 
@@ -104,6 +104,10 @@ in
             ".config/ghostty/config" = {
               enable = true;
               source = config.lib.file.mkOutOfStoreSymlink "/Users/${user}/dotfiles/ghostty/config";
+            };
+            ".config/neovide/config.toml" = {
+              enable = true;
+              source = config.lib.file.mkOutOfStoreSymlink "/Users/${user}/dotfiles/neovide/config.toml";
             };
           };
           stateVersion = "25.05";

@@ -100,3 +100,12 @@ vim.keymap.set({ "i", "s" }, "<M-p>", function()
     ls.change_choice(-1)
   end
 end, { silent = true, desc = "Prev choice (snippet)" })
+
+-- Specific keymaps for neovide
+if vim.g.neovide then
+  vim.keymap.set("n", "<D-w>", ":wqa!<CR>", { desc = "Copy", noremap = true, silent = true })
+  vim.keymap.set("v", "<D-c>", '"+y', { desc = "Copy", noremap = true, silent = true })
+  vim.keymap.set({ "n", "v" }, "<D-v>", '"+P', { desc = "Paste", noremap = true, silent = true })
+  vim.keymap.set({ "i", "c" }, "<D-v>", "<C-R>+", { desc = "Paste", noremap = true, silent = true })
+  vim.keymap.set("t", "<D-v>", '<C-\\><C-o>"+p <BS>', { desc = "Paste in terminal", noremap = true, silent = true })
+end

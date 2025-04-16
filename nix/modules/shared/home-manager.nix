@@ -83,10 +83,13 @@ in
       plugins = [
         "git"
         # "sudo"
-        "vi-mode"
+        # "vi-mode"
         "rust"
       ];
     };
+    envExtra = ''
+      export PATH="/Library/TeX/texbin/:$PATH"
+    '';
 
     initExtraFirst =
       ''

@@ -131,11 +131,12 @@ shift-alt-ctrl-semicolon = 'mode service'
 alt-ctrl-semicolon = 'mode resize'
 alt-ctrl-space = 'mode opener'
 
-cmd-shift-semicolon = 'exec-and-forget open -a Wezterm'
-
 # Quicker app opener
-cmd-shift-f = 'exec-and-forget wezterm start -- yazi'
+cmd-shift-j = 'exec-and-forget open -a WezTerm'
+cmd-shift-semicolon = 'exec-and-forget neovide'
+cmd-shift-f = 'exec-and-forget wezterm start -- ~/.nix-profile/bin/yazi'
 cmd-shift-a = 'exec-and-forget open -a Zen\ Browser'
+cmd-shift-p = 'exec-and-forget wezterm start -- btop'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -155,7 +156,8 @@ backspace = ['close-all-windows-but-current --quit-if-last-window', 'mode main']
 # Exit
 esc = 'mode main'
 
-semicolon = ['exec-and-forget open -a Wezterm', 'mode main']
+j = ['exec-and-forget open -a WezTerm', 'mode main']
+semicolon = ['exec-and-forget neovide', 'mode main']
 a = ['exec-and-forget open -a Zen\ Browser', 'mode main']
 s = ['exec-and-forget open -a Spotify', 'mode main']
 o = ['exec-and-forget open -a Obsidian', 'mode main']
@@ -210,8 +212,13 @@ alt-ctrl-n = 'move-workspace-to-monitor --wrap-around next'
 ################################ Window rules ######################s###########
 ################################################################################
 
+# Wezterm
 [[on-window-detected]]
-if.app-id = 'com.github.wez.wezterm'
+if.app-name-regex-substring = 'wezterm'
+run = 'move-node-to-workspace 9'
+# Neovide
+[[on-window-detected]]
+if.app-name-regex-substring = 'neovide'
 run = 'move-node-to-workspace 9'
 # Arc
 [[on-window-detected]]
@@ -248,3 +255,9 @@ run = 'layout floating'
 7 = ['secondary', 'main']
 8 = ['secondary', 'main']
 9 = ['secondary', 'main']
+
+[exec]
+inherit-env-vars = true
+[exec.env-vars]
+EDITOR = 'nvim'
+PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:/Users/balling/.config/scripts:/Users/balling/.cargo/bin/:/Users/balling/.local/bin:/Users/balling/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'

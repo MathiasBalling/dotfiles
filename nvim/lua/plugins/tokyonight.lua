@@ -3,14 +3,15 @@ return {
   lazy = true,
   priority = 999,
   opts = {
-    style = "moon",
+    style = "night",
     -- options will go here
     on_colors = function(colors)
-      colors.bg_float = "#0b0b0f"
+      colors.bg_float = "#000111"
       colors.bg = "#000111"
-      -- Change color on the help popup
       colors.bg_popup = "#000111"
-      colors.bg_sidebar = "#000011"
+      colors.bg_sidebar = "#000111"
+      colors.border = "#3d59a1"
+      colors.border_highlight = "#589ed7"
     end,
   },
 }
