@@ -2,11 +2,10 @@ return {
   {
     "Civitasv/cmake-tools.nvim",
     keys = {
-      { "<leader>cc", "", desc = "+cmake", ft = { "cpp", "cmake" } },
+      { "<leader>cc", "", desc = "+cmake", ft = { "c", "cpp", "cmake", "h", "hpp" } },
       -- Main actions
       { "<leader>ccg", ":CMakeGenerate<CR>", desc = "Generate CMake files", silent = true, ft = { "cpp", "cmake" } },
       { "<leader>ccb", ":CMakeBuild<CR>", desc = "Build CMake Target", silent = true, ft = { "cpp", "cmake" } },
-      { "<M-b>", ":CMakeBuild<CR>", desc = "Build CMake Target", silent = true, ft = { "cpp", "cmake" } }, -- Option + b
       { "<leader>ccB", ":CMakeQuickBuild<CR>", desc = "CMake Quick Build", silent = true, ft = { "cpp", "cmake" } },
       { "<leader>ccr", ":CMakeRun<CR>", desc = "CMake Run Target", silent = true, ft = { "cpp", "cmake" } },
       -- { "<M-r>", ":CMakeRun<CR>", desc = "CMake Run Target", silent = true }, -- Option + r

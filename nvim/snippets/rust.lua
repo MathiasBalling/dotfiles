@@ -4,6 +4,8 @@ local i = ls.insert_node
 local c = ls.choice_node
 local r = ls.restore_node
 local fmt = require("luasnip.extras.fmt").fmt
+local extras = require("luasnip.extras")
+local rep = extras.rep
 
 local f1 = [[fn {}({}: {}) -> {} {{
   {}
@@ -40,4 +42,17 @@ ls.add_snippets("rust", {
       ["body"] = i(6, "todo!()"),
     },
   }),
+})
+
+ls.add_snippets("rust", {
+  s("p", {
+    c(1, {
+      fmt("dbg!({});", { r(1, "arg") }),
+      fmt('println!("{}");', { r(1, "arg") }),
+      fmt('println!("{} {{}}", {});', { i(1, ""), r(2, "arg") }),
+      fmt('println!("{}: {{}}", {});', { rep(1), r(1, "arg") }),
+    }),
+  }, { stored = {
+    ["arg"] = i(1, ""),
+  } }),
 })

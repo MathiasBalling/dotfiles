@@ -2,3 +2,8 @@ vim.keymap.set("n", "<leader>cD", ":RustLsp openDocs<CR>", { buffer = true, desc
 vim.keymap.set("n", "<leader>cE", ":RustLsp relatedDiagnostics<CR>", { buffer = true, desc = "Related diagnostics" })
 vim.keymap.set("n", "<leader>ce", ":RustLsp explainError<CR>", { buffer = true, desc = "Explain error" })
 vim.keymap.set("n", "<leader>cM", ":RustLsp expandMacro<CR>", { buffer = true, desc = "Expand macro" })
+
+vim.keymap.set("n", "<M-r>", function()
+  vim.cmd("w")
+  vim.cmd("Cargo run")
+end, { desc = "Run file" })
