@@ -26,6 +26,10 @@ vim.opt.exrc = true
 vim.g.snacks_animate = false
 vim.g.minipairs_disable = true
 
+-- Undotree
+vim.g.undotree_WindowLayout = 2
+vim.g.undotree_SetFocusWhenToggle = 1
+
 if vim.g.neovide then
   vim.g.neovide_position_animation_length = 0.05
   vim.g.neovide_cursor_animation_length = 0.05

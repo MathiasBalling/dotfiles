@@ -9,7 +9,7 @@ return {
       desc = "Open yazi at file",
     },
     {
-      "<leader>fw",
+      "_",
       "<cmd>Yazi cwd<cr>",
       desc = "Open working directory yazi",
     },

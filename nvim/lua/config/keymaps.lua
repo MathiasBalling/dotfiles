@@ -104,4 +104,27 @@ if vim.g.neovide then
   vim.keymap.set({ "n", "v" }, "<D-v>", '"+P', { desc = "Paste", noremap = true, silent = true })
   vim.keymap.set({ "i", "c" }, "<D-v>", "<C-R>+", { desc = "Paste", noremap = true, silent = true })
   vim.keymap.set("t", "<D-v>", '<C-\\><C-o>"+p <BS>', { desc = "Paste in terminal", noremap = true, silent = true })
+  vim.keymap.set("n", "<leader>fwd", function()
+    vim.uv
+      .spawn("/opt/homebrew/bin/wezterm", {
+        args = { "start", "--cwd", vim.fs.normalize(vim.uv.cwd() or ".") },
+        stdio = { nil, nil, nil },
+        detached = true,
+        env = vim.env,
+        cwd = vim.fs.normalize(vim.uv.cwd() or "."),
+      })
+      :unref()
+  end, { desc = "Open cwd in wezterm", noremap = true, silent = true })
+  vim.keymap.set("n", "<leader>fwf", function()
+    local file_dir = vim.fs.dirname(vim.api.nvim_buf_get_name(0)) or "."
+    vim.uv
+      .spawn("/opt/homebrew/bin/wezterm", {
+        args = { "start", "--cwd", vim.fs.normalize(file_dir) },
+        stdio = { nil, nil, nil },
+        detached = true,
+        env = vim.env,
+        cwd = vim.fs.normalize(vim.uv.cwd() or "."),
+      })
+      :unref()
+  end, { desc = "Open file dir in wezterm", noremap = true, silent = true })
 end
