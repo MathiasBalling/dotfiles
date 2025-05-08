@@ -12,6 +12,7 @@ _:
   "adobe-creative-cloud"
   "anki"
   "rawtherapee"
+  "docker"
 
   # Browsers
   "arc"

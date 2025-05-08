@@ -14,6 +14,7 @@ with pkgs;
   nodejs
   pnpm
   rustup
+  uv
   # libclang
   tree-sitter
   ast-grep

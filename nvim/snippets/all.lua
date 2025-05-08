@@ -13,10 +13,10 @@ end
 
 ls.add_snippets("all", {
   s(
-    "todo",
+    "t",
     fmt("{} {}: {}", {
       f(comment_string, { 1 }),
-      c(1, {
+      c(2, {
         t("TODO"),
         t("FIX"),
         t("NOTE"),
@@ -25,7 +25,7 @@ ls.add_snippets("all", {
         t("TEST"),
         t("PERF"),
       }),
-      i(2),
+      i(1),
     })
   ),
 })

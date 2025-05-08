@@ -3,33 +3,7 @@ local icons = require("icons")
 
 local workspaces = {}
 
--- local enable = sbar.add("item", "enable", {
---   position = "left",
---   icon = {
---     drawing = true,
---     string = icons.switch.on,
---   },
---   label = {
---     drawing = false,
---   },
--- })
---
--- enable:subscribe("mouse.clicked", function(env)
---   if enable:query().icon.value == icons.switch.on then
---     sbar.exec("aerospace enable off")
---     enable:set({ icon = { string = icons.switch.off } })
---   else
---     sbar.exec("aerospace enable on")
---     enable:set({ icon = { string = icons.switch.on } })
---   end
--- end)
-
 local function update_spaces()
-  -- local enabled = enable:query().icon.value
-  -- if enabled == icons.switch.off then
-  --   return
-  -- en
-
   -- Run the command to fetch workspaces
   sbar.exec("aerospace list-workspaces --monitor all --empty no", function(spaces)
     local new_workspaces = {}
@@ -125,8 +99,6 @@ local function update_mode()
       mode_icon = icons.aerospace.mode.opener
     elseif cur_mode == "service" then
       mode_icon = icons.aerospace.mode.service
-    else
-      mode_icon = icons.aerospace.mode.main
     end
     mode:set({ icon = { string = mode_icon } })
   end)
