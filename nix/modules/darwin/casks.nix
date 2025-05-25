@@ -16,7 +16,7 @@ _:
 
   # Browsers
   "arc"
-  "zen-browser"
+  "zen"
 
   # Communication Tools
   "discord"

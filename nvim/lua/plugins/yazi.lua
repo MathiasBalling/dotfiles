@@ -22,6 +22,7 @@ return {
   opts = {
     -- if you want to open yazi instead of netrw, see below for more info
     open_for_directories = false,
+    open_multiple_tabs = false,
     keymaps = {
       change_working_directory = "<c-w>",
       show_help = "<c-h>",

@@ -56,7 +56,8 @@ in
     ++ (import ../../modules/shared/packages.nix { inherit pkgs; });
 
   system = {
-    stateVersion = 5;
+    primaryUser = "${user}";
+    stateVersion = 6;
 
     defaults = {
       NSGlobalDomain = {

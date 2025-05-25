@@ -135,7 +135,7 @@ alt-ctrl-space = 'mode opener'
 cmd-shift-j = 'exec-and-forget open -a WezTerm'
 cmd-shift-semicolon = 'exec-and-forget neovide'
 cmd-shift-f = 'exec-and-forget wezterm start -- ~/.nix-profile/bin/yazi'
-cmd-shift-a = 'exec-and-forget open -a Zen\ Browser'
+cmd-shift-a = 'exec-and-forget open -a Zen'
 cmd-shift-p = 'exec-and-forget wezterm start -- btop'
 
 # 'service' binding mode declaration.
@@ -158,7 +158,7 @@ esc = 'mode main'
 
 j = ['exec-and-forget open -a WezTerm', 'mode main']
 semicolon = ['exec-and-forget neovide', 'mode main']
-a = ['exec-and-forget open -a Zen\ Browser', 'mode main']
+a = ['exec-and-forget open -a Zen', 'mode main']
 s = ['exec-and-forget open -a Spotify', 'mode main']
 o = ['exec-and-forget open -a Obsidian', 'mode main']
 i = ['exec-and-forget open -a Adobe\ Illustrator', 'mode main']
@@ -226,7 +226,7 @@ if.app-id = 'company.thebrowser.Browser'
 run = 'move-node-to-workspace 0'
 # Zen browser
 [[on-window-detected]]
-if.app-id = 'org.mozilla.com.zen.browser'
+if.app-id = 'app.zen-browser.zen'
 run = 'move-node-to-workspace 0'
 # Obsidian
 [[on-window-detected]]

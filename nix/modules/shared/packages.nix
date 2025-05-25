@@ -7,6 +7,8 @@ with pkgs;
   openssh
   sqlite
   wget
+  git
+  gh
   zip
   cmake
   gnumake
