@@ -111,6 +111,8 @@ in
           # For upper/lower case correction
           ENABLE_CORRECTION="true"
 
+          export PAGER='nvim +Man!'
+
           # Add /.local/bin to the PATH
           export PATH=$HOME/.local/bin:$PATH
           export PATH=$HOME/.cargo/bin/:$PATH
@@ -147,6 +149,9 @@ in
         else
           ""
       );
+  };
+  man = {
+    enable = true;
   };
   direnv = {
     enable = true;

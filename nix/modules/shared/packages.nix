@@ -17,6 +17,7 @@ with pkgs;
   pnpm
   rustup
   uv
+
   # libclang
   tree-sitter
   ast-grep
@@ -38,6 +39,8 @@ with pkgs;
   yazi
   eza
   mdcat
+  tldr
+  man-pages
 
   # Text and terminal utilities
   jq
