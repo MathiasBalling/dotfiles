@@ -77,6 +77,9 @@ local mode = sbar.add("item", "mode", {
   position = "left",
   icon = {
     drawing = true,
+    font = {
+      size = 18.0,
+    },
   },
   label = {
     drawing = false,

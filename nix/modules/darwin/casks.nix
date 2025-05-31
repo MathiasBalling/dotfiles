@@ -15,8 +15,10 @@ _:
   "docker"
 
   # Browsers
-  "arc"
   "zen"
+
+  # Sketchybar
+  "font-sketchybar-app-font"
 
   # Communication Tools
   "discord"

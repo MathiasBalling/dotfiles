@@ -28,7 +28,7 @@ return {
   },
   aerospace = {
     mode = {
-      main = "",
+      main = "",
       resize = "󰩨",
       opener = "",
       service = "",
