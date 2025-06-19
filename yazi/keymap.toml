@@ -1,40 +1,40 @@
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = ["g", "l"]
 run = "plugin lazygit"
 desc = "run lazygit"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = "l"
 run = "plugin smart-enter"
 desc = "Enter the child directory, or open the file"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = "<enter>"
 run = "plugin smart-enter"
 desc = "Enter the child directory, or open the file"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = "<C-space>"
 run = '''
   shell 'qlmanage -p "$@"' --confirm
 '''
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = ["c", "m"]
 run = "plugin chmod"
 desc = "Chmod on selected files"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = "<C-d>"
 run = "plugin diff"
 desc = "Diff the selected with the hovered file"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = ["g", "p"]
 run = "cd ~/projects/"
 desc = "Goto ~/projects/"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = ["g", "C"]
 run = "cd ~/dotfiles/"
 desc = "Goto ~/dotfiles/"
