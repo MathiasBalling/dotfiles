@@ -18,6 +18,15 @@ return {
           return require("lspconfig.util").root_pattern("config/")(fname)
         end,
       },
+      ["tinymist"] = {
+        cmd = { "tinymist" },
+        filetypes = { "typst" },
+        settings = {
+          formatterMode = "typstyle",
+          -- exportPdf = "onSave",
+          -- semanticTokens = "disable",
+        },
+      },
       -- nixd = {
       --   cmd = { "nixd" },
       --   settings = {

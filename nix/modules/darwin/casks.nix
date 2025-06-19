@@ -11,8 +11,10 @@ _:
   "utm"
   "adobe-creative-cloud"
   "anki"
-  "rawtherapee"
   "docker"
+  "drawio"
+  "blender"
+  "autodesk-fusion"
 
   # Browsers
   "zen"
@@ -44,7 +46,6 @@ _:
   "shottr"
   "deepl"
   "balenaetcher"
-  "drawio"
-  "blender"
   "vial"
+  "homerow"
 ]
