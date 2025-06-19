@@ -45,4 +45,6 @@ _:
   "deepl"
   "balenaetcher"
   "drawio"
+  "blender"
+  "vial"
 ]

@@ -17,6 +17,7 @@ with pkgs;
   pnpm
   rustup
   uv
+  python312
 
   # libclang
   tree-sitter
@@ -41,6 +42,7 @@ with pkgs;
   mdcat
   tldr
   man-pages
+  typst
 
   # Text and terminal utilities
   jq
