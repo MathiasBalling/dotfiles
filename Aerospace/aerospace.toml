@@ -34,12 +34,12 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 on-focus-changed = ['move-mouse window-lazy-center']
 
 [gaps]
-inner.horizontal = [{ monitor."built-in.*" = 5 }, 15]
-inner.vertical = [{ monitor."built-in.*" = 5 }, 15]
-outer.left = [{ monitor."built-in.*" = 5 }, 15]
-outer.bottom = [{ monitor."built-in.*" = 5 }, 15]
+inner.horizontal = [{ monitor."built-in.*" = 5 }, 10]
+inner.vertical = [{ monitor."built-in.*" = 5 }, 10]
+outer.left = [{ monitor."built-in.*" = 5 }, 10]
+outer.bottom = [{ monitor."built-in.*" = 5 }, 10]
 outer.top = [{ monitor."built-in.*" = 5 }, 35]
-outer.right = [{ monitor."built-in.*" = 5 }, 15]
+outer.right = [{ monitor."built-in.*" = 5 }, 10]
 
 ################################ Bindings ########################################
 ################################################################################

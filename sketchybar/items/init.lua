@@ -1,4 +1,5 @@
 require("items.aerospace")
+require("items.spaces")
 require("items.calendar")
 require("items.battery")
 require("items.active_app")

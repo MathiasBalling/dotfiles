@@ -7,7 +7,7 @@ return {
   modes = {
     main = {
       icon = icons.rebel,
-      color = colors.rainbow[1],
+      color = colors.white,
     },
     service = {
       icon = icons.nuke,
@@ -15,30 +15,31 @@ return {
     },
   },
   bar = {
-    height = 32,
+    height = 30,
     padding = {
       x = 10,
       y = 5,
     },
-    background = colors.bar.bg,
+    background = colors.transparent,
   },
   items = {
     height = 26,
-    gap = 5,
+    gap = 3,
     padding = {
-      right = 16,
-      left = 12,
+      right = 8,
+      left = 8,
       top = 0,
       bottom = 0,
     },
     default_color = function(workspace)
-      return colors.rainbow[workspace + 1]
+      return colors.nv_blue_dark
     end,
     highlight_color = function(workspace)
-      return colors.yellow
+      -- return colors.fg
+      return colors.nv_blue
     end,
     colors = {
-      background = colors.bg1,
+      background = colors.bg,
     },
     corner_radius = 6,
   },

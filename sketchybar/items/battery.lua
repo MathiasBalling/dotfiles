@@ -1,4 +1,5 @@
-local icons = require "icons"
+local icons = require("icons")
+local settings = require("settings")
 
 local battery = sbar.add("item", {
   position = "right",
@@ -7,8 +8,16 @@ local battery = sbar.add("item", {
       style = "Regular",
       size = 19.0,
     },
+    color = settings.items.highlight_color(0),
+    padding_left = settings.items.padding.left,
   },
-  label = { string = "" },
+  background = {
+    color = settings.items.colors.background,
+    border_width = 1,
+    height = settings.items.height,
+    border_color = settings.items.highlight_color(0),
+  },
+  label = { string = "", color = settings.items.highlight_color(0), padding_right = settings.items.padding.right },
   update_freq = 60,
 })
 
@@ -28,7 +37,7 @@ local remaining_time = sbar.add("item", {
 local function battery_update()
   sbar.exec("pmset -g batt", function(batt_info)
     local icon = ""
-    local found, _, charge = batt_info:find "(%d+)%%"
+    local found, _, charge = batt_info:find("(%d+)%%")
     if found then
       charge = tonumber(charge)
     end
@@ -53,20 +62,20 @@ local function battery_update()
       end
     end
 
-    battery:set { icon = icon }
-    battery:set { label = { string = charge .. "%" } }
+    battery:set({ icon = icon })
+    battery:set({ label = { string = charge .. "%" } })
   end)
 end
 
 local function battery_popup()
   local drawing = battery:query().popup.drawing
-  battery:set { popup = { drawing = "toggle" } }
+  battery:set({ popup = { drawing = "toggle" } })
 
   if drawing == "off" then
     sbar.exec("pmset -g batt", function(batt_info)
-      local found, _, remaining = batt_info:find " (%d+:%d+) remaining"
+      local found, _, remaining = batt_info:find(" (%d+:%d+) remaining")
       local label = found and remaining .. "h" or "No estimate"
-      remaining_time:set { label = label }
+      remaining_time:set({ label = label })
     end)
   end
 end
