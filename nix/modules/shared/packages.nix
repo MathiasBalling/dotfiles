@@ -18,6 +18,11 @@ with pkgs;
   rustup
   uv
   python312
+  python312Packages.jupytext
+  # python314
+  # python314Packages.jupytext
+
+  dfu-util # For esp-idf
 
   # libclang
   tree-sitter

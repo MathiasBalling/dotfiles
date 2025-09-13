@@ -9,7 +9,7 @@ vim.keymap.set(
   "n",
   "<leader>ls",
   ":TypstPreviewSyncCursor<CR>",
-  { buffer = true, desc = "Preview Typst file", silent = true }
+  { buffer = true, desc = "Sync Typst Cursor", silent = true }
 )
 vim.keymap.set(
   "n",

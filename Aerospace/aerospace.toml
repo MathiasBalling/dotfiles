@@ -31,14 +31,14 @@ key-mapping.preset = 'qwerty'
 
 # Mouse follows focus when focused monitor/window changes
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-on-focus-changed = ['move-mouse window-lazy-center']
+# on-focus-changed = ['move-mouse window-lazy-center']
 
 [gaps]
 inner.horizontal = [{ monitor."built-in.*" = 5 }, 10]
 inner.vertical = [{ monitor."built-in.*" = 5 }, 10]
 outer.left = [{ monitor."built-in.*" = 5 }, 10]
 outer.bottom = [{ monitor."built-in.*" = 5 }, 10]
-outer.top = [{ monitor."built-in.*" = 5 }, 35]
+outer.top = [{ monitor."built-in.*" = 3 }, 35]
 outer.right = [{ monitor."built-in.*" = 5 }, 10]
 
 ################################ Bindings ########################################
@@ -161,11 +161,7 @@ semicolon = ['exec-and-forget neovide', 'mode main']
 a = ['exec-and-forget open -a Zen', 'mode main']
 s = ['exec-and-forget open -a Spotify', 'mode main']
 o = ['exec-and-forget open -a Obsidian', 'mode main']
-i = ['exec-and-forget open -a Adobe\ Illustrator', 'mode main']
-p = ['exec-and-forget open -a Adobe\ Photoshop\ \(Beta\)', 'mode main']
-u = ['exec-and-forget open -a UTM', 'mode main']
 m = ['exec-and-forget open -a Messages', 'mode main']
-r = ['exec-and-forget open -a DaVinci\ Resolve', 'mode main']
 
 [mode.resize.binding]
 # Exit
@@ -244,6 +240,9 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'com.apple.ActivityMonitor'
 run = 'layout floating'
+# [[on-window-detected]]
+# if.app-id = 'com.autodesk.fusion360'
+# run = 'layout floating'
 
 [workspace-to-monitor-force-assignment]
 1 = 'main'

@@ -11,10 +11,13 @@ _:
   "utm"
   "adobe-creative-cloud"
   "anki"
-  "docker"
+  "docker-desktop"
   "drawio"
   "blender"
   "autodesk-fusion"
+  "the-unarchiver"
+  "bambu-studio"
+  # "orcaslicer"
 
   # Browsers
   "zen"

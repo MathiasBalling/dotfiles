@@ -35,6 +35,8 @@ in
       "lua"
       "sketchybar"
       "borders"
+      "avr-gcc@14"
+      "avrdude"
     ];
 
     onActivation = {

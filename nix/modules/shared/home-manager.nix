@@ -145,6 +145,9 @@ in
             if [[ -f /opt/homebrew/bin/brew ]]; then
               eval "$(/opt/homebrew/bin/brew shellenv)"
             fi
+            if [[ -d /opt/homebrew/opt/avr-gcc@14/bin ]]; then
+              export PATH="/opt/homebrew/opt/avr-gcc@14/bin:$PATH"
+            fi
           ''
         else
           ""

@@ -15,6 +15,7 @@
       aerospace-tap,
       shopify-tap,
       sketchybar-tap,
+      avr-tap,
     }@inputs:
     let
       user = "balling";
@@ -94,6 +95,7 @@
                   "nikitabobko/homebrew-tap" = aerospace-tap;
                   "shopify/homebrew-shopify" = shopify-tap;
                   "FelixKratz/homebrew-formulae" = sketchybar-tap;
+                  "osx-cross/avr" = avr-tap;
                 };
                 mutableTaps = false;
               };
@@ -160,6 +162,10 @@
     };
     sketchybar-tap = {
       url = "github:FelixKratz/homebrew-formulae";
+      flake = false;
+    };
+    avr-tap = {
+      url = "github:osx-cross/homebrew-avr";
       flake = false;
     };
   };

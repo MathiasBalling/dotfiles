@@ -34,14 +34,15 @@ for i, workspace in ipairs(workspaces) do
       highlight = selected,
     },
     label = {
+      drawing = false,
       padding_right = settings.items.padding.right,
       color = settings.items.default_color(i),
       highlight_color = settings.items.highlight_color(i),
       font = settings.apps_font,
       highlight = selected,
     },
-    padding_right = 1,
-    padding_left = 1,
+    padding_right = 0,
+    padding_left = 0,
     background = {
       color = settings.items.colors.background,
       border_width = 1,
