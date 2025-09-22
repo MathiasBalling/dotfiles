@@ -38,3 +38,17 @@ desc = "Goto ~/projects/"
 on = ["g", "C"]
 run = "cd ~/dotfiles/"
 desc = "Goto ~/dotfiles/"
+
+[[mgr.prepend_keymap]]
+on = "M"
+run = "plugin mount"
+
+[[mgr.prepend_keymap]]
+on = "F"
+run = "plugin smart-filter"
+desc = "Smart filter"
+
+[[mgr.prepend_keymap]]
+on = "T"
+run = "plugin toggle-pane min-preview"
+desc = "Show or hide the preview pane"
