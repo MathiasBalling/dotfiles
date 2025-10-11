@@ -6,18 +6,18 @@ return {
       --   mason = false,
       -- },
       -- vhdl_ls = {},
-      shopify_theme_ls = {
-        cmd = {
-          "shopify",
-          "theme",
-          "language-server",
-        },
-        filetypes = { "liquid" },
-        -- root dir is the parent directory of the liquid files
-        root_dir = function(fname)
-          return require("lspconfig.util").root_pattern("config/")(fname)
-        end,
-      },
+      -- shopify_theme_ls = {
+      --   cmd = {
+      --     "shopify",
+      --     "theme",
+      --     "language-server",
+      --   },
+      --   filetypes = { "liquid" },
+      --   -- root dir is the parent directory of the liquid files
+      --   root_dir = function(fname)
+      --     return require("lspconfig.util").root_pattern("config/")(fname)
+      --   end,
+      -- },
       -- nixd = {
       --   cmd = { "nixd" },
       --   settings = {

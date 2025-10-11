@@ -6,7 +6,7 @@ _:
   "mactex-no-gui"
   "wezterm@nightly"
   "ghostty"
-  "neovide"
+  "neovide-app"
   "obsidian"
   "utm"
   "adobe-creative-cloud"

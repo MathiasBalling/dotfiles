@@ -6,6 +6,7 @@ with pkgs;
   # General packages for development and system management
   openssh
   sqlite
+  redis
   wget
   git
   gh

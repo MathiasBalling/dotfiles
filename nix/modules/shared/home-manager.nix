@@ -89,69 +89,69 @@ in
     };
     envExtra = ''
       export PATH="/Library/TeX/texbin/:$PATH"
+      export PATH="$PATH:/opt/homebrew/bin/"
     '';
 
-    initContent =
-      ''
-          if [[ -r ${filePathZshInstant} ]]; then
-            source ${filePathZshInstant}
-          fi
+    initContent = ''
+        if [[ -r ${filePathZshInstant} ]]; then
+          source ${filePathZshInstant}
+        fi
 
-          if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
-            source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-            source /nix/var/nix/profiles/default/etc/profile.d/nix.sh
-          fi
+        if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
+          source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+          source /nix/var/nix/profiles/default/etc/profile.d/nix.sh
+        fi
 
-          # Remove history data we don't want to see
-          export HISTIGNORE="pwd:ls:cd"
+        # Remove history data we don't want to see
+        export HISTIGNORE="pwd:ls:cd"
 
-          # Ignore duplicates history entries
-          export HISTCONTROL=ignoredups
+        # Ignore duplicates history entries
+        export HISTCONTROL=ignoredups
 
-          # For upper/lower case correction
-          ENABLE_CORRECTION="true"
+        # For upper/lower case correction
+        ENABLE_CORRECTION="true"
 
-          export PAGER='nvim +Man!'
+        export PAGER='nvim +Man!'
 
-          # Add /.local/bin to the PATH
-          export PATH=$HOME/.local/bin:$PATH
-          export PATH=$HOME/.cargo/bin/:$PATH
-          export PATH="$HOME/.config/scripts:$PATH"
+        # Add /.local/bin to the PATH
+        export PATH=$HOME/.local/bin:$PATH
+        export PATH=$HOME/.cargo/bin/:$PATH
+        export PATH="$HOME/.config/scripts:$PATH"
 
-          if [[ -n $SSH_CONNECTION ]]; then
-            export EDITOR='vim'
-          else
-            export EDITOR='nvim'
-          fi
-          # export PATH=$PATH:{pkgs.libclang}/bin/
-          # export CC={pkgs.libclang}/bin/clang
-          # export CXX={pkgs.libclang}/bin/clang++
-
-          # Allow for the use of yazi to change directories when exiting
-          function y() {
-            local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-            yazi "$@" --cwd-file="$tmp"
-            if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-              builtin cd -- "$cwd"
-            fi
-            rm -f -- "$tmp"
-          }
-
-        export _ZO_EXCLUDE_DIRS="*/out:*/target"
-      ''
-      + (
-        if pkgs.stdenv.isDarwin then
-          ''
-            if [[ -f /opt/homebrew/bin/brew ]]; then
-              eval "$(/opt/homebrew/bin/brew shellenv)"
-            fi
-            if [[ -d /opt/homebrew/opt/avr-gcc@14/bin ]]; then
-              export PATH="/opt/homebrew/opt/avr-gcc@14/bin:$PATH"
-            fi
-          ''
+        if [[ -n $SSH_CONNECTION ]]; then
+          export EDITOR='vim'
         else
-          ""
-      );
+          export EDITOR='nvim'
+        fi
+        # export PATH=$PATH:{pkgs.libclang}/bin/
+        # export CC={pkgs.libclang}/bin/clang
+        # export CXX={pkgs.libclang}/bin/clang++
+
+        # Allow for the use of yazi to change directories when exiting
+        function y() {
+          local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+          yazi "$@" --cwd-file="$tmp"
+          if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+            builtin cd -- "$cwd"
+          fi
+          rm -f -- "$tmp"
+        }
+
+      export _ZO_EXCLUDE_DIRS="*/out:*/target"
+    ''
+    + (
+      if pkgs.stdenv.isDarwin then
+        ''
+          if [[ -f /opt/homebrew/bin/brew ]]; then
+            eval "$(/opt/homebrew/bin/brew shellenv)"
+          fi
+          if [[ -d /opt/homebrew/opt/avr-gcc@14/bin ]]; then
+            export PATH="/opt/homebrew/opt/avr-gcc@14/bin:$PATH"
+          fi
+        ''
+      else
+        ""
+    );
   };
   man = {
     enable = true;

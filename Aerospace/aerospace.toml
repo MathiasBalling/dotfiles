@@ -31,7 +31,7 @@ key-mapping.preset = 'qwerty'
 
 # Mouse follows focus when focused monitor/window changes
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-# on-focus-changed = ['move-mouse window-lazy-center']
+on-focus-changed = ['move-mouse window-lazy-center']
 
 [gaps]
 inner.horizontal = [{ monitor."built-in.*" = 5 }, 10]
@@ -73,10 +73,10 @@ shift-alt-ctrl-m = 'macos-native-fullscreen'
 alt-ctrl-f = 'layout floating tiling'
 
 # Default ways to focus
-alt-shift-h = 'focus left --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
-alt-shift-j = 'focus down --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
-alt-shift-k = 'focus up --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
-alt-shift-l = 'focus right --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
+shift-alt-h = 'focus left --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
+shift-alt-j = 'focus down --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
+shift-alt-k = 'focus up --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
+shift-alt-l = 'focus right --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
 # More ways to focus
 alt-left = 'focus left --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
 alt-down = 'focus down --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
@@ -88,17 +88,23 @@ alt-ctrl-j = 'move down'
 alt-ctrl-k = 'move up'
 alt-ctrl-l = 'move right'
 
+# Join with
+shift-alt-ctrl-h = 'join-with left'
+shift-alt-ctrl-j = 'join-with down'
+shift-alt-ctrl-k = 'join-with up'
+shift-alt-ctrl-l = 'join-with right'
 
-alt-shift-0 = 'workspace 0'
-alt-shift-1 = 'workspace 1'
-alt-shift-2 = 'workspace 2'
-alt-shift-3 = 'workspace 3'
-alt-shift-4 = 'workspace 4'
-alt-shift-5 = 'workspace 5'
-alt-shift-6 = 'workspace 6'
-alt-shift-7 = 'workspace 7'
-alt-shift-8 = 'workspace 8'
-alt-shift-9 = 'workspace 9'
+
+shift-alt-0 = 'workspace 0'
+shift-alt-1 = 'workspace 1'
+shift-alt-2 = 'workspace 2'
+shift-alt-3 = 'workspace 3'
+shift-alt-4 = 'workspace 4'
+shift-alt-5 = 'workspace 5'
+shift-alt-6 = 'workspace 6'
+shift-alt-7 = 'workspace 7'
+shift-alt-8 = 'workspace 8'
+shift-alt-9 = 'workspace 9'
 
 alt-ctrl-0 = 'move-node-to-workspace 0'
 alt-ctrl-1 = 'move-node-to-workspace 1'
@@ -124,7 +130,7 @@ shift-alt-ctrl-9 = ['move-node-to-workspace 9', 'workspace 9']
 
 # Exec to switch to the next workspace
 alt-tab = 'exec-and-forget aerospace list-workspaces --monitor focused --empty no | aerospace workspace --wrap-around next'
-alt-shift-tab = 'workspace-back-and-forth'
+shift-alt-tab = 'workspace-back-and-forth'
 
 # Mode switcher
 shift-alt-ctrl-semicolon = 'mode service'
@@ -132,11 +138,11 @@ alt-ctrl-semicolon = 'mode resize'
 alt-ctrl-space = 'mode opener'
 
 # Quicker app opener
-cmd-shift-j = 'exec-and-forget open -a WezTerm'
-cmd-shift-semicolon = 'exec-and-forget neovide'
-cmd-shift-f = 'exec-and-forget wezterm start -- ~/.nix-profile/bin/yazi'
-cmd-shift-a = 'exec-and-forget open -a Zen'
-cmd-shift-p = 'exec-and-forget wezterm start -- btop'
+shift-cmd-j = 'exec-and-forget open -a WezTerm'
+shift-cmd-semicolon = 'exec-and-forget neovide'
+shift-cmd-f = 'exec-and-forget wezterm start -- ~/.nix-profile/bin/yazi'
+shift-cmd-a = 'exec-and-forget open -a Zen'
+shift-cmd-p = 'exec-and-forget wezterm start -- btop'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -213,21 +219,21 @@ alt-ctrl-n = 'move-workspace-to-monitor --wrap-around next'
 # if.app-name-regex-substring = 'wezterm'
 # run = 'move-node-to-workspace 9'
 # # Neovide
+[[on-window-detected]]
+if.app-name-regex-substring = 'neovide'
+run = 'move-node-to-workspace 9'
+# # Arc
 # [[on-window-detected]]
-# if.app-name-regex-substring = 'neovide'
-# run = 'move-node-to-workspace 9'
-# Arc
-[[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser'
-run = 'move-node-to-workspace 0'
-# Zen browser
-[[on-window-detected]]
-if.app-id = 'app.zen-browser.zen'
-run = 'move-node-to-workspace 0'
+# if.app-id = 'company.thebrowser.Browser'
+# run = 'move-node-to-workspace 0'
+# # Zen browser
+# [[on-window-detected]]
+# if.app-id = 'app.zen-browser.zen'
+# run = 'move-node-to-workspace 0'
 # Obsidian
-[[on-window-detected]]
-if.app-id = 'md.obsidian'
-run = 'move-node-to-workspace 8'
+# [[on-window-detected]]
+# if.app-id = 'md.obsidian'
+# run = 'move-node-to-workspace 8'
 
 ###
 # Set floating default

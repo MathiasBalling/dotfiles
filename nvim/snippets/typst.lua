@@ -79,10 +79,10 @@ ls.add_snippets("typst", {
   s({ trig = "$$", snippetType = "autosnippet" }, fmt("${}$", { i(1) })),
 })
 
-ls.add_snippets("typst", {
-  s({ trig = "_(", snippetType = "autosnippet", condition = in_typst_math }, fmt("_({})", { i(1) })),
-})
-
-ls.add_snippets("typst", {
-  s({ trig = "^(", snippetType = "autosnippet", condition = in_typst_math }, fmt("^({})", { i(1) })),
-})
+-- ls.add_snippets("typst", {
+--   s({ trig = "_(", snippetType = "autosnippet", condition = in_typst_math }, fmt("_({})", { i(1) })),
+-- })
+--
+-- ls.add_snippets("typst", {
+--   s({ trig = "^(", snippetType = "autosnippet", condition = in_typst_math }, fmt("^({})", { i(1) })),
+-- })
