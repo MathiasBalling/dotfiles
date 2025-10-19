@@ -29,9 +29,9 @@ return {
         },
       },
       -- image = {
-      --   doc = {
-      --     inline = false,
-      --   },
+      -- doc = {
+      --   inline = false,
+      -- },
       -- },
       dashboard = {
         preset = {
