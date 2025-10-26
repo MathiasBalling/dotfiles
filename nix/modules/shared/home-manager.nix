@@ -138,6 +138,8 @@ in
         }
 
       export _ZO_EXCLUDE_DIRS="*/out:*/target"
+
+
     ''
     + (
       if pkgs.stdenv.isDarwin then
@@ -145,6 +147,12 @@ in
           if [[ -f /opt/homebrew/bin/brew ]]; then
             eval "$(/opt/homebrew/bin/brew shellenv)"
           fi
+
+          local matlab="/Applications/"$(ls /Applications | grep MATLAB)"/bin/matlab"
+          if [[ -f $matlab ]]; then
+            alias matlab=$matlab
+          fi
+
           if [[ -d /opt/homebrew/opt/avr-gcc@14/bin ]]; then
             export PATH="/opt/homebrew/opt/avr-gcc@14/bin:$PATH"
           fi
@@ -287,12 +295,9 @@ in
       ".vscode"
       ".cache"
     ];
-    userName = name;
-    userEmail = email;
-    lfs = {
-      enable = true;
-    };
-    extraConfig = {
+    settings = {
+      user.name = name;
+      user.email = email;
       init.defaultBranch = "main";
       core = {
         editor = "nvim";
@@ -300,6 +305,9 @@ in
       };
       pull.rebase = true;
       rebase.autoStash = true;
+    };
+    lfs = {
+      enable = true;
     };
   };
 

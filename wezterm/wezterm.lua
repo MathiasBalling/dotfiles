@@ -8,7 +8,6 @@ local function is_ac_power()
 		return false
 	end
 	local power_source_content = power_source:read("*a")
-	print(power_source_content)
 	power_source:close()
 	local is_ac = power_source_content:find("AC Power") ~= nil
 	return is_ac
@@ -83,6 +82,7 @@ config.send_composed_key_when_right_alt_is_pressed = false
 
 -- config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
+config.default_workspace = "~"
 
 -- Key bindings
 config.disable_default_key_bindings = true
@@ -117,7 +117,7 @@ config.keys = {
 	{ key = "|", mods = "SUPER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	{ key = "r", mods = "SUPER", action = act.RotatePanes("Clockwise") },
 	{ key = "z", mods = "SUPER", action = act.TogglePaneZoomState },
-	{ key = "n", mods = "SUPER", action = act.SpawnWindow },
+	{ key = "n", mods = "SHIFT|SUPER", action = act.SpawnWindow },
 	{ key = "t", mods = "SUPER", action = act.SpawnTab("CurrentPaneDomain") },
 	{ key = "w", mods = "SUPER", action = wezterm.action.CloseCurrentPane({ confirm = true }) },
 	{ key = "w", mods = "SHIFT|SUPER", action = act.CloseCurrentTab({ confirm = true }) },
@@ -133,10 +133,14 @@ config.keys = {
 	{ key = "k", mods = "CTRL|SUPER", action = act.AdjustPaneSize({ "Up", 5 }) },
 	{ key = "l", mods = "CTRL|SUPER", action = act.AdjustPaneSize({ "Right", 5 }) },
 
-	{ key = "f", mods = "SUPER", action = act.Search("CurrentSelectionOrEmptyString") },
+	{ key = "/", mods = "SUPER", action = act.Search("CurrentSelectionOrEmptyString") },
 	{ key = "x", mods = "SUPER", action = act.ActivateCopyMode },
-	{ key = "p", mods = "SUPER", action = act.ActivateCommandPalette },
+	{ key = "p", mods = "SHIFT|SUPER", action = act.ActivateCommandPalette },
 	{ key = "d", mods = "SUPER", action = act.ShowDebugOverlay },
+
+	{ key = "y", mods = "SUPER", action = wezterm.action.SpawnCommandInNewTab({ args = { "yazi" } }) },
+	{ key = "n", mods = "SUPER", action = wezterm.action.SpawnCommandInNewTab({ args = { "nvim" } }) },
+	{ key = "p", mods = "SUPER", action = wezterm.action.SpawnCommandInNewTab({ args = { "btop" } }) },
 
 	{
 		key = "s",
@@ -144,5 +148,9 @@ config.keys = {
 		action = workspace_switcher.switch_workspace(),
 	},
 }
+
+wezterm.on("update-right-status", function(window, pane)
+	window:set_right_status(window:active_workspace())
+end)
 
 return config

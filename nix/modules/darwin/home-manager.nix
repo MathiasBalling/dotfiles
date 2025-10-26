@@ -37,6 +37,7 @@ in
       "borders"
       "avr-gcc@14"
       "avrdude"
+      "r"
     ];
 
     onActivation = {

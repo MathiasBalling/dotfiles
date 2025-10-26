@@ -21,6 +21,7 @@ _:
 
   # Browsers
   "zen"
+  "arc"
 
   # Sketchybar
   "font-sketchybar-app-font"

@@ -96,7 +96,6 @@ vim.keymap.set({ "i", "s" }, "<M-p>", function()
     ls.change_choice(-1)
   end
 end, { silent = true, desc = "Prev choice (snippet)" })
-
 -- Specific keymaps for neovide
 if vim.g.neovide then
   vim.keymap.set("n", "<D-w>", ":wqa!<CR>", { desc = "Copy", noremap = true, silent = true })

@@ -22,6 +22,7 @@ with pkgs;
   python312Packages.jupytext
   # python314
   # python314Packages.jupytext
+  pandoc
 
   dfu-util # For esp-idf
 
