@@ -148,9 +148,9 @@ in
             eval "$(/opt/homebrew/bin/brew shellenv)"
           fi
 
-          local matlab="/Applications/"$(ls /Applications | grep MATLAB)"/bin/matlab"
-          if [[ -f $matlab ]]; then
-            alias matlab=$matlab
+          local matlab=/Applications/$(ls /Applications | grep MATLAB)
+          if [[ -d $matlab ]]; then
+            PATH="$matlab/bin:$PATH"
           fi
 
           if [[ -d /opt/homebrew/opt/avr-gcc@14/bin ]]; then

@@ -35,7 +35,7 @@ return {
       -- which means that it will open the Selenium browser when you open this file.
       -- Related command :JupyniumStartAndAttachToServer
       auto_start_server = {
-        enable = true,
+        enable = false,
         file_pattern = { "*.ju.*" },
       },
 
@@ -43,7 +43,7 @@ return {
       -- Without this step, you can't use :JupyniumStartSync
       -- Related command :JupyniumAttachToServer
       auto_attach_to_server = {
-        enable = true,
+        enable = false,
         file_pattern = { "*.ju.*" },
       },
 
