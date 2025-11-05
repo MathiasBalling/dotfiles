@@ -141,6 +141,7 @@ config.keys = {
 	{ key = "y", mods = "SUPER", action = wezterm.action.SpawnCommandInNewTab({ args = { "yazi" } }) },
 	{ key = "n", mods = "SUPER", action = wezterm.action.SpawnCommandInNewTab({ args = { "nvim" } }) },
 	{ key = "p", mods = "SUPER", action = wezterm.action.SpawnCommandInNewTab({ args = { "btop" } }) },
+	{ key = "l", mods = "SUPER", action = wezterm.action.SpawnCommandInNewTab({ args = { "lazygit" } }) },
 
 	{
 		key = "s",

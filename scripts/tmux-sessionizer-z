@@ -4,7 +4,7 @@
 zoxide_query() {
   # From https://github.com/ajeetdsouza/zoxide/blob/0f07314d33f635e2fb324c08aa691a597dad2417/src/cmd/query.rs#L94
   export _ZO_FZF_OPTS="--exact --no-sort --bind=ctrl-z:ignore,btab:up,tab:down --cycle --keep-right --border=sharp --info=inline --layout=reverse --tabstop=1 --exit-0"
-  # Added extra
+  # # Added extra
   if [[ -z $TMUX ]]; then
     export _ZO_FZF_OPTS+=" --height 45%"
   else

@@ -1,0 +1,1 @@
+fd -H -I -t d "^target$" | xargs rm -r

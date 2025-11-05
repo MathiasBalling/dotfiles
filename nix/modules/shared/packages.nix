@@ -20,8 +20,9 @@ with pkgs;
   uv
   python312
   python312Packages.jupytext
-  # python314
-  # python314Packages.jupytext
+  lua51Packages.lua
+  lua51Packages.luarocks
+
   pandoc
 
   dfu-util # For esp-idf

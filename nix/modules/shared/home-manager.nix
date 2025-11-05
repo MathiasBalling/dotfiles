@@ -225,7 +225,7 @@ in
       # Escape turns on copy mode
       bind Escape copy-mode
 
-      bind-key -n C-t run-shell "tmux display-popup -w 50% -h 30% -E '$HOME/.config/scripts/tmux-sessionizer-z'"
+      bind-key -n C-t run-shell "$HOME/.config/scripts/tmux-sessionizer-z"
 
       # Don't exit copy mode when dragging with mouse
       unbind -T copy-mode-vi MouseDragEnd1Pane

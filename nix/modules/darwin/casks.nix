@@ -22,6 +22,7 @@ _:
   # Browsers
   "zen"
   "arc"
+  "firefox"
 
   # Sketchybar
   "font-sketchybar-app-font"
@@ -50,6 +51,8 @@ _:
   "shottr"
   "deepl"
   "balenaetcher"
-  "vial"
+  # "vial"
   "homerow"
+  "aldente"
+  # "kindavim"
 ]

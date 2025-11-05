@@ -32,16 +32,15 @@ in
       "java11"
       "pygments"
       "shopify-cli"
-      "lua"
       "sketchybar"
       "borders"
-      "avr-gcc@14"
-      "avrdude"
+      # "avr-gcc@14"
+      # "avrdude"
       "r"
     ];
 
     onActivation = {
-      # cleanup = "zap";
+      cleanup = "zap";
       upgrade = true;
       autoUpdate = true;
 
@@ -72,6 +71,11 @@ in
           enableNixpkgsReleaseCheck = false;
           packages = pkgs.callPackage ./packages.nix { };
           file = {
+            ".config/scripts" = {
+              enable = true;
+              source = config.lib.file.mkOutOfStoreSymlink "/Users/${user}/dotfiles/scripts";
+              recursive = true;
+            };
             ".config/nvim" = {
               enable = true;
               source = config.lib.file.mkOutOfStoreSymlink "/Users/${user}/dotfiles/nvim";
