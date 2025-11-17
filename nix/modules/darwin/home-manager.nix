@@ -37,6 +37,10 @@ in
       # "avr-gcc@14"
       # "avrdude"
       "r"
+
+      # For tauri
+      # "xcodegen"
+      # "cocoapods"
     ];
 
     onActivation = {

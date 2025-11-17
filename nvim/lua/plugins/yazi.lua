@@ -3,17 +3,6 @@ return {
   event = "VeryLazy",
   keys = {
     {
-      "-",
-      mode = { "n", "v" },
-      "<cmd>Yazi<cr>",
-      desc = "Open yazi at file",
-    },
-    {
-      "_",
-      "<cmd>Yazi cwd<cr>",
-      desc = "Open working directory yazi",
-    },
-    {
       "<leader>fq",
       "<cmd>Yazi toggle<cr>",
       desc = "Resume yazi",

@@ -1,6 +1,6 @@
 vim.keymap.set("n", "<leader>lc", ":MatlabClose<CR>", { buffer = true, desc = "Matlab Close" })
 vim.keymap.set("n", "<leader>ld", ":MatlabDoc<CR>", { buffer = true, desc = "Matlab Doc" })
-vim.keymap.set("n", "<leader>lb", ":MatlabEvalBlock<CR>", { buffer = true, desc = "Matlab Eval Block" })
+vim.keymap.set("n", "<leader>lx", ":MatlabEvalBlock<CR>", { buffer = true, desc = "Matlab Eval Block" })
 vim.keymap.set(
   "v",
   "<leader>lv",

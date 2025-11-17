@@ -5,6 +5,7 @@ with pkgs;
   nerd-fonts.jetbrains-mono
   # General packages for development and system management
   openssh
+  sshfs
   sqlite
   redis
   wget
@@ -18,10 +19,13 @@ with pkgs;
   pnpm
   rustup
   uv
+
   python312
   python312Packages.jupytext
-  lua51Packages.lua
-  lua51Packages.luarocks
+  # lua51Packages.lua
+  # lua51Packages.luarocks
+  lua54Packages.lua
+  lua54Packages.luarocks
 
   pandoc
 

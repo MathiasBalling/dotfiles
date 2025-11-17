@@ -17,6 +17,7 @@ _:
   "autodesk-fusion"
   "the-unarchiver"
   "bambu-studio"
+  "figma"
   # "orcaslicer"
 
   # Browsers
@@ -54,5 +55,6 @@ _:
   # "vial"
   "homerow"
   "aldente"
+  "macfuse"
   # "kindavim"
 ]
