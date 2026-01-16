@@ -27,7 +27,8 @@ sbar.add("item", "active_app_spacer", {
     color = settings.items.colors.background,
     border_width = 1,
     height = 15,
-    border_color = settings.items.highlight_color(0),
+    -- border_color = settings.items.highlight_color(0),
+    border_color = colors.transparent,
   },
 })
 
@@ -53,7 +54,8 @@ local active = sbar.add("item", "active_app", {
     color = settings.items.colors.background,
     border_width = 1,
     height = settings.items.height,
-    border_color = settings.items.highlight_color(0),
+    -- border_color = settings.items.highlight_color(0),
+    border_color = colors.transparent,
   },
 })
 

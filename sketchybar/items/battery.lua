@@ -1,5 +1,6 @@
 local icons = require("icons")
 local settings = require("settings")
+local colors = require("colors")
 
 local battery = sbar.add("item", {
   position = "right",
@@ -15,7 +16,8 @@ local battery = sbar.add("item", {
     color = settings.items.colors.background,
     border_width = 1,
     height = settings.items.height,
-    border_color = settings.items.highlight_color(0),
+    -- border_color = settings.items.highlight_color(0),
+    border_color = colors.transparent,
   },
   label = { string = "", color = settings.items.highlight_color(0), padding_right = settings.items.padding.right },
   update_freq = 60,

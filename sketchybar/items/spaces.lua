@@ -47,14 +47,16 @@ for i, workspace in ipairs(workspaces) do
       color = settings.items.colors.background,
       border_width = 1,
       height = settings.items.height,
-      border_color = selected and settings.items.highlight_color(i) or settings.items.default_color(i),
+      -- border_color = selected and settings.items.highlight_color(i) or settings.items.default_color(i),
+      -- border_color = selected and settings.items.highlight_color(i) or colors.transparent,
+      border_color = colors.transparent,
     },
-    popup = {
-      background = {
-        border_width = 5,
-        border_color = colors.black,
-      },
-    },
+    -- popup = {
+    --   background = {
+    --     border_width = 5,
+    --     border_color = colors.black,
+    --   },
+    -- },
   })
 
   spaces[i] = space
@@ -100,7 +102,9 @@ for i, workspace in ipairs(workspaces) do
         highlight = active,
       },
       background = {
-        border_color = active and settings.items.highlight_color(i) or settings.items.default_color(i),
+        -- border_color = active and settings.items.highlight_color(i) or settings.items.default_color(i),
+        -- border_color = active and settings.items.highlight_color(i) or colors.transparent,
+        border_color = colors.transparent,
       },
     })
   end)

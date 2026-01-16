@@ -1,4 +1,5 @@
 local settings = require("settings")
+local colors = require("colors")
 local cal = sbar.add("item", {
   icon = { string = "", color = settings.items.highlight_color(0), padding_left = settings.items.padding.left },
   label = {
@@ -10,7 +11,8 @@ local cal = sbar.add("item", {
     color = settings.items.colors.background,
     border_width = 1,
     height = settings.items.height,
-    border_color = settings.items.highlight_color(0),
+    -- border_color = settings.items.highlight_color(0),
+    border_color = colors.transparent,
   },
   position = "right",
   update_freq = 15,
