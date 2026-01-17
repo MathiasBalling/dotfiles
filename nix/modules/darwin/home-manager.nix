@@ -37,7 +37,7 @@ in
       # "avr-gcc@14"
       # "avrdude"
       "r"
-
+      # "mutagen"
       # For tauri
       # "xcodegen"
       # "cocoapods"
@@ -45,8 +45,8 @@ in
 
     onActivation = {
       cleanup = "zap";
-      upgrade = true;
-      autoUpdate = true;
+      upgrade = false;
+      autoUpdate = false;
 
     };
 

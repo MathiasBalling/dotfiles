@@ -1,6 +1,8 @@
 return {
   {
     dir = "~/projects/nvim/matlab.nvim/",
+    lazy = true,
+    ft = { "matlab" },
     opts = {
       -- Path to the matlab executable. If `matlab` is already in your $PATH, just leave this.
       matlab_path = "matlab",

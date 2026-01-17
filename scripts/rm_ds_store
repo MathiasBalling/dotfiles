@@ -1,0 +1,1 @@
+fd -IH '^\.DS_Store$' | xargs rm

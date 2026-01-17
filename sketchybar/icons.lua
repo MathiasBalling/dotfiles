@@ -2,7 +2,7 @@ return {
   apple = "",
   preferences = "",
   -- active_app = "󰳟",
-  active_app = "󰁕",
+  active_app = "➞",
 
   space_indicator = {
     on = "󰄯",

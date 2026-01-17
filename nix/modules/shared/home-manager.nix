@@ -148,7 +148,7 @@ in
             eval "$(/opt/homebrew/bin/brew shellenv)"
           fi
 
-          local matlab=/Applications/$(ls /Applications | grep MATLAB)
+          local matlab=/Applications/$(ls /Applications | grep MATLAB | tail -n 1)
           if [[ -d $matlab ]]; then
             PATH="$matlab/bin:$PATH"
           fi
@@ -292,8 +292,11 @@ in
     ignores = [
       "*.swp"
       ".DS_Store"
-      ".vscode"
-      ".cache"
+      ".vscode/"
+      "target/"
+      ".cache/"
+      "out/"
+      "build"
     ];
     settings = {
       user.name = name;

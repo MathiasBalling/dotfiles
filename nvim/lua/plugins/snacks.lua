@@ -34,6 +34,7 @@ return {
       -- },
       -- },
       dashboard = {
+        enabled = false,
         preset = {
           header = [[
        __ )     \     |      |     _ _|   \  |   ___|   _ \

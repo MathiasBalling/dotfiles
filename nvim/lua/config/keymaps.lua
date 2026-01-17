@@ -129,8 +129,8 @@ if vim.g.neovide then
 end
 
 -- Toogle supermaven
-local supermaven_api = require("supermaven-nvim.api")
-vim.keymap.set("n", "<leader>cH", function()
-  supermaven_api.toggle()
-  vim.notify("Supermaven is " .. (supermaven_api.is_running() and "on" or "off"), "info")
-end, { desc = "Toggle supermaven" })
+-- local supermaven_api = require("supermaven-nvim.api")
+-- vim.keymap.set("n", "<leader>cH", function()
+--   supermaven_api.toggle()
+--   vim.notify("Supermaven is " .. (supermaven_api.is_running() and "on" or "off"), "info")
+-- end, { desc = "Toggle supermaven" })

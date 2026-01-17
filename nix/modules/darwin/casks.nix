@@ -15,6 +15,7 @@ _:
   "drawio"
   "blender"
   "autodesk-fusion"
+  "freecad"
   "the-unarchiver"
   "bambu-studio"
   "figma"

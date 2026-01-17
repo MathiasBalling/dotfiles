@@ -138,7 +138,7 @@ alt-ctrl-semicolon = 'mode resize'
 
 # Quicker app opener
 shift-cmd-j = 'exec-and-forget open -a WezTerm'
-shift-cmd-semicolon = 'exec-and-forget neovide'
+shift-cmd-semicolon = 'exec-and-forget zsh -i -c neovide'
 shift-cmd-a = 'exec-and-forget open -a Zen'
 # shift-cmd-f = 'exec-and-forget wezterm start -- ~/.nix-profile/bin/yazi'
 # shift-cmd-p = 'exec-and-forget wezterm start -- btop'

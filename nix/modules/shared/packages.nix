@@ -19,6 +19,7 @@ with pkgs;
   pnpm
   rustup
   uv
+  just
 
   python312
   python312Packages.jupytext
@@ -44,19 +45,19 @@ with pkgs;
   # development
   fzf
   neovim
+  helix
   zoxide
   ripgrep
   fd
   lazygit
   zathura
+  # miro
   yazi
   eza
   mdcat
   tldr
   man-pages
   typst
-
-  # Text and terminal utilities
   jq
   tree
   bat

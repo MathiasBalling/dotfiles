@@ -1,3 +1,4 @@
+-- require("items.alias")
 require("items.aerospace")
 require("items.spaces")
 require("items.calendar")

@@ -18,7 +18,7 @@ sbar.add("item", "active_app_spacer", {
     font = {
       family = settings.font.text,
       style = "Bold",
-      size = 14.0,
+      size = 21.0,
     },
     y_offset = 1,
     color = settings.items.highlight_color(0),
