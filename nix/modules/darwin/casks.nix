@@ -26,8 +26,9 @@ _:
   "arc"
   "firefox"
 
-  # Sketchybar
+  # Fonts
   "font-sketchybar-app-font"
+  "font-fira-code"
 
   # Communication Tools
   "discord"

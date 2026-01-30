@@ -22,6 +22,7 @@ end
 
 -- General Look
 config.font_size = 16
+config.font = wezterm.font("Fira Code")
 config.window_decorations = "RESIZE"
 config.window_padding = {
 	left = 0,

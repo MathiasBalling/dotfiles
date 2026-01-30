@@ -26,7 +26,7 @@ vim.g.autoformat = true
 vim.opt.exrc = true
 
 -- LazyVim settings
-vim.g.minipairs_disable = true
+vim.g.minipairs_disable = false
 vim.g.snacks_animate = false
 
 -- Undotree

@@ -5,7 +5,12 @@ return {
     {
       "<leader>fq",
       "<cmd>Yazi toggle<cr>",
-      desc = "Resume yazi",
+      desc = "Resume Yazi",
+    },
+    {
+      "<leader>fy",
+      "<cmd>Yazi<cr>",
+      desc = "Yazi",
     },
   },
   opts = {
