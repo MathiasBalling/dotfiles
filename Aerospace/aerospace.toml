@@ -78,10 +78,10 @@ shift-alt-j = 'focus down --boundaries all-monitors-outer-frame --boundaries-act
 shift-alt-k = 'focus up --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
 shift-alt-l = 'focus right --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
 # More ways to focus
-alt-left = 'focus left --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
-alt-down = 'focus down --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
-alt-up = 'focus up --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
-alt-right = 'focus right --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
+# alt-left = 'focus left --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
+# alt-down = 'focus down --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
+# alt-up = 'focus up --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
+# alt-right = 'focus right --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
 
 alt-ctrl-h = 'move left'
 alt-ctrl-j = 'move down'

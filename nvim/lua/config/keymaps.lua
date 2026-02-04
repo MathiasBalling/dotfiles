@@ -1,32 +1,34 @@
+local set = vim.keymap.set
+
 -- Save all files
-vim.keymap.set("n", "<C-s>", "<cmd>wa<cr>", { desc = "Save all files" })
+set("n", "<C-s>", "<cmd>wa<cr>", { desc = "Save all files" })
 
 -- Center screen
-vim.keymap.set("n", "n", "nzz", { desc = "Next search (center)" })
-vim.keymap.set("n", "N", "Nzz", { desc = "Prev search (center)" })
+set("n", "n", "nzz", { desc = "Next search (center)" })
+set("n", "N", "Nzz", { desc = "Prev search (center)" })
 
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+set("n", "<C-d>", "<C-d>zz")
+set("n", "<C-u>", "<C-u>zz")
 
 -- Visual replace
-vim.keymap.set("n", "<M-s>", [[:%s/\v<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Visual replace" }) -- Alt + s
-vim.keymap.set("v", "<M-s>", [[:s/\v]], { desc = "Replace in selected" }) -- Alt + s
+set("n", "<M-s>", [[:%s/\v<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Visual replace" }) -- Alt + s
+set("v", "<M-s>", [[:s/\v]], { desc = "Replace in selected" }) -- Alt + s
 
-vim.keymap.set("n", "<M-f>", [[:%s/\v]], { desc = "Replace in buffer" }) -- Alt + f
-vim.keymap.set("v", "<M-f>", [[:s/\v]], { desc = "Replace in selected" }) -- Alt + f
+set("n", "<M-f>", [[:%s/\v]], { desc = "Replace in buffer" }) -- Alt + f
+set("v", "<M-f>", [[:s/\v]], { desc = "Replace in selected" }) -- Alt + f
 
-vim.keymap.set("n", "<M-g>", [[:%g/\v]], { desc = "Replace in buffer" }) -- Alt + g
-vim.keymap.set("v", "<M-g>", [[:g/\v]], { desc = "Replace in selected" }) -- Alt + g
+set("n", "<M-g>", [[:%g/\v]], { desc = "Replace in buffer" }) -- Alt + g
+set("v", "<M-g>", [[:g/\v]], { desc = "Replace in selected" }) -- Alt + g
 
 -- Paste the last yanked text
-vim.keymap.set({ "n", "v" }, ",p", '"0p', { desc = "Paste last yanked text" })
-vim.keymap.set({ "n", "v" }, ",P", '"0P', { desc = "Paste last yanked text" })
+set({ "n", "v" }, ",p", '"0p', { desc = "Paste last yanked text" })
+set({ "n", "v" }, ",P", '"0P', { desc = "Paste last yanked text" })
 
 -- Escape from terminal
-vim.keymap.set("t", "<Esc><Esc>", [[<C-\><C-n>]], { desc = "Escape from terminal" })
+set("t", "<Esc><Esc>", [[<C-\><C-n>]], { desc = "Escape from terminal" })
 
 -- Function to run file depending on filetype
-vim.keymap.set("n", "<M-r>", function()
+set("n", "<M-r>", function()
   if vim.bo.filetype == "python" then
     vim.cmd("w")
     vim.cmd("split | term python3 %")
@@ -45,23 +47,23 @@ vim.keymap.set("n", "<M-r>", function()
 end, { desc = "Run file" })
 
 -- Change CWD with zoxide
-vim.keymap.set("n", "<leader>sz", function()
+set("n", "<leader>sz", function()
   require("snacks.picker").zoxide()
 end, { desc = "Search zoxide" })
 
-vim.keymap.set("n", "<leader>fp", "", { desc = "Lazy Plugins" })
-vim.keymap.set("n", "<leader>fpf", function()
+set("n", "<leader>fp", "", { desc = "Lazy Plugins" })
+set("n", "<leader>fpf", function()
   require("snacks.picker").files({ cwd = require("lazy.core.config").options.root })
 end, { desc = "Find Lazy plugins" })
-vim.keymap.set("n", "<leader>fpg", function()
+set("n", "<leader>fpg", function()
   require("snacks.picker").grep({ cwd = require("lazy.core.config").options.root })
 end, { desc = "Find Lazy plugins" })
 
-vim.keymap.set("n", "<leader><space>", function()
+set("n", "<leader><space>", function()
   require("snacks.picker").files({ cwd = vim.fs.normalize((vim.uv or vim.loop).cwd() or ".") })
 end, { desc = "Find files (cwd)" })
 
-vim.keymap.set("n", "<leader>ff", function()
+set("n", "<leader>ff", function()
   require("snacks.picker").smart({
     multi = { "files", "git_files", "buffers", "recent" },
   })
@@ -69,7 +71,7 @@ end, { desc = "Find files (smart)" })
 
 -- LuaSnip
 local ls = require("luasnip")
-vim.keymap.set({ "i" }, "<M-i>", function()
+set({ "i" }, "<M-i>", function()
   ls.expand()
   local blink = require("blink.cmp")
   if blink.is_active() then
@@ -77,33 +79,34 @@ vim.keymap.set({ "i" }, "<M-i>", function()
   end
 end, { silent = true, desc = "Expand snippet" })
 
-vim.keymap.set({ "i", "s" }, "<M-l>", function()
+set({ "i", "s" }, "<M-S-l>", function()
   ls.jump(1)
 end, { silent = true, desc = "Next jump (snippet)" })
 
-vim.keymap.set({ "i", "s" }, "<M-h>", function()
+set({ "i", "s" }, "<M-S-h>", function()
   ls.jump(-1)
 end, { silent = true, desc = "Prev jump (snippet)" })
 
-vim.keymap.set({ "i", "s" }, "<M-n>", function()
+set({ "i", "s" }, "<M-n>", function()
   if ls.choice_active() then
     ls.change_choice(1)
   end
 end, { silent = true, desc = "Next choice (snippet)" })
 
-vim.keymap.set({ "i", "s" }, "<M-p>", function()
+set({ "i", "s" }, "<M-p>", function()
   if ls.choice_active() then
     ls.change_choice(-1)
   end
 end, { silent = true, desc = "Prev choice (snippet)" })
+
 -- Specific keymaps for neovide
 if vim.g.neovide then
-  vim.keymap.set("n", "<D-w>", ":wqa!<CR>", { desc = "Copy", noremap = true, silent = true })
-  vim.keymap.set("v", "<D-c>", '"+y', { desc = "Copy", noremap = true, silent = true })
-  vim.keymap.set({ "n", "v" }, "<D-v>", '"+P', { desc = "Paste", noremap = true, silent = true })
-  vim.keymap.set({ "i", "c" }, "<D-v>", "<C-R>+", { desc = "Paste", noremap = true, silent = true })
-  vim.keymap.set("t", "<D-v>", '<C-\\><C-o>"+p <BS>', { desc = "Paste in terminal", noremap = true, silent = true })
-  vim.keymap.set("n", "<leader>fwd", function()
+  set("n", "<D-w>", ":wqa!<CR>", { desc = "Copy", noremap = true, silent = true })
+  set("v", "<D-c>", '"+y', { desc = "Copy", noremap = true, silent = true })
+  set({ "n", "v" }, "<D-v>", '"+P', { desc = "Paste", noremap = true, silent = true })
+  set({ "i", "c" }, "<D-v>", "<C-R>+", { desc = "Paste", noremap = true, silent = true })
+  set("t", "<D-v>", '<C-\\><C-o>"+p <BS>', { desc = "Paste in terminal", noremap = true, silent = true })
+  set("n", "<leader>fwd", function()
     vim.uv
       .spawn("/opt/homebrew/bin/wezterm", {
         args = { "start", "--cwd", vim.fs.normalize(vim.uv.cwd() or ".") },
@@ -114,7 +117,7 @@ if vim.g.neovide then
       })
       :unref()
   end, { desc = "Open cwd in wezterm", noremap = true, silent = true })
-  vim.keymap.set("n", "<leader>fwf", function()
+  set("n", "<leader>fwf", function()
     local file_dir = vim.fs.dirname(vim.api.nvim_buf_get_name(0)) or "."
     vim.uv
       .spawn("/opt/homebrew/bin/wezterm", {
@@ -128,9 +131,85 @@ if vim.g.neovide then
   end, { desc = "Open file dir in wezterm", noremap = true, silent = true })
 end
 
--- Toogle supermaven
--- local supermaven_api = require("supermaven-nvim.api")
--- vim.keymap.set("n", "<leader>cH", function()
---   supermaven_api.toggle()
---   vim.notify("Supermaven is " .. (supermaven_api.is_running() and "on" or "off"), "info")
--- end, { desc = "Toggle supermaven" })
+-- Multicursor mappings
+local mc = require("multicursor-nvim")
+set({ "n", "x" }, "<M-c>", "", { desc = "Multicursor" })
+set({ "n", "x" }, "<M-c>k", function()
+  mc.lineAddCursor(-1)
+end, { desc = "Add cursor above" })
+set({ "n", "x" }, "<M-c>j", function()
+  mc.lineAddCursor(1)
+end, { desc = "Add cursor below" })
+set({ "n", "x" }, "<M-c><S-k>", function()
+  mc.lineSkipCursor(-1)
+end, { desc = "Skip cursor above" })
+set({ "n", "x" }, "<M-c><S-j>", function()
+  mc.lineSkipCursor(1)
+end, { desc = "Skip cursor below" })
+set({ "n", "x" }, "<M-c>i", function()
+  mc.insertVisual()
+end, { desc = "Insert Visual Cursors" })
+set({ "n", "x" }, "<M-c>I", function()
+  mc.appendVisual()
+end, { desc = "Append Visual Cursors" })
+
+-- Add or skip adding a new cursor by matching word/selection
+set({ "n", "x" }, "<M-c>a", function()
+  mc.matchAllAddCursors()
+end, { desc = "Add cursor to all matches" })
+set({ "n", "x" }, "<M-c>n", function()
+  mc.matchAddCursor(1)
+end, { desc = "Add cursor to next match", noremap = true })
+set({ "n", "x" }, "<M-c><S-n>", function()
+  mc.matchSkipCursor(1)
+end, { desc = "Skip cursor to next match", noremap = true })
+set({ "n", "x" }, "<M-c>p", function()
+  mc.matchAddCursor(-1)
+end, { desc = "Add cursor to previous match", noremap = true })
+set({ "n", "x" }, "<M-c><S-p>", function()
+  mc.matchSkipCursor(-1)
+end, { desc = "Skip cursor to previous match", noremap = true })
+set({ "n", "x" }, "<M-c>m", function()
+  mc.matchCursors()
+end, { desc = "Match with Pattern", noremap = true })
+set({ "n", "x" }, "<M-c>s", function()
+  mc.splitCursors()
+end, { desc = "Split with Regex", noremap = true })
+set({ "n", "x" }, "<M-c>u", function()
+  mc.searchAddCursor(-1)
+end, { desc = "Add cursor at prev search result", noremap = true })
+set({ "n", "x" }, "<M-c><S-u>", function()
+  mc.searchSkipCursor(-1)
+end, { desc = "Skip cursor at prev search result", noremap = true })
+set({ "n", "x" }, "<M-c>d", function()
+  mc.searchAddCursor(1)
+end, { desc = "Add cursor at next search result", noremap = true })
+set({ "n", "x" }, "<M-c><S-d>", function()
+  mc.searchSkipCursor(1)
+end, { desc = "Skip cursor at next search result", noremap = true })
+set({ "n", "x" }, "<M-c><S-a>", function()
+  mc.searchAllAddCursors()
+end, { desc = "Add cursor to all search results", noremap = true })
+
+-- Disable and enable cursors.
+set({ "n", "x" }, "<M-q>", mc.toggleCursor)
+
+-- Mappings defined in a keymap layer only apply when there are
+-- multiple cursors. This lets you have overlapping mappings.
+mc.addKeymapLayer(function(layerSet)
+  -- Select a different cursor as the main one.
+  layerSet({ "n", "x" }, "<M-h>", mc.prevCursor)
+  layerSet({ "n", "x" }, "<M-l>", mc.nextCursor)
+
+  -- Delete the main cursor.
+  layerSet({ "n", "x" }, "<M-x>", mc.deleteCursor)
+
+  -- Enable and clear cursors using escape.
+  layerSet("n", "<esc>", function()
+    if not mc.cursorsEnabled() then
+      mc.enableCursors()
+    else
+      mc.clearCursors()
+    end
+  end)
+end)
