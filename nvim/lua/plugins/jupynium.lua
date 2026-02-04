@@ -51,7 +51,7 @@ return {
       -- when you open a .ju.py file on nvim.
       -- Related command :JupyniumStartSync
       auto_start_sync = {
-        enable = true,
+        enable = false,
         file_pattern = { "*.ju.*" },
       },
 
@@ -86,7 +86,7 @@ return {
       -- Modify this if you already have lots of files in Jupytext format, for example.
       jupynium_file_pattern = { "*.ju.*" },
 
-      use_default_keybindings = true,
+      use_default_keybindings = false,
       textobjects = {
         use_default_keybindings = true,
       },

@@ -3,6 +3,7 @@ return {
   lazy = false,
   opts = {
     delele_to_trash = true,
+    default_file_explorer = true,
     skip_confirm_for_simple_edits = true,
     view_options = {
       show_hidden = true,
@@ -32,7 +33,7 @@ return {
 
       ["-"] = { "actions.parent", mode = "n" },
       ["_"] = { "actions.open_cwd", mode = "n" },
-      ["~"] = { "actions.cd", mode = "n" },
+      ["gd"] = { "actions.cd", mode = "n" },
       ["gs"] = { "actions.change_sort", mode = "n" },
       ["gx"] = "actions.open_external",
       ["g."] = { "actions.toggle_hidden", mode = "n" },

@@ -1,7 +1,7 @@
 return {
   {
     dir = "~/projects/nvim/matlab.nvim/",
-    enabled = false,
+    enabled = true,
     lazy = true,
     ft = { "matlab" },
     opts = {

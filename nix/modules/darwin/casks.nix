@@ -8,7 +8,7 @@ _:
   "ghostty"
   "neovide-app"
   "obsidian"
-  "utm"
+  # "utm"
   "adobe-creative-cloud"
   "anki"
   "docker-desktop"
