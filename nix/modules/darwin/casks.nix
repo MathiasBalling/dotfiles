@@ -55,7 +55,7 @@ _:
   "deepl"
   "balenaetcher"
   # "vial"
-  "homerow"
+  # "homerow"
   "aldente"
   "macfuse"
   # "kindavim"

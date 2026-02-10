@@ -17,8 +17,8 @@ set("v", "<M-s>", [[:s/\v]], { desc = "Replace in selected" }) -- Alt + s
 set("n", "<M-f>", [[:%s/\v]], { desc = "Replace in buffer" }) -- Alt + f
 set("v", "<M-f>", [[:s/\v]], { desc = "Replace in selected" }) -- Alt + f
 
-set("n", "<M-g>", [[:%g/\v]], { desc = "Replace in buffer" }) -- Alt + g
-set("v", "<M-g>", [[:g/\v]], { desc = "Replace in selected" }) -- Alt + g
+set("n", "<M-g>", [[:%g/\v]], { desc = "Global search and action in buffer" }) -- Alt + g
+set("v", "<M-g>", [[:g/\v]], { desc = "Global search and action in selection" }) -- Alt + g
 
 -- Paste the last yanked text
 set({ "n", "v" }, ",p", '"0p', { desc = "Paste last yanked text" })
@@ -26,6 +26,8 @@ set({ "n", "v" }, ",P", '"0P', { desc = "Paste last yanked text" })
 
 -- Escape from terminal
 set("t", "<Esc><Esc>", [[<C-\><C-n>]], { desc = "Escape from terminal" })
+
+set("n", "<leader>ue", "<cmd>Copilot toggle<cr>", { desc = "Toggle copilot" })
 
 -- Function to run file depending on filetype
 set("n", "<M-r>", function()

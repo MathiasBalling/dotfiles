@@ -10,6 +10,7 @@ with pkgs;
   redis
   wget
   git
+  git-lfs
   gh
   zip
   cmake
@@ -58,6 +59,7 @@ with pkgs;
   tldr
   man-pages
   typst
+  pngpaste
   jq
   tree
   bat
