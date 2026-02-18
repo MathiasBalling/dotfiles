@@ -8,12 +8,12 @@ return {
 			url = string.gsub(url, " ", "\\ ")
 			url = string.gsub(url, "&", "\\&")
 
-			ya.manager_emit("shell", {
+			ya.emit("shell", {
 				orphan = true,
 				confirm = true,
 				"zoxide add " .. url,
 			})
 		end
-		ya.manager_emit(h and h.cha.is_dir and "enter" or "open", { hovered = true })
+		ya.emit(h and h.cha.is_dir and "enter" or "open", { hovered = true })
 	end,
 }

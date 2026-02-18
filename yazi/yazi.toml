@@ -24,25 +24,14 @@ sixel_fraction = 15
 
 [opener]
 pdf = [
-  { run = 'zathura "$0" 1>/dev/null 2>/dev/null & disown', block = false, for = "unix" },
+  { run = 'zathura %s 1>/dev/null 2>/dev/null & disown', block = false, for = "unix" },
 ]
-code = [{ run = 'code "$@"', block = false, for = "unix" }]
 
 [open]
-prepend_rules = [
-  { name = "*.pdf", use = [
-    "pdf",
-    "open",
-    "reveal",
-  ] },
-  { name = "*.ipynb", use = [
-    "open",
-    "reveal",
-  ] },
-]
+prepend_rules = [{ url = "*.pdf", use = ["pdf", "open", "reveal"] }]
 
 [plugin]
-prepend_previewers = [{ name = "*.md", run = "mdcat" }]
+prepend_previewers = [{ url = "*.md", run = "mdcat" }]
 
 [[plugin.prepend_fetchers]]
 id = "git"

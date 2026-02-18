@@ -5,6 +5,10 @@
 -- Disable mouse
 vim.opt.mouse = ""
 
+--
+-- set formatoptions-=cro
+vim.opt.formatoptions:remove({ "o" })
+
 -- Set for tmux navigator
 vim.g.tmux_navigator_no_mappings = 1
 vim.g.tmux_navigator_save_on_switch = 2
