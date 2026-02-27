@@ -21,6 +21,7 @@ with pkgs;
   rustup
   uv
   just
+  opencode
 
   python312
   python312Packages.jupytext

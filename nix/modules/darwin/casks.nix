@@ -3,19 +3,19 @@ _:
 [
   # Development Tools
   "visual-studio-code"
-  "mactex-no-gui"
+  # "mactex-no-gui"
   "wezterm@nightly"
-  "ghostty"
+  # "ghostty"
   "neovide-app"
-  "obsidian"
+  # "obsidian"
   # "utm"
   "adobe-creative-cloud"
-  "anki"
-  "docker-desktop"
-  "drawio"
+  # "anki"
+  # "docker-desktop"
+  # "drawio"
   "blender"
   "autodesk-fusion"
-  "freecad"
+  # "freecad"
   "the-unarchiver"
   "bambu-studio"
   "figma"
@@ -23,7 +23,7 @@ _:
 
   # Browsers
   "zen"
-  "arc"
+  # "arc"
   "firefox"
 
   # Fonts
@@ -32,8 +32,7 @@ _:
 
   # Communication Tools
   "discord"
-  "messenger"
-  "notion"
+  # "notion"
   "spotify"
 
   # Utility Tools
@@ -43,7 +42,6 @@ _:
   "betterdisplay"
   "git-credential-manager"
   "protonvpn"
-  "battery"
 
   # Entertainment Tools
   "iina"
@@ -52,7 +50,8 @@ _:
   "alfred"
   "aerospace"
   "shottr"
-  "deepl"
+  "excalidrawz"
+  # "deepl"
   "balenaetcher"
   # "vial"
   # "homerow"
