@@ -1,64 +1,49 @@
 return {
   {
     "Civitasv/cmake-tools.nvim",
-    keys = {
-      { "<leader>cc", "", desc = "+cmake", ft = { "c", "cpp", "cmake", "h", "hpp" } },
-      -- Main actions
-      { "<leader>ccg", ":CMakeGenerate<CR>", desc = "Generate CMake files", silent = true, ft = { "cpp", "cmake" } },
-      { "<leader>ccb", ":CMakeBuild<CR>", desc = "Build CMake Target", silent = true, ft = { "cpp", "cmake" } },
-      { "<leader>ccB", ":CMakeQuickBuild<CR>", desc = "CMake Quick Build", silent = true, ft = { "cpp", "cmake" } },
-      { "<leader>ccr", ":CMakeRun<CR>", desc = "CMake Run Target", silent = true, ft = { "cpp", "cmake" } },
-      -- { "<M-r>", ":CMakeRun<CR>", desc = "CMake Run Target", silent = true }, -- Option + r
-      { "<leader>ccR", ":CMakeQuickRun<CR>", desc = "CMake Quick Run", silent = true, ft = { "cpp", "cmake" } },
+    config = function()
+      local filetypes = { "c", "cpp", "cmake", "h", "hpp" }
 
-      -- Target actions
-      {
-        "<leader>cct",
-        ":CMakeSelectBuildTarget<CR>",
-        desc = "CMake Set Build Target",
-        silent = true,
-        ft = { "cpp", "cmake" },
-      },
-      {
-        "<leader>ccT",
-        ":CMakeSelectBuildType<CR>",
-        desc = "CMake Build Type",
-        silent = true,
-        ft = { "cpp", "cmake" },
-      },
-      {
-        "<leader>ccl",
-        ":CMakeSelectLaunchTarget<CR>",
-        desc = "CMake Set Launch Target",
-        silent = true,
-        ft = { "cpp", "cmake" },
-      },
-      { "<leader>ccL", ":CMakeLaunchArgs ", desc = "CMake Launch Args", ft = { "cpp", "cmake" } },
-      {
-        "<leader>cco",
-        ":CMakeShowTargetFiles<CR>",
-        desc = "Show CMake Files",
-        silent = true,
-        ft = { "cpp", "cmake" },
-      },
+      -- Function to set keymaps
+      local function set_cmake_keymaps(bufnr)
+        local set = vim.api.nvim_buf_set_keymap
+        local opts = { noremap = true, silent = true }
 
-      -- Debug
-      { "<leader>ccd", ":CMakeDebug<CR>", desc = "CMake Debug Target", silent = true, ft = { "cpp", "cmake" } },
-      { "<leader>ccD", ":CMakeQuickDebug<CR>", desc = "CMake Quick Debug", silent = true, ft = { "cpp", "cmake" } },
+        -- Define all keymaps here
+        set(bufnr, "n", "<leader>l", "", { desc = "+cmake" })
+        -- Main actions
+        set(bufnr, "n", "<leader>lg", ":CMakeGenerate<CR>", opts)
+        set(bufnr, "n", "<leader>lb", ":CMakeBuild<CR>", opts)
+        set(bufnr, "n", "<leader>lB", ":CMakeQuickBuild<CR>", opts)
+        set(bufnr, "n", "<leader>lr", ":CMakeRun<CR>", opts)
+        set(bufnr, "n", "<leader>lR", ":CMakeQuickRun<CR>", opts)
 
-      -- Settings
-      { "<leader>ccq", ":CMakeClose<CR>", desc = "Close CMake", silent = true, ft = { "cpp", "cmake" } },
-      { "<M-c>", ":CMakeClose<CR>", desc = "Close CMake", silent = true, ft = { "cpp", "cmake" } },
-      { "<leader>ccc", ":CMakeClean<CR>", desc = "Clean CMake files", silent = true, ft = { "cpp", "cmake" } },
-      {
-        "<leader>ccs",
-        ":CMakeTargetSettings<CR>",
-        desc = "CMake Target Settings",
-        silent = true,
-        ft = { "cpp", "cmake" },
-      },
-      { "<leader>ccS", ":CMakeSettings<CR>", desc = "CMake Settings", silent = true, ft = { "cpp", "cmake" } },
-      { "<leader>ccw", ":CMakeSelectCwd<CR>", desc = "CMake CWD", silent = true, ft = { "cpp", "cmake" } },
-    },
+        -- Target actions
+        set(bufnr, "n", "<leader>lt", ":CMakeSelectBuildTarget<CR>", opts)
+        set(bufnr, "n", "<leader>lT", ":CMakeSelectBuildType<CR>", opts)
+        set(bufnr, "n", "<leader>ll", ":CMakeSelectLaunchTarget<CR>", opts)
+        set(bufnr, "n", "<leader>lL", ":CMakeLaunchArgs<CR>", opts)
+        set(bufnr, "n", "<leader>lo", ":CMakeShowTargetFiles<CR>", opts)
+
+        -- Debug
+        set(bufnr, "n", "<leader>ld", ":CMakeDebug<CR>", opts)
+        set(bufnr, "n", "<leader>lD", ":CMakeQuickDebug<CR>", opts)
+
+        -- Settings
+        set(bufnr, "n", "<leader>lq", ":CMakeClose<CR>", opts)
+        set(bufnr, "n", "<leader>lc", ":CMakeClean<CR>", opts)
+        set(bufnr, "n", "<leader>ls", ":CMakeTargetSettings<CR>", opts)
+        set(bufnr, "n", "<leader>lS", ":CMakeSettings<CR>", opts)
+        set(bufnr, "n", "<leader>lw", ":CMakeSelectCwd<CR>", opts)
+      end
+
+      -- Apply keymaps for the specified filetypes
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = filetypes,
+        callback = function(args)
+          set_cmake_keymaps(args.buf)
+        end,
+      })
+    end,
   },
 }

@@ -2,16 +2,6 @@ return {
   "neovim/nvim-lspconfig",
   opts = {
     servers = {
-      matlab_ls = {
-        settings = {
-          MATLAB = {
-            indexWorkspace = true,
-            installPath = "/Applications/MATLAB_R2024b.app/",
-            matlabConnectionTiming = "onStart",
-            telemetry = true,
-          },
-        },
-      },
       -- clangd = {
       --   mason = false,
       -- },

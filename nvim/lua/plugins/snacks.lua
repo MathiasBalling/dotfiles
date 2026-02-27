@@ -53,4 +53,29 @@ return {
     })
     return opts
   end,
+  config = function(_, opts)
+    local set = vim.keymap.set
+    -- Change CWD with zoxide
+    set("n", "<leader>sz", function()
+      require("snacks.picker").zoxide()
+    end, { desc = "Search zoxide" })
+
+    set("n", "<leader>fp", "", { desc = "Lazy Plugins" })
+    set("n", "<leader>fpf", function()
+      require("snacks.picker").files({ cwd = require("lazy.core.config").options.root })
+    end, { desc = "Find Lazy plugins" })
+    set("n", "<leader>fpg", function()
+      require("snacks.picker").grep({ cwd = require("lazy.core.config").options.root })
+    end, { desc = "Find Lazy plugins" })
+
+    set("n", "<leader><space>", function()
+      require("snacks.picker").files({ cwd = vim.fs.normalize((vim.uv or vim.loop).cwd() or ".") })
+    end, { desc = "Find files (cwd)" })
+
+    set("n", "<leader>ff", function()
+      require("snacks.picker").smart({
+        multi = { "files", "git_files", "buffers", "recent" },
+      })
+    end, { desc = "Find files (smart)" })
+  end,
 }
