@@ -54,6 +54,7 @@ return {
     return opts
   end,
   config = function(_, opts)
+    require("snacks").setup(opts)
     local set = vim.keymap.set
     -- Change CWD with zoxide
     set("n", "<leader>sz", function()

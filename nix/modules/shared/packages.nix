@@ -18,10 +18,12 @@ with pkgs;
   ninja
   nodejs
   pnpm
+  bun
   rustup
   uv
   just
   opencode
+  claude-code
 
   python312
   python312Packages.jupytext

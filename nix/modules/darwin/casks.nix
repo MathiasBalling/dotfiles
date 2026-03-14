@@ -20,11 +20,13 @@ _:
   "bambu-studio"
   "figma"
   # "orcaslicer"
+  "sioyek"
 
   # Browsers
   "zen"
   # "arc"
   "firefox"
+  "brave-browser"
 
   # Fonts
   "font-sketchybar-app-font"
@@ -32,7 +34,7 @@ _:
 
   # Communication Tools
   "discord"
-  # "notion"
+  "notion"
   "spotify"
 
   # Utility Tools

@@ -24,6 +24,7 @@ sixel_fraction = 15
 
 [opener]
 pdf = [
+  { run = 'sioyek %s 1>/dev/null 2>/dev/null & disown', block = false, for = "unix" },
   { run = 'zathura %s 1>/dev/null 2>/dev/null & disown', block = false, for = "unix" },
 ]
 
