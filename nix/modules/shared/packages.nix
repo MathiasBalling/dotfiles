@@ -23,10 +23,12 @@ with pkgs;
   uv
   just
   opencode
-  claude-code
+  # claude-code
 
   python312
-  python312Packages.jupytext
+  # python312Packages.jupytext
+  # python314
+  # python314Packages.jupytext
   # lua51Packages.lua
   # lua51Packages.luarocks
   lua54Packages.lua
@@ -48,17 +50,17 @@ with pkgs;
 
   # development
   fzf
-  neovim
+  # neovim
+  bob-nvim
   helix
   zoxide
   ripgrep
   fd
   lazygit
   zathura
-  # miro
   yazi
   eza
-  mdcat
+  glow
   tldr
   man-pages
   typst
@@ -68,11 +70,10 @@ with pkgs;
   bat
   btop
   coreutils
-  neofetch
   killall
 
   # stable.kanata
   # Nix format
-  nixfmt-rfc-style
+  nixfmt
   nixd
 ]
