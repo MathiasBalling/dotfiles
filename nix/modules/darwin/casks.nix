@@ -2,32 +2,34 @@ _:
 
 [
   # Development Tools
-  "visual-studio-code"
+  # "visual-studio-code"
   # "mactex-no-gui"
   "wezterm@nightly"
   # "ghostty"
   "neovide-app"
   # "obsidian"
   # "utm"
-  "adobe-creative-cloud"
+  # "adobe-creative-cloud"
   # "anki"
   # "docker-desktop"
   # "drawio"
   "blender"
   "autodesk-fusion"
-  "freecad"
+  # "freecad"
   "the-unarchiver"
   "bambu-studio"
-  "figma"
+  # "figma"
   "affinity"
   # "orcaslicer"
   "sioyek"
+  "syncthing-app"
 
   # Browsers
-  # "zen"
+  "zen"
   # "arc"
   "firefox"
   "brave-browser"
+  # "tor-browser"
 
   # Fonts
   "font-sketchybar-app-font"
@@ -39,9 +41,9 @@ _:
   "spotify"
 
   # Utility Tools
-  "onedrive"
-  "google-drive"
-  "cleanmymac"
+  # "onedrive"
+  # "google-drive"
+  # "cleanmymac"
   "betterdisplay"
   "git-credential-manager"
   "protonvpn"
@@ -51,10 +53,11 @@ _:
 
   # Productivity Tools
   "alfred"
+  "vorssaint"
   "aerospace"
   "shottr"
   "excalidrawz"
-  "alt-tab"
+  # "alt-tab"
   # "deepl"
   "balenaetcher"
   # "vial"

@@ -31,7 +31,7 @@ key-mapping.preset = 'qwerty'
 
 # Mouse follows focus when focused monitor/window changes
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-on-focus-changed = ['move-mouse window-lazy-center']
+# on-focus-changed = ['move-mouse window-lazy-center']
 
 [gaps]
 inner.horizontal = [{ monitor."built-in.*" = 5 }, 10]
@@ -138,8 +138,10 @@ alt-ctrl-semicolon = 'mode resize'
 
 # Quicker app opener
 shift-cmd-j = 'exec-and-forget open -a WezTerm'
+shift-cmd-c = 'exec-and-forget open -a Claude'
 shift-cmd-semicolon = 'exec-and-forget zsh -i -c neovide'
-shift-cmd-a = 'exec-and-forget open -a Zen'
+# shift-cmd-a = 'exec-and-forget open -a Zen'
+shift-cmd-a = 'exec-and-forget open -a Brave\ Browser'
 # shift-cmd-f = 'exec-and-forget wezterm start -- ~/.nix-profile/bin/yazi'
 # shift-cmd-p = 'exec-and-forget wezterm start -- btop'
 

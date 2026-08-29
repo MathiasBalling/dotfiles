@@ -142,7 +142,7 @@ in
 
     ''
     + (
-      if pkgs.stdenv.isDarwin then
+      if pkgs.stdenv.hostPlatform.isDarwin then
         ''
           if [[ -f /opt/homebrew/bin/brew ]]; then
             eval "$(/opt/homebrew/bin/brew shellenv)"

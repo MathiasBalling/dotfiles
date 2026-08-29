@@ -23,6 +23,8 @@ with pkgs;
   uv
   just
   opencode
+  devenv
+
   # claude-code
 
   python312

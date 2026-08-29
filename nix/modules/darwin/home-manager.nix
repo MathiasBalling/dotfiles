@@ -25,6 +25,7 @@ in
 
   homebrew = {
     enable = true;
+    enableZshIntegration = true;
     # Casks (GUI) applications
     casks = pkgs.callPackage ./casks.nix { };
     # Brews (CLI) applications not available in nixpkgs
@@ -33,7 +34,7 @@ in
       "pygments"
       "shopify-cli"
       "sketchybar"
-      "borders"
+      #"borders"
       # "avr-gcc@14"
       # "avrdude"
       "r"
@@ -130,10 +131,12 @@ in
   # Fully declarative dock using the latest from Nix Store
   local.dock.enable = true;
   local.dock.entries = [
-    { path = "/System/Applications/Messages.app/"; }
-    { path = "/Applications/Zen.app/"; }
     { path = "/Applications/WezTerm.app/"; }
     { path = "/Applications/Neovide.app/"; }
+    { path = "/Applications/Brave\ Browser.app/"; }
+    { path = "/System/Applications/Messages.app/"; }
+    { path = "/Applications/Mail.app/"; }
+    # { path = "/Applications/Zen.app/"; }
     {
       path = "${config.users.users.${user}.home}/.local/share/";
       section = "others";
