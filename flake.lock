@@ -1,37 +1,5 @@
 {
   "nodes": {
-    "aerospace-tap": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1784218089,
-        "narHash": "sha256-2FfJuPb9CaXPOU71NWPjoiENUoGQepSr/IkKQMLkFaQ=",
-        "owner": "nikitabobko",
-        "repo": "homebrew-tap",
-        "rev": "13b49a6711cc9d2f4555056b4f7023c8ad2bbb4b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nikitabobko",
-        "repo": "homebrew-tap",
-        "type": "github"
-      }
-    },
-    "avr-tap": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1780904444,
-        "narHash": "sha256-So3Eoi8EB9UyZUUmWgGNAS1NtW2mzcS+4Y6d4uZITak=",
-        "owner": "osx-cross",
-        "repo": "homebrew-avr",
-        "rev": "c9adfa2e70b36648c3f95c040668072f96137adf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "osx-cross",
-        "repo": "homebrew-avr",
-        "type": "github"
-      }
-    },
     "brew-src": {
       "flake": false,
       "locked": {
@@ -204,8 +172,6 @@
     },
     "root": {
       "inputs": {
-        "aerospace-tap": "aerospace-tap",
-        "avr-tap": "avr-tap",
         "darwin": "darwin",
         "home-manager": "home-manager",
         "homebrew-bundle": "homebrew-bundle",
@@ -213,41 +179,7 @@
         "homebrew-core": "homebrew-core",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs_2",
-        "nixpkgs-stable": "nixpkgs-stable",
-        "shopify-tap": "shopify-tap",
-        "sketchybar-tap": "sketchybar-tap"
-      }
-    },
-    "shopify-tap": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1787165728,
-        "narHash": "sha256-UwKDHKSfuW3krClvRUJQ5HYEltZnKUS62ZBBMrqOoaU=",
-        "owner": "shopify",
-        "repo": "homebrew-shopify",
-        "rev": "ba46c02ae18b526505c8c0b6a551cb06d75124ef",
-        "type": "github"
-      },
-      "original": {
-        "owner": "shopify",
-        "repo": "homebrew-shopify",
-        "type": "github"
-      }
-    },
-    "sketchybar-tap": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1780547371,
-        "narHash": "sha256-QGCVV5N1QC56GQK3ck2YJ6J6/S8SQ6rTElz69y58078=",
-        "owner": "FelixKratz",
-        "repo": "homebrew-formulae",
-        "rev": "70b2071488b61c14f773ce9e1bf6626ee851981a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "FelixKratz",
-        "repo": "homebrew-formulae",
-        "type": "github"
+        "nixpkgs-stable": "nixpkgs-stable"
       }
     }
   },

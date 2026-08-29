@@ -55,6 +55,12 @@ in
     ]
     ++ (import ../../modules/shared/packages.nix { inherit pkgs; });
 
+  services = {
+    aerospace = {
+      enable = true;
+    };
+  };
+
   system = {
     primaryUser = "${user}";
     stateVersion = 6;

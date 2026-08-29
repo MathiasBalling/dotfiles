@@ -32,8 +32,8 @@ in
     brews = [
       "java11"
       "pygments"
-      "shopify-cli"
-      "sketchybar"
+      # "shopify-cli"
+      # "sketchybar"
       #"borders"
       # "avr-gcc@14"
       # "avrdude"

@@ -26,6 +26,7 @@ with pkgs;
   devenv
 
   # claude-code
+  shopify-cli
 
   python312
   # python312Packages.jupytext
