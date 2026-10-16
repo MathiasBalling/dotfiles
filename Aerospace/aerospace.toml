@@ -1,3 +1,5 @@
+config-version = 2
+
 # Start AeroSpace at login
 start-at-login = true
 # Available commands: https://nikitabobko.github.io/AeroSpace/commands
@@ -139,9 +141,13 @@ alt-ctrl-semicolon = 'mode resize'
 # Quicker app opener
 shift-cmd-j = 'exec-and-forget open -a WezTerm'
 shift-cmd-c = 'exec-and-forget open -a Claude'
-shift-cmd-semicolon = 'exec-and-forget zsh -i -c neovide'
+shift-cmd-v = 'exec-and-forget open -a T3\ Code\ \(Beta\)'
+shift-cmd-f = 'exec-and-forget open -a Notion'
+# shift-cmd-semicolon = 'exec-and-forget zsh -i -c neovide'
+shift-cmd-semicolon = 'exec-and-forget open -a neovide'
 # shift-cmd-a = 'exec-and-forget open -a Zen'
-shift-cmd-a = 'exec-and-forget open -a Brave\ Browser'
+# shift-cmd-a = 'exec-and-forget open -a Brave\ Browser'
+shift-cmd-a = 'exec-and-forget open -a Helium'
 # shift-cmd-f = 'exec-and-forget wezterm start -- ~/.nix-profile/bin/yazi'
 # shift-cmd-p = 'exec-and-forget wezterm start -- btop'
 

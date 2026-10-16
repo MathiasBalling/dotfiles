@@ -12,10 +12,6 @@
       home-manager,
       nixpkgs,
       nixpkgs-stable,
-      # aerospace-tap,
-      # shopify-tap,
-      # sketchybar-tap,
-      # avr-tap,
     }@inputs:
     let
       user = "balling";

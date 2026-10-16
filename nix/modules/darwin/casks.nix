@@ -7,6 +7,7 @@ _:
   "wezterm@nightly"
   # "ghostty"
   "neovide-app"
+  "t3-code"
   # "obsidian"
   # "utm"
   # "adobe-creative-cloud"
@@ -21,7 +22,7 @@ _:
   # "figma"
   "affinity"
   # "orcaslicer"
-  "sioyek"
+  # "sioyek"
   "syncthing-app"
 
   # Browsers
@@ -29,6 +30,7 @@ _:
   # "arc"
   "firefox"
   "brave-browser"
+  "helium-browser"
   # "tor-browser"
 
   # Fonts
@@ -37,16 +39,20 @@ _:
 
   # Communication Tools
   "discord"
+  "whatsapp"
+  "telegram"
   "notion"
+  "notion-calendar"
   "spotify"
 
   # Utility Tools
   # "onedrive"
-  # "google-drive"
+  "google-drive"
   # "cleanmymac"
   "betterdisplay"
   "git-credential-manager"
   "protonvpn"
+  "tailscale-app"
 
   # Entertainment Tools
   "iina"

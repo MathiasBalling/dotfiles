@@ -24,6 +24,7 @@ with pkgs;
   just
   opencode
   devenv
+  sketchybar
 
   # claude-code
   shopify-cli
