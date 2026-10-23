@@ -24,6 +24,7 @@ with pkgs;
   just
   opencode
   devenv
+  infisical
   sketchybar
 
   # claude-code

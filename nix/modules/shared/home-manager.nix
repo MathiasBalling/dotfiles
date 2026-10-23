@@ -171,6 +171,14 @@ in
   direnv = {
     enable = true;
     enableZshIntegration = true;
+    # `use infisical [env]` in .envrc loads secrets from the project linked by `infisical init`
+    stdlib = ''
+      use_infisical() {
+        local env="''${1:-dev}"
+        watch_file .infisical.json
+        eval "$(infisical export --env="$env" --format=dotenv-export)"
+      }
+    '';
   };
   zoxide = {
     enable = true;

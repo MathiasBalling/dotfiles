@@ -65,10 +65,12 @@ _:
   "excalidrawz"
   # "alt-tab"
   # "deepl"
-  "balenaetcher"
+  # "balenaetcher"
   # "vial"
   # "homerow"
   "aldente"
   "macfuse"
+  "macusb"
+  "macpacker"
   # "kindavim"
 ]

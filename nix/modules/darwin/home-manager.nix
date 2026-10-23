@@ -42,6 +42,9 @@ in
       # For tauri
       # "xcodegen"
       # "cocoapods"
+
+      "mole" # Storage cleaner
+      "openscad@snapshot"
     ];
 
     onActivation = {
