@@ -2,44 +2,43 @@ local app_icons = require("app_icons")
 local colors = require("colors")
 local settings = require("settings")
 
-local spaces_bracket = {}
+-- Workspace items are created/removed dynamically, because the set of
+-- AeroSpace workspaces changes at runtime (e.g. right after login AeroSpace may
+-- only have a temporary workspace like "10" before windows are assigned).
+local spaces = {} -- workspace name -> sketchybar item
+local order = {} -- sorted list of workspace names currently shown
 
-local spaces = {}
-
-local workspaces = GetWorkspaces()
-local current_workspace = GetCurrentWorkspace()
-
-local function split(str, sep)
-  local result = {}
-  local regex = ("([^%s]+)"):format(sep)
-  for each in str:gmatch(regex) do
-    table.insert(result, each)
+local function compare_workspaces(a, b)
+  local na, nb = tonumber(a), tonumber(b)
+  if na and nb then
+    return na < nb
+  elseif na then
+    return true
+  elseif nb then
+    return false
   end
-  return result
+  return a < b
 end
 
-for i, workspace in ipairs(workspaces) do
-  local selected = workspace == current_workspace
+local function add_space(workspace)
   local space = sbar.add("item", "item." .. workspace, {
+    position = "left",
     icon = {
       font = {
         family = settings.font.numbers,
       },
       string = workspace,
       padding_left = settings.items.padding.left,
-      -- padding_right = settings.items.padding.right,
       padding_right = 0,
-      color = settings.items.default_color(i),
-      highlight_color = settings.items.highlight_color(i),
-      highlight = selected,
+      color = settings.items.default_color(workspace),
+      highlight_color = settings.items.highlight_color(workspace),
     },
     label = {
       drawing = false,
       padding_right = settings.items.padding.right,
-      color = settings.items.default_color(i),
-      highlight_color = settings.items.highlight_color(i),
+      color = settings.items.default_color(workspace),
+      highlight_color = settings.items.highlight_color(workspace),
       font = settings.apps_font,
-      highlight = selected,
     },
     padding_right = 0,
     padding_left = 0,
@@ -47,120 +46,144 @@ for i, workspace in ipairs(workspaces) do
       color = settings.items.colors.background,
       border_width = 1,
       height = settings.items.height,
-      -- border_color = selected and settings.items.highlight_color(i) or settings.items.default_color(i),
-      -- border_color = selected and settings.items.highlight_color(i) or colors.transparent,
       border_color = colors.transparent,
     },
-    -- popup = {
-    --   background = {
-    --     border_width = 5,
-    --     border_color = colors.black,
-    --   },
-    -- },
   })
-
-  spaces[i] = space
-
-  -- Define the icons for open apps on each space initially
-  sbar.exec("aerospace list-windows --workspace " .. workspace .. " --format '%{app-name}' --json ", function(apps)
-    local icon_line = ""
-    local no_app = true
-    for _, app in ipairs(apps) do
-      no_app = false
-      local app_name = app["app-name"]
-      local lookup = app_icons[app_name]
-      local icon = ((lookup == nil) and app_icons["default"] or lookup)
-      icon_line = icon_line .. " " .. icon
-    end
-
-    sbar.animate("tanh", 10, function()
-      space:set({
-        label = {
-          drawing = not no_app,
-          string = icon_line,
-        },
-        icon = {
-          padding_right = settings.items.padding.right,
-        },
-      })
-    end)
-  end)
 
   -- Padding space between each item
   sbar.add("item", "item." .. workspace .. "padding", {
+    position = "left",
     script = "",
     width = settings.items.gap,
   })
 
-  space:subscribe("aerospace_workspace_change", function(env)
-    local active = env.FOCUSED_WORKSPACE == workspace
-    space:set({
-      icon = {
-        highlight = active,
-      },
-      label = {
-        highlight = active,
-      },
-      background = {
-        -- border_color = active and settings.items.highlight_color(i) or settings.items.default_color(i),
-        -- border_color = active and settings.items.highlight_color(i) or colors.transparent,
-        border_color = colors.transparent,
-      },
-    })
+  space:subscribe("mouse.clicked", function(env)
+    if env.BUTTON ~= "other" then
+      sbar.exec("aerospace workspace '" .. workspace .. "'")
+    end
   end)
 
-  space:subscribe("mouse.clicked", function(env)
-    local id = split(env.NAME, ".")[2]
-    if env.BUTTON ~= "other" then
-      sbar.exec("aerospace workspace " .. id)
+  spaces[workspace] = space
+end
+
+local function remove_space(workspace)
+  sbar.remove("item." .. workspace)
+  sbar.remove("item." .. workspace .. "padding")
+  spaces[workspace] = nil
+end
+
+-- Keep the workspace items in sorted order, in front of the active app items.
+local function reorder()
+  local names = {}
+  for _, workspace in ipairs(order) do
+    table.insert(names, "item." .. workspace)
+    table.insert(names, "item." .. workspace .. "padding")
+  end
+  table.insert(names, "active_app_spacer")
+  table.insert(names, "active_app")
+  sbar.exec("sketchybar --reorder " .. table.concat(names, " "))
+end
+
+local function update_icons()
+  sbar.exec("aerospace list-windows --all --json --format '%{workspace} %{app-name}'", function(windows)
+    local icon_lines = {}
+    if type(windows) == "table" then
+      for _, window in ipairs(windows) do
+        local lookup = app_icons[window["app-name"]]
+        local icon = (lookup == nil) and app_icons["Default"] or lookup
+        icon_lines[window.workspace] = (icon_lines[window.workspace] or "") .. icon
+      end
     end
+
+    sbar.animate("tanh", 10, function()
+      for workspace, space in pairs(spaces) do
+        local icon_line = icon_lines[workspace]
+        space:set({
+          label = {
+            drawing = icon_line ~= nil,
+            string = icon_line or "",
+          },
+          icon = {
+            padding_right = icon_line and settings.items.padding.right or 0,
+          },
+        })
+      end
+    end)
   end)
 end
 
-local space_window_observer = sbar.add("item", {
+local function refresh()
+  sbar.exec("aerospace list-workspaces --all --format '%{workspace} %{workspace-is-focused}'", function(output)
+    if type(output) ~= "string" then
+      return
+    end
+
+    local current = {}
+    local names = {}
+    local focused = nil
+    for line in output:gmatch("[^\n]+") do
+      local workspace, is_focused = line:match("^(%S+)%s+(%S+)$")
+      if workspace then
+        current[workspace] = true
+        table.insert(names, workspace)
+        if is_focused == "true" then
+          focused = workspace
+        end
+      end
+    end
+
+    -- An empty list means AeroSpace isn't answering yet; keep what we have.
+    if #names == 0 then
+      return
+    end
+
+    local changed = false
+    for workspace in pairs(spaces) do
+      if not current[workspace] then
+        remove_space(workspace)
+        changed = true
+      end
+    end
+    for _, workspace in ipairs(names) do
+      if not spaces[workspace] then
+        add_space(workspace)
+        changed = true
+      end
+    end
+
+    table.sort(names, compare_workspaces)
+    order = names
+    if changed then
+      reorder()
+    end
+
+    for workspace, space in pairs(spaces) do
+      local active = workspace == focused
+      space:set({
+        icon = { highlight = active },
+        label = { highlight = active },
+      })
+    end
+
+    update_icons()
+  end)
+end
+
+sbar.add("event", "aerospace_workspace_change")
+
+local space_window_observer = sbar.add("item", "spaces_observer", {
   drawing = false,
   updates = true,
 })
 
--- local space_names = {}
--- for _, space in ipairs(spaces) do
---   table.insert(space_names, space.name)
--- end
--- sbar.add("bracket", "test.testing", space_names, {
---   color = settings.items.highlight_color(0),
---   background = {
---     color = settings.items.colors.background,
---     border_width = 1,
---     height = settings.items.height + 2,
---     border_color = settings.items.highlight_color(0),
---   },
--- })
+space_window_observer:subscribe({
+  "aerospace_workspace_change",
+  "space_windows_change",
+  "front_app_switched",
+  "display_change",
+  "system_woke",
+}, function(_)
+  refresh()
+end)
 
--- Event handles
-space_window_observer:subscribe(
-  { "front_app_switched", "aerospace_workspace_change", "space_windows_change" },
-  function(_)
-    for i, workspace in ipairs(workspaces) do
-      sbar.exec("aerospace list-windows --workspace " .. workspace .. " --format '%{app-name}' --json ", function(apps)
-        local icon_line = ""
-        local no_app = true
-        for _, app in ipairs(apps) do
-          no_app = false
-          local app_name = app["app-name"]
-          local lookup = app_icons[app_name]
-          local icon = ((lookup == nil) and app_icons["default"] or lookup)
-          icon_line = icon_line .. "" .. icon
-        end
-
-        sbar.animate("tanh", 10, function()
-          spaces[i]:set({
-            label = {
-              drawing = not no_app,
-              string = icon_line,
-            },
-          })
-        end)
-      end)
-    end
-  end
-)
+refresh()

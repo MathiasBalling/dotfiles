@@ -32,11 +32,10 @@ return {
       bottom = 0,
     },
     default_color = function(workspace)
-      return colors.nv_blue_dark
+      return colors.dimmer_white
     end,
     highlight_color = function(workspace)
-      -- return colors.fg
-      return colors.nv_blue
+      return colors.dim_white
     end,
     colors = {
       background = colors.bg,

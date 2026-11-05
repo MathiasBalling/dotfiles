@@ -16,7 +16,8 @@ local cal = sbar.add("item", {
   },
   position = "right",
   update_freq = 15,
-  padding_right = 0,
+  -- Keep clear of the camera/microphone privacy dot at the screen edge.
+  padding_right = 16,
 })
 
 local function update()

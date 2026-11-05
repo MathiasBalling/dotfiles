@@ -14,6 +14,8 @@ return {
   bg = 0xff000111,
   nv_blue = 0xff00BFFF,
   nv_blue_dark = 0xaa7aa2ff,
+  dim_white = 0xccffffff,
+  dimmer_white = 0x66ffffff,
 
   bar = {
     -- bg = 0xff000111,

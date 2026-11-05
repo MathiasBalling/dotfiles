@@ -61,7 +61,7 @@ local active = sbar.add("item", "active_app", {
 
 sbar.exec("aerospace list-windows --focused --format %{app-name}", function(app_name)
   local lookup = app_icons[app_name]
-  local icon = ((lookup == nil) and app_icons["default"] or lookup)
+  local icon = ((lookup == nil) and app_icons["Default"] or lookup)
   active:set({ label = { string = app_name }, icon = {
     string = icon,
   } })
@@ -70,7 +70,7 @@ end)
 active:subscribe("front_app_switched", function(env)
   local app_name = env.INFO
   local lookup = app_icons[app_name]
-  local icon = ((lookup == nil) and app_icons["default"] or lookup)
+  local icon = ((lookup == nil) and app_icons["Default"] or lookup)
   active:set({ label = { string = capitalize_first(app_name) }, icon = {
     string = icon,
   } })
