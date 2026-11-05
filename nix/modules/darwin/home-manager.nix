@@ -44,7 +44,6 @@ in
       # "cocoapods"
 
       "mole" # Storage cleaner
-      "openscad@snapshot"
     ];
 
     onActivation = {
