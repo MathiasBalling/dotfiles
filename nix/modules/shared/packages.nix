@@ -22,7 +22,7 @@ with pkgs;
   rustup
   uv
   just
-  opencode
+  # opencode
   devenv
   infisical
   sketchybar

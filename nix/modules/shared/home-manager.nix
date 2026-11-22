@@ -153,6 +153,13 @@ in
             PATH="$matlab/bin:$PATH"
           fi
 
+          # SolidCraft (Homebrew cask) ships its CLI inside the app bundle
+          local solidcraft=/Applications/SolidCraft.app/Contents/MacOS
+          if [[ -d $solidcraft ]]; then
+            export PATH="$solidcraft:$PATH"
+            alias solidcraft="$solidcraft/SolidCraft"
+          fi
+
           if [[ -d /opt/homebrew/opt/avr-gcc@14/bin ]]; then
             export PATH="/opt/homebrew/opt/avr-gcc@14/bin:$PATH"
           fi

@@ -44,6 +44,7 @@ in
       # "cocoapods"
 
       "mole" # Storage cleaner
+      "libusb"
     ];
 
     onActivation = {

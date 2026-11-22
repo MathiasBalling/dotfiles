@@ -1,73 +1,75 @@
 _:
 
 [
-  # Development Tools
-  # "visual-studio-code"
-  # "mactex-no-gui"
-  "wezterm@nightly"
+  # Terminals & Editors
   # "ghostty"
   "neovide-app"
   "t3-code"
-  # "obsidian"
-  # "utm"
-  # "adobe-creative-cloud"
-  # "anki"
+  "wezterm@nightly"
+
+  # Development & Virtualization
   # "docker-desktop"
-  # "drawio"
-  "blender"
+  "git-credential-manager"
+  # "utm"
+
+  # 3D, CAD & Electronics
   "autodesk-fusion"
-  "kicad"
-  # "freecad"
   "bambu-studio"
-  # "figma"
+  "blender"
+  # "freecad"
+  "kicad"
+  "solidcraft"
+
+  # Design & Diagramming
   "affinity"
-  # "orcaslicer"
-  # "sioyek"
-  "syncthing-app"
+
+  # Notes, Knowledge & Reading
+  # "anki"
+  "notion"
+  # "obsidian"
 
   # Browsers
-  "zen"
-  # "arc"
-  "firefox"
-  "brave-browser"
+  # "brave-browser"
+  "crest-browser"
+  # "firefox"
   "helium-browser"
-  # "tor-browser"
+  # "zen"
 
-  # Fonts
-  "font-sketchybar-app-font"
-  "font-fira-code"
-
-  # Communication Tools
+  # Communication
   "discord"
-  "whatsapp"
   "telegram"
-  "notion"
-  "notion-calendar"
+  "whatsapp"
+
+  # Media
+  "iina"
   "spotify"
 
-  # Utility Tools
-  # "onedrive"
-  "google-drive"
+  # Window Management & Launchers
+  "aerospace"
+  "alfred"
+  # "homerow"
+
+  # Productivity
+  "shottr"
+  "vorssaint"
+
+  # System Utilities
+  "aldente"
   "betterdisplay"
-  "git-credential-manager"
+  "clop"
+  "macfuse"
+  "macpacker"
+  "macusb"
+  # "vial"
+
+  # Cloud Storage, Sync & Networking
+  "google-drive"
+  # "onedrive"
   "protonvpn"
+  "syncthing-app"
   "tailscale-app"
 
-  # Entertainment Tools
-  "iina"
-
-  # Productivity Tools
-  "alfred"
-  "vorssaint"
-  "aerospace"
-  "shottr"
-  # "excalidrawz"
-  # "vial"
-  # "homerow"
-  "aldente"
-  "macfuse"
-  "macusb"
-  "macpacker"
-  "clop"
-  "handy"
+  # Fonts
+  "font-fira-code"
+  "font-sketchybar-app-font"
 ]

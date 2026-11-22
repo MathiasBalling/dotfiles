@@ -91,6 +91,8 @@ in
         _HIHideMenuBar = true;
       };
       universalaccess.reduceTransparency = false;
+      # macOS Tahoe: System Settings → Menu Bar → "Show menu bar background"
+      CustomUserPreferences.NSGlobalDomain.SLSMenuBarUseBlurredAppearance = true;
       WindowManager = {
         StandardHideDesktopIcons = true;
 
