@@ -15,6 +15,17 @@ Macbook pro 16" Nordic layout
     "Apple Internal Keyboard / Trackpad"
   )
   process-unmapped-keys yes
+  ;; Requires kanata >= 1.12.0.
+  ;; A tap-hold key pressed within 150 ms of another key resolves as tap
+  ;; immediately (typing-streak protection). Lower if you type faster.
+  tap-hold-require-prior-idle 150
+)
+
+;; Physical hand assignment for tap-hold-opposite-hand-release (kanata >= 1.12.0).
+;; Thumb keys are included so e.g. right-Cmd (j) + Enter thumb fires instantly.
+(defhands
+  (left  nubs ` 1 2 3 4 5 tab q w e r t caps a s d f g z x c v b lalt lmet)
+  (right 6 7 8 9 0 - = bspc y u i o p [ ] ret h j k l ; ' \ n m , . / rmet ralt)
 )
 
 (defsrc
@@ -73,20 +84,27 @@ Macbook pro 16" Nordic layout
     ;; For layer toggling
     fn (layer-while-held function_layer)
     nav (layer-while-held nav)
-    ret (tap-hold-release $tt $ht ret (layer-while-held num))
+    ;; require-prior-idle 0: number layer must work right after typing letters
+    ret (tap-hold-release $tt $ht ret (layer-while-held num) (require-prior-idle 0))
 )
 
 (defalias
-    ;; Home Row Mods;
-    s_a (tap-hold-release $tt $ht a lsft)
-    a_s (tap-hold-release $tt $ht s lalt)
-    c_d (tap-hold-release $tt $ht d lctl)
-    m_f (tap-hold-release $tt $ht f lmet)
+    ;; Home Row Mods (kanata >= 1.12.0)
+    ;; - opposite-hand key pressed+released  -> modifier (as before)
+    ;; - same-hand key                       -> ignored until $ht timeout, then modifier
+    ;;                                          (so same-hand rolls stay letters; same-hand
+    ;;                                          shortcuts like f+c = Cmd+C need a 200 ms hold)
+    ;; - released before timeout             -> letter
+    ;; - tap-repress-timeout keeps tap-then-hold key repeat from the old first argument
+    s_a (tap-hold-opposite-hand-release $ht a lsft (timeout hold) (same-hand ignore) (tap-repress-timeout $tt))
+    a_s (tap-hold-opposite-hand-release $ht s lalt (timeout hold) (same-hand ignore) (tap-repress-timeout $tt))
+    c_d (tap-hold-opposite-hand-release $ht d lctl (timeout hold) (same-hand ignore) (tap-repress-timeout $tt))
+    m_f (tap-hold-opposite-hand-release $ht f lmet (timeout hold) (same-hand ignore) (tap-repress-timeout $tt))
 
-    m_j (tap-hold-release $tt $ht j rmet)
-    c_k (tap-hold-release $tt $ht k rctl)
-    a_l (tap-hold-release $tt $ht l ralt)
-    s_; (tap-hold-release $tt $ht ; rsft)
+    m_j (tap-hold-opposite-hand-release $ht j rmet (timeout hold) (same-hand ignore) (tap-repress-timeout $tt))
+    c_k (tap-hold-opposite-hand-release $ht k rctl (timeout hold) (same-hand ignore) (tap-repress-timeout $tt))
+    a_l (tap-hold-opposite-hand-release $ht l ralt (timeout hold) (same-hand ignore) (tap-repress-timeout $tt))
+    s_; (tap-hold-opposite-hand-release $ht ; rsft (timeout hold) (same-hand ignore) (tap-repress-timeout $tt))
 )
 
 (deflayer transpartent
