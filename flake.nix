@@ -6,6 +6,7 @@
       self,
       darwin,
       nix-homebrew,
+      brew-src,
       homebrew-bundle,
       homebrew-core,
       homebrew-cask,
@@ -128,8 +129,16 @@
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Pin brew ourselves: nix-homebrew's bundled brew (7.0.11) is too old for
+    # current homebrew-core formulae (e.g. the `manifest_sha256` bottle field).
+    # Bump this alongside homebrew-core when brew errors on unknown formula DSL.
+    brew-src = {
+      url = "github:Homebrew/brew/7.0.16";
+      flake = false;
+    };
     nix-homebrew = {
       url = "github:zhaofengli-wip/nix-homebrew";
+      inputs.brew-src.follows = "brew-src";
     };
     homebrew-bundle = {
       url = "github:homebrew/homebrew-bundle";
