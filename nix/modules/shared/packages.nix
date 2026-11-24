@@ -62,7 +62,6 @@ with pkgs;
   ripgrep
   fd
   lazygit
-  zathura
   yazi
   eza
   glow
@@ -81,4 +80,8 @@ with pkgs;
   # Nix format
   nixfmt
   nixd
+]
+++ lib.optionals stdenv.hostPlatform.isLinux [
+  # PDF viewer (pulls in wayland via appstream, which fails on darwin)
+  zathura
 ]

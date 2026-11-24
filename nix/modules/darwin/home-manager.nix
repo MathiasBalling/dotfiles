@@ -107,10 +107,6 @@ in
               enable = true;
               source = config.lib.file.mkOutOfStoreSymlink "/Users/${user}/dotfiles/wezterm/wezterm.lua";
             };
-            ".config/zathura/zathurarc" = {
-              enable = true;
-              source = config.lib.file.mkOutOfStoreSymlink "/Users/${user}/dotfiles/zathura/zathurarc";
-            };
             ".config/kanata/config.kbd" = {
               enable = true;
               source = config.lib.file.mkOutOfStoreSymlink "/Users/${user}/dotfiles/kanata/config.kbd";
