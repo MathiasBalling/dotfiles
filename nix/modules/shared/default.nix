@@ -21,6 +21,7 @@
         (final: prev: {
           stable = pkgs-stable;
         })
+        (import ../../overlays/sketchybar-macos27.nix)
       ];
   };
 }

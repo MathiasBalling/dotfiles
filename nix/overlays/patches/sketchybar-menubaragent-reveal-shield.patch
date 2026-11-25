@@ -1,0 +1,42 @@
+diff --git a/src/menubar_agent.m b/src/menubar_agent.m
+index 98a66c0..f9cd978 100644
+--- a/src/menubar_agent.m
++++ b/src/menubar_agent.m
+@@ -5,6 +5,9 @@
+ #include <ApplicationServices/ApplicationServices.h>
+ 
+ #define MENUBAR_AGENT_BUNDLE_ID @"com.apple.MenuBarAgent"
++
++// Private, but widely used (yabai, AeroSpace): window id of an AX window
++extern AXError _AXUIElementGetWindow(AXUIElementRef element, uint32_t* wid);
+ #define MENUBAR_AGENT_MESSAGING_TIMEOUT 0.25f
+ #define MENUBAR_AGENT_MAX_DEPTH 8
+ // All aliases are updated in the same refresh cycle, so one read of the
+@@ -191,6 +194,14 @@ static AXUIElementRef menubar_agent_copy_main_window(AXUIElementRef agent,
+     AXUIElementRef window = (AXUIElementRef)CFArrayGetValueAtIndex(windows, i);
+     CGRect frame;
+     if (!ax_get_frame(window, &frame)) continue;
++    // Skip windows without items, e.g. the MenuBarRevealShield window that
++    // covers the bar when the menu bar is set to hide automatically.
++    CFArrayRef window_children = ax_copy_children(window);
++    CFIndex window_child_count = window_children
++                                 ? CFArrayGetCount(window_children)
++                                 : 0;
++    if (window_children) CFRelease(window_children);
++    if (window_child_count == 0) continue;
+     if (!result || CGRectContainsPoint(display, CGPointMake(CGRectGetMidX(frame),
+                                                             CGRectGetMidY(frame)))) {
+       if (result) CFRelease(result);
+@@ -235,7 +246,11 @@ static uint32_t menubar_agent_read_items(struct menubar_agent_item** out) {
+   CFRelease(agent);
+   if (!window) return 0;
+ 
+-  uint32_t wid = menubar_agent_window_id(agent_pid, window_frame);
++  // Several MenuBarAgent windows share the same bounds, so ask the AX window
++  // for its id and only fall back to matching bounds.
++  uint32_t wid = 0;
++  if (_AXUIElementGetWindow(window, &wid) != kAXErrorSuccess) wid = 0;
++  if (!wid) wid = menubar_agent_window_id(agent_pid, window_frame);
+   CFArrayRef children = ax_copy_children(window);
+   CFRelease(window);
+   if (!wid || !children) {
